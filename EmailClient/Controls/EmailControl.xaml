@@ -1,0 +1,21 @@
+﻿<UserControl
+    x:Class="EmailClient.Controls.EmailControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:EmailClient.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid>
+        <StackPanel>
+            <!-- Displays the subject of the message. -->
+            <TextBlock Name="HeaderTextBlock"
+                       Text="{x:Bind Message.Subject}"></TextBlock>
+            
+            <!-- Displays the body of the message. -->
+            <TextBlock Name="ContentPreviewTextBlock"
+                       Text="{x:Bind Message.Body}"></TextBlock>
+        </StackPanel>
+    </Grid>
+</UserControl>

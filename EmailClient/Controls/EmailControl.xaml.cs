@@ -1,5 +1,4 @@
 ﻿using EmailClient.Models;
-using EmailClient.Models.Testing;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Controls.Primitives;
@@ -18,25 +17,19 @@ using Windows.Foundation.Collections;
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
 
-namespace EmailClient
+namespace EmailClient.Controls
 {
     /// <summary>
-    /// An empty window that can be used on its own or navigated to within a Frame.
+    /// Displays the subject and a preview of a message for the bound Message model.
     /// </summary>
-    public sealed partial class MainWindow : Window
+    public sealed partial class EmailControl : UserControl
     {
-        public MainWindow()
+        // The message to display.
+        public Message Message { get; set; }
+
+        public EmailControl()
         {
             this.InitializeComponent();
-
-            // Populate the test message.
-            this.PopulateTestMessages();
-        }
-
-        private void PopulateTestMessages()
-        {
-            Message message = TestDataGenerator.GetTestMessages(1).First();
-            this.MyEmailControl.Message = message;
         }
     }
 }
