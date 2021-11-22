@@ -11,11 +11,11 @@
         <StackPanel>
             <!-- Displays the subject of the message. -->
             <TextBlock Name="HeaderTextBlock"
-                       Text="{x:Bind Message.Subject}"></TextBlock>
+                       Text="{x:Bind Message.Subject, Mode=OneWay}"></TextBlock>
             
             <!-- Displays the body of the message. -->
             <TextBlock Name="ContentPreviewTextBlock"
-                       Text="{x:Bind Message.Body}"></TextBlock>
+                       Text="{x:Bind Message.Body, Mode=OneWay}"></TextBlock>
         </StackPanel>
     </Grid>
 </UserControl>

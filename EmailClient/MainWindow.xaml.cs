@@ -9,6 +9,7 @@ using Microsoft.UI.Xaml.Media;
 using Microsoft.UI.Xaml.Navigation;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -25,6 +26,9 @@ namespace EmailClient
     /// </summary>
     public sealed partial class MainWindow : Window
     {
+        public ObservableCollection<Message> Messages;
+
+        public Message TestMessage;
         public MainWindow()
         {
             this.InitializeComponent();
@@ -35,8 +39,8 @@ namespace EmailClient
 
         private void PopulateTestMessages()
         {
-            Message message = TestDataGenerator.GetTestMessages(1).First();
-            this.MyEmailControl.Message = message;
+            this.Messages = new ObservableCollection<Message>(TestDataGenerator.GetTestMessages(10));
+            this.TestMessage = this.Messages.First();
         }
     }
 }

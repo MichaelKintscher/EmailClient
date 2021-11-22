@@ -4,10 +4,21 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:EmailClient"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:controls="using:EmailClient.Controls"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:controls="using:EmailClient.Controls" xmlns:models="using:EmailClient.Models"
     mc:Ignorable="d">
 
     <Grid>
-        <controls:EmailControl x:Name="MyEmailControl"></controls:EmailControl>
+        <!-- The list of messages. -->
+        <ListView x:Name="MessageStreamListView"
+                  ItemsSource="{x:Bind Messages}">
+            <ListView.ItemTemplate>
+                <DataTemplate x:DataType="models:Message">
+                    <controls:EmailControl Margin="5"
+                                           Message="{x:Bind Mode=OneWay}"></controls:EmailControl>
+                    <!--<TextBlock Text="{x:Bind Subject}"></TextBlock>-->
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <!--<controls:EmailControl Message="{x:Bind TestMessage, Mode=OneWay}"></controls:EmailControl>-->
     </Grid>
 </Window>

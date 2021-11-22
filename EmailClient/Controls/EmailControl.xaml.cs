@@ -8,6 +8,7 @@ using Microsoft.UI.Xaml.Media;
 using Microsoft.UI.Xaml.Navigation;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -22,10 +23,30 @@ namespace EmailClient.Controls
     /// <summary>
     /// Displays the subject and a preview of a message for the bound Message model.
     /// </summary>
-    public sealed partial class EmailControl : UserControl
+    public sealed partial class EmailControl : UserControl, INotifyPropertyChanged
     {
-        // The message to display.
-        public Message Message { get; set; }
+        private Message _message;
+        /// <summary>
+        /// The message to display.
+        /// </summary>
+        public Message Message
+        {
+            get { return this._message; }
+            set
+            {
+                this._message = value;
+                this.RaisePropertyChanged("Message");
+            }
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+        private void RaisePropertyChanged(string name)
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(name));
+            }
+        }
 
         public EmailControl()
         {

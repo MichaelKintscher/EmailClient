@@ -99,7 +99,7 @@ namespace EmailClient.Models.Testing
                 messages.Add(new Message()
                 {
                     Id = Guid.NewGuid(),
-                    Subject = "Message #" + count + 1,
+                    Subject = "Message #" + (i + 1),
                     Body = TestDataGenerator.fillerText.Substring(textStart, textlength)
                 });
             }
