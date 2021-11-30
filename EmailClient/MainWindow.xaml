@@ -8,17 +8,34 @@
     mc:Ignorable="d">
 
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        
         <!-- The list of messages. -->
         <ListView x:Name="MessageStreamListView"
+                  Grid.Column="0"
+                  MaxWidth="600"
                   ItemsSource="{x:Bind Messages}">
             <ListView.ItemTemplate>
                 <DataTemplate x:DataType="models:Message">
                     <controls:EmailControl Margin="5"
                                            Message="{x:Bind Mode=OneWay}"></controls:EmailControl>
-                    <!--<TextBlock Text="{x:Bind Subject}"></TextBlock>-->
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <!--<controls:EmailControl Message="{x:Bind TestMessage, Mode=OneWay}"></controls:EmailControl>-->
+
+        <StackPanel Grid.Column="1">
+            <TextBlock x:Name="TriageTextBlock"
+                       Text="Triage"
+                       HorizontalAlignment="Center"></TextBlock>
+            <TextBlock x:Name="ArchiveTextBlock"
+                       Text="Archive"
+                       HorizontalAlignment="Center"></TextBlock>
+            <TextBlock x:Name="TrashTextBlock"
+                       Text="Trash"
+                       HorizontalAlignment="Center"></TextBlock>
+        </StackPanel>
     </Grid>
 </Window>
