@@ -1,0 +1,44 @@
+﻿<Page
+    x:Class="EmailClient.Pages.HomePage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:EmailClient.Pages"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:models="using:EmailClient.Models"
+    xmlns:controls="using:EmailClient.Controls"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <!-- The list of messages. -->
+        <ListView x:Name="MessageStreamListView"
+                  Grid.Column="0"
+                  MaxWidth="600"
+                  ItemsSource="{x:Bind Messages}">
+            <ListView.ItemTemplate>
+                <DataTemplate x:DataType="models:Message">
+                    <controls:EmailControl Margin="5"
+                                           Message="{x:Bind Mode=OneWay}"></controls:EmailControl>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <StackPanel Grid.Column="1">
+            <TextBlock x:Name="TriageTextBlock"
+                       Text="Triage"
+                       HorizontalAlignment="Center"></TextBlock>
+            <TextBlock x:Name="ArchiveTextBlock"
+                       Text="Archive"
+                       HorizontalAlignment="Center"></TextBlock>
+            <TextBlock x:Name="TrashTextBlock"
+                       Text="Trash"
+                       HorizontalAlignment="Center"></TextBlock>
+        </StackPanel>
+    </Grid>
+</Page>

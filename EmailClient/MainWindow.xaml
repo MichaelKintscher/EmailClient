@@ -8,34 +8,23 @@
     mc:Ignorable="d">
 
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto"></ColumnDefinition>
-            <ColumnDefinition Width="*"></ColumnDefinition>
-        </Grid.ColumnDefinitions>
-        
-        <!-- The list of messages. -->
-        <ListView x:Name="MessageStreamListView"
-                  Grid.Column="0"
-                  MaxWidth="600"
-                  ItemsSource="{x:Bind Messages}">
-            <ListView.ItemTemplate>
-                <DataTemplate x:DataType="models:Message">
-                    <controls:EmailControl Margin="5"
-                                           Message="{x:Bind Mode=OneWay}"></controls:EmailControl>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
+        <NavigationView x:Name="NavigationView"
+                        PaneDisplayMode="Top"
+                        AlwaysShowHeader="True"
+                        PaneTitle="Email App"
+                        BackRequested="NavigationView_BackRequested"
+                        ItemInvoked="NavigationView_ItemInvoked"
+                        Loaded="NavigationView_Loaded">
+            <NavigationView.MenuItems>
+                <NavigationViewItem Tag="Home"
+                                    Icon="Home"
+                                    Content="Home"
+                                    x:Name="HomeNavigationViewItem"></NavigationViewItem>
+            </NavigationView.MenuItems>
 
-        <StackPanel Grid.Column="1">
-            <TextBlock x:Name="TriageTextBlock"
-                       Text="Triage"
-                       HorizontalAlignment="Center"></TextBlock>
-            <TextBlock x:Name="ArchiveTextBlock"
-                       Text="Archive"
-                       HorizontalAlignment="Center"></TextBlock>
-            <TextBlock x:Name="TrashTextBlock"
-                       Text="Trash"
-                       HorizontalAlignment="Center"></TextBlock>
-        </StackPanel>
+            <Frame x:Name="ContentFrame"
+                       Navigated="ContentFrame_Navigated"
+                       NavigationFailed="ContentFrame_NavigationFailed"></Frame>
+        </NavigationView>
     </Grid>
 </Window>

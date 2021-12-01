@@ -20,7 +20,7 @@ namespace EmailClient.Models.Gmail
         /// <summary>
         /// The file path the API credentials are stored in.
         /// </summary>
-        private static readonly string credentialsFilePath = "Assets/Config/credentials.json";
+        private static readonly string credentialsFilePath = "/Assets/Config/credentials.json";
         /// <summary>
         /// The scopes within the API the app is accessing. See: https://developers.google.com/gmail/api/auth/scopes
         /// </summary>

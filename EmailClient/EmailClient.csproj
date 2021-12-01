@@ -10,9 +10,14 @@
     <PublishProfile>win10-$(Platform).pubxml</PublishProfile>
     <UseWinUI>true</UseWinUI>
     <EnablePreviewMsixTooling>true</EnablePreviewMsixTooling>
+    <SupportedOSPlatformVersion>10.0.19041.0</SupportedOSPlatformVersion>
   </PropertyGroup>
   <ItemGroup>
+    <Content Remove="Assets\Config\credentials.json" />
+  </ItemGroup>
+  <ItemGroup>
     <None Remove="Controls\EmailControl.xaml" />
+    <None Remove="Pages\HomePage.xaml" />
     <None Remove="Pages\SettingsPage.xaml" />
   </ItemGroup>
 
@@ -50,8 +55,12 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Assets\Config\" />
     <Folder Include="Models\ApiModels\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Pages\HomePage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Page Update="Pages\SettingsPage.xaml">

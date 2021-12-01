@@ -42,7 +42,11 @@ namespace EmailClient
         /// <param name="args">Details about the launch request and process.</param>
         protected override void OnLaunched(Microsoft.UI.Xaml.LaunchActivatedEventArgs args)
         {
-            m_window = new MainWindow();
+            // Start the App Controller.
+            MainWindow rootPage = new MainWindow();
+            Controllers.AppController.Instance.StartApp(rootPage);
+
+            m_window = rootPage;
             m_window.Activate();
         }
 
