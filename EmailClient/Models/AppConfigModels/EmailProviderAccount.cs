@@ -9,7 +9,7 @@ namespace EmailClient.Models.AppConfigModels
     /// <summary>
     /// Represents an account with a email service provider.
     /// </summary>
-    internal class EmailProviderAccount
+    public class EmailProviderAccount
     {
         /// <summary>
         /// The unique ID of the account given locally by the app.

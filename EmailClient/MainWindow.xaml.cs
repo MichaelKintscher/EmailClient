@@ -35,6 +35,8 @@ namespace EmailClient
 
             // Populate the test message.
             this.PopulateTestMessages();
+
+            this.Content = new Pages.SettingsPage();
         }
 
         private void PopulateTestMessages()
