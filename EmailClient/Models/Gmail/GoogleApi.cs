@@ -108,7 +108,8 @@ namespace EmailClient.Models.Gmail
         /// <returns>The client app's credentials for the Google API.</returns>
         private static ApiCredential LoadApiCredentials()
         {
-            using (var stream = new FileStream(GoogleApi<T>.credentialsFilePath, FileMode.Open, FileAccess.Read))
+            string fullPath = Windows.ApplicationModel.Package.Current.InstalledPath + GoogleApi<T>.credentialsFilePath;
+            using (var stream = new FileStream(fullPath, FileMode.Open, FileAccess.Read))
             {
                 using (StreamReader reader = new StreamReader(stream))
                 {

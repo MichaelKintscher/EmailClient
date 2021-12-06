@@ -58,6 +58,11 @@
     <Folder Include="Models\ApiModels\" />
   </ItemGroup>
   <ItemGroup>
+    <None Update="Assets\Config\credentials.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
     <Page Update="Pages\HomePage.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
