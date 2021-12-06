@@ -172,16 +172,15 @@ namespace EmailClient.Models.ApiModels
 
         #region Methods - OAuth Flow
         /// <summary>
-        /// Starts an OAuth 2.0 authoization flow by redirecting the user to a browser to authorize the application.
+        /// Gets the URI to start the OAuth 2.0 authoization flow.
         /// </summary>
-        /// <returns>A unique ID to use to identify the authorization request.</returns>
-        public async Task<Guid> StartOAuthAsync()
+        /// <returns>The URI to start the OAuth 2.0 authoization flow</returns>
+        public Uri GetOAuthUri()
         {
             ApiCredential credentials = this.LoadCredentialsFromFile();
             string oauthUri = this.OAuthEndPoint + this.GetOAuthQueryString(credentials);
-            await Browser.OpenAsync(new Uri(oauthUri));
 
-            return Guid.NewGuid();
+            return new Uri(oauthUri);
         }
 
         /// <summary>

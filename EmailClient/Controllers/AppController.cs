@@ -168,14 +168,12 @@ namespace EmailClient.Controllers
                 {
                     // A request was issued to connect to the service.
                     case ConnectionAction.Connect:
-                        this.StartOAuthAsync();
-                        settingsPage.ShowServiceOAuthCodeUIAsync(e.AccoutId);
+                        this.StartOAuthFlowAsync(e.AccoutId, settingsPage);
                         break;
 
                     // A request was issued to retry connecting to the service.
                     case ConnectionAction.RetryConnect:
-                        this.StartOAuthAsync();
-                        settingsPage.ShowServiceOAuthCodeUIAsync(e.AccoutId);
+                        this.StartOAuthFlowAsync(e.AccoutId, settingsPage);
                         break;
 
                     // A request was issued to disconnect the service.
@@ -297,12 +295,18 @@ namespace EmailClient.Controllers
         }
 
         /// <summary>
-        /// Wrapps the call to the Google Calendar API so that await can be used.
+        /// Starts the OAuth flow on the Settings Page.
         /// </summary>
         /// <returns></returns>
-        private async Task StartOAuthAsync()
+        private async Task StartOAuthFlowAsync(string accountName, SettingsPage settingsPage)
         {
-            this.accountIdPendingAuthorization = await GmailAPI.Instance.StartOAuthAsync();
+            // Assign a unique ID to this authorization request so it can be identified later in
+            //      the OAuth flow.
+            this.accountIdPendingAuthorization = Guid.NewGuid();
+
+            // Get the OAuth uri, and display it on the settings page.
+            Uri oauthUri = GmailAPI.Instance.GetOAuthUri();
+            await settingsPage.ShowServiceOAuthCodeUIAsync(accountName, oauthUri);
         }
 
         /// <summary>

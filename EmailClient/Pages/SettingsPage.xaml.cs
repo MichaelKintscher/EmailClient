@@ -142,8 +142,11 @@ namespace EmailClient.Pages
         /// </summary>
         /// <param name="serviceName">The name of the service to show the dialog box for.</param>
         /// <returns></returns>
-        public async Task ShowServiceOAuthCodeUIAsync(string serviceName)
+        public async Task ShowServiceOAuthCodeUIAsync(string serviceName, Uri oauthUri)
         {
+            // Set the webview to the oauth Uri.
+            this.OAuthWebView.Source = oauthUri;
+
             // Show the OAuth code dialog box, and get a response from the user.
             var result = await this.FinishAddingServiceDialog.ShowAsync();
 
