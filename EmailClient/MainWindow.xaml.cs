@@ -96,9 +96,21 @@ namespace EmailClient
         public MainWindow()
         {
             this.InitializeComponent();
+            this.Closed += MainWindow_Closed;
         }
 
         #region EventHandlers
+        /// <summary>
+        /// Handles when the window is being closed.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void MainWindow_Closed(object sender, WindowEventArgs e)
+        {
+            // Save application state and stop any background activity
+            Controllers.AppController.Instance.SaveAppStateAsync();
+        }
+
         /// <summary>
         /// Handles whenever a menu item in the navigation view is invoked.
         /// </summary>

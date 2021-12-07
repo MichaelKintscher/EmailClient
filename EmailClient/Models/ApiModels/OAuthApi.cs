@@ -308,13 +308,13 @@ namespace EmailClient.Models.ApiModels
             string lines = "";
             try
             {
-                StorageFile tokenFile = await ApplicationData.Current.LocalFolder.GetFileAsync(tokenFileName);
+                StorageFile tokenFile = await Windows.ApplicationModel.Package.Current.InstalledLocation.GetFileAsync(tokenFileName);
                 lines = await FileIO.ReadTextAsync(tokenFile);
             }
             catch (Exception ex)
             {
                 // An IO exception occured, so return false.
-                System.Diagnostics.Debug.WriteLine("Error accessing: " + ApplicationData.Current.LocalFolder.Path);
+                System.Diagnostics.Debug.WriteLine("Error accessing: " + Windows.ApplicationModel.Package.Current.InstalledLocation.Path);
                 return false;
             }
 
@@ -353,7 +353,7 @@ namespace EmailClient.Models.ApiModels
             {
                 string tokenString = this.SerializeTokenData(this.tokenDataCollection);
 
-                StorageFile tokenFile = await ApplicationData.Current.LocalFolder.CreateFileAsync(tokenFileName, CreationCollisionOption.ReplaceExisting);
+                StorageFile tokenFile = await Windows.ApplicationModel.Package.Current.InstalledLocation.CreateFileAsync(tokenFileName, CreationCollisionOption.ReplaceExisting);
                 await FileIO.WriteTextAsync(tokenFile, tokenString);
             }
         }
