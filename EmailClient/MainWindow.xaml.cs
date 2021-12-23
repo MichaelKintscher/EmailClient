@@ -96,7 +96,7 @@ namespace EmailClient
         public MainWindow()
         {
             this.InitializeComponent();
-            this.Closed += MainWindow_Closed;
+            //this.Closed += MainWindow_Closed;
         }
 
         #region EventHandlers
@@ -107,8 +107,11 @@ namespace EmailClient
         /// <param name="e"></param>
         private void MainWindow_Closed(object sender, WindowEventArgs e)
         {
+            // WARNING - This does not appear to be a reliable place to save
+            //      app data (write to files).
+
             // Save application state and stop any background activity
-            Controllers.AppController.Instance.SaveAppStateAsync();
+            //Controllers.AppController.Instance.SaveAppStateAsync();
         }
 
         /// <summary>

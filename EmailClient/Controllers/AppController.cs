@@ -331,6 +331,9 @@ namespace EmailClient.Controllers
                 // Add the account to the page.
                 settingsPage.Accounts.Add(account);
             }
+
+            // Save the new account to the app data.
+            await this.SaveAppStateAsync();
         }
 
         /// <summary>

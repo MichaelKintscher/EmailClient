@@ -351,9 +351,12 @@ namespace EmailClient.Models.ApiModels
             // Save the token data, if there is any.
             if (this.tokenDataCollection != null)
             {
+                // Get the token data string.
                 string tokenString = this.SerializeTokenData(this.tokenDataCollection);
 
-                StorageFile tokenFile = await Windows.ApplicationModel.Package.Current.InstalledLocation.CreateFileAsync(tokenFileName, CreationCollisionOption.ReplaceExisting);
+                // Create the token data file and write the token data string to it.
+                StorageFolder folder = ApplicationData.Current.LocalFolder;
+                StorageFile tokenFile = await folder.CreateFileAsync(tokenFileName, CreationCollisionOption.ReplaceExisting);
                 await FileIO.WriteTextAsync(tokenFile, tokenString);
             }
         }
