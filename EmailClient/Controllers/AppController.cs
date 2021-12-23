@@ -358,6 +358,9 @@ namespace EmailClient.Controllers
             {
                 settingsPage.Accounts.Remove(accountToRemove);
             }
+
+            // Remove the account from the app data.
+            await this.SaveAppStateAsync();
         }
         #endregion
     }
