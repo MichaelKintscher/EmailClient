@@ -308,13 +308,14 @@ namespace EmailClient.Models.ApiModels
             string lines = "";
             try
             {
-                StorageFile tokenFile = await Windows.ApplicationModel.Package.Current.InstalledLocation.GetFileAsync(tokenFileName);
+                StorageFolder folder = ApplicationData.Current.LocalFolder;
+                StorageFile tokenFile = await folder.GetFileAsync(tokenFileName);
                 lines = await FileIO.ReadTextAsync(tokenFile);
             }
             catch (Exception ex)
             {
                 // An IO exception occured, so return false.
-                System.Diagnostics.Debug.WriteLine("Error accessing: " + Windows.ApplicationModel.Package.Current.InstalledLocation.Path);
+                System.Diagnostics.Debug.WriteLine("Error accessing: " + ApplicationData.Current.LocalFolder.Path);
                 return false;
             }
 

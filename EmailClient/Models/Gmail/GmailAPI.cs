@@ -82,9 +82,56 @@ namespace EmailClient.Models.Gmail
             return account;
         }
 
+        /// <summary>
+        /// Gets the messages from the given email provider account. This is implemented
+        /// based on the documentation at: https://developers.google.com/gmail/api/guides/sync
+        /// </summary>
+        /// <param name="accountId">The ID for the account assigned by the app.</param>
+        /// <returns></returns>
+        public async Task<List<Message>> GetMessagesAsync(string accountId)
+        {
+            // The endpoint for getting gmail messages.
+            //      Default parameter returns 100 message IDs.
+            string uri = "https://www.googleapis.com/gmail/v1/users/me/messages";
+
+            // Get and parse the content.
+            string content = await this.GetAsync(accountId, uri);
+            List<string> messageIds = this.ParseMessageIdList(content);
+
+            // TODO: Implement step 2 of "Full Synchronization" as detailed here: https://developers.google.com/gmail/api/guides/sync
+
+            return new List<Message>();
+        }
+
         #endregion
 
         #region Helper Methods
+        /// <summary>
+        /// Parses a list of message IDs from a message list response. The format
+        /// for the content input is documented at: https://developers.google.com/gmail/api/reference/rest/v1/users.messages#Message
+        /// </summary>
+        /// <param name="content">The message list response. Format is documented at: https://developers.google.com/gmail/api/reference/rest/v1/users.messages#Message</param>
+        /// <returns></returns>
+        private List<string> ParseMessageIdList(string content)
+        {
+            // Get the array of message info.
+            JsonObject jsonObject = JsonObject.Parse(content);
+            JsonArray messagesArray = jsonObject["messages"].GetArray();
+
+            // Create an empty list of messages and parse and add each message.
+            List<string> messageIds = new List<string>();
+            foreach (var messageJson in messagesArray)
+            {
+                // Get the object from the JSON array item.
+                JsonObject messageInfo = messageJson.GetObject();
+
+                // Parse the message ID and add it to the list.
+                string id = messageInfo["id"].GetString();
+                messageIds.Add(id);
+            }
+
+            return messageIds;
+        }
 
         #endregion
     }

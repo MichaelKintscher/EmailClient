@@ -29,18 +29,52 @@ namespace EmailClient.Pages
         public ObservableCollection<Message> Messages;
 
         public Message TestMessage;
+
+        #region Constructors
         public HomePage()
         {
             this.InitializeComponent();
 
+            // Initialize the properties.
+            this.Messages = new ObservableCollection<Message>();
+
             // Populate the test message.
             this.PopulateTestMessages();
         }
+        #endregion
 
+        #region Methods
+        /// <summary>
+        /// Sets the list of displayed messages. Existing messages are cleared and
+        /// replaced with the given messages.
+        /// </summary>
+        /// <param name="messages">The list of messages to add to the displayed list of messages.</param>
+        /// <exception cref="ArgumentNullException">Thrown when the "messages" parameter is null.</exception>
+        public void SetMessageStream(List<Message> messages)
+        {
+            // Throw an exception if the list of messages is null.
+            if (messages == null)
+            {
+                throw new ArgumentNullException(nameof(messages));
+            }
+
+            // Remove any existing displayed messages.
+            this.Messages.Clear();
+
+            // Add each message in the list to the displayed messages.
+            foreach (Message message in messages)
+            {
+                this.Messages.Add(message);
+            }
+        }
+        #endregion
+
+        #region Helper Methods
         private void PopulateTestMessages()
         {
             this.Messages = new ObservableCollection<Message>(TestDataGenerator.GetTestMessages(10));
             this.TestMessage = this.Messages.First();
         }
+        #endregion
     }
 }

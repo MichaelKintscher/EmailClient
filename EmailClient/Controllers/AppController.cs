@@ -1,5 +1,6 @@
 ﻿using EmailClient.Controllers.Navigation;
 using EmailClient.EventArguments;
+using EmailClient.Models;
 using EmailClient.Models.AppConfigModels;
 using EmailClient.Models.Gmail;
 using EmailClient.Pages;
@@ -272,6 +273,16 @@ namespace EmailClient.Controllers
             // Subscribe to the new page's events.
 
             // Initialize the any controls.
+
+            // Get the accounts logged into with this app.
+            List<EmailProviderAccount> accounts = await AppConfig.Instance.GetAccountsAsync();
+
+            // Display the messages from the first account, if there is at least one account.
+            if (accounts != null && accounts.Count > 0)
+            {
+                List<Message> messages = await GmailAPI.Instance.GetMessagesAsync(accounts[0].ID);
+                homePage.SetMessageStream(messages);
+            }
         }
 
         /// <summary>
