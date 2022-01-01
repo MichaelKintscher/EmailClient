@@ -11,6 +11,7 @@
         <StackPanel>
             <!-- Displays the subject of the message. -->
             <TextBlock Name="HeaderTextBlock"
+                       FontWeight="Bold"
                        Text="{x:Bind Message.Subject, Mode=OneWay}"></TextBlock>
             
             <!-- Displays the body of the message. -->

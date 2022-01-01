@@ -99,10 +99,37 @@ namespace EmailClient.Models.Gmail
             List<string> messageIds = this.ParseMessageIdList(content);
 
             // TODO: Implement step 2 of "Full Synchronization" as detailed here: https://developers.google.com/gmail/api/guides/sync
+            //      This code naively loops through and grabs each message in a separate API call.
+            List<Message> messages = new List<Message>();
+            foreach (string messageId in messageIds)
+            {
+                Message message = await this.GetMessageAsync(accountId, messageId);
+                messages.Add(message);
+            }
 
-            return new List<Message>();
+            return messages;
         }
 
+        /// <summary>
+        /// Gets a single message.
+        /// </summary>
+        /// <param name="accountId">The ID for the account assigned by the app.</param>
+        /// <param name="messageId">The ID for the message assigned by the Gmail API.</param>
+        /// <returns></returns>
+        public async Task<Message> GetMessageAsync(string accountId, string messageId)
+        {
+            // The endpoint for getting a gmail message.
+            string uri = "https://gmail.googleapis.com/gmail/v1/users/me/messages/";
+
+            // Add the message ID parameter.
+            uri += messageId;
+
+            // Get and parse the content.
+            string content = await this.GetAsync(accountId, uri);
+            Message message = this.ParseMessage(content);
+
+            return message;
+        }
         #endregion
 
         #region Helper Methods
@@ -133,6 +160,41 @@ namespace EmailClient.Models.Gmail
             return messageIds;
         }
 
+        /// <summary>
+        /// Pareses a single message from a message.get response. The format for the
+        /// content input is documented at: https://developers.google.com/gmail/api/reference/rest/v1/users.messages/get
+        /// </summary>
+        /// <param name="content">The message.get response. Format is documented at: https://developers.google.com/gmail/api/reference/rest/v1/users.messages/get</param>
+        /// <returns></returns>
+        public Message ParseMessage(string content)
+        {
+            JsonObject jsonObject = JsonObject.Parse(content);
+
+            Message message = new Message();
+
+            // Parse the message ID.
+            message.ApiGivenId = jsonObject["id"].GetString();
+
+            // Parse the message snippet as the body.
+            //      THIS IS NOT THE FULL MESSAGE BODY.
+            message.Body = jsonObject["snippet"].GetString();
+
+            // Parse the message's subject.
+            JsonObject payload = jsonObject["payload"].GetObject();
+            JsonArray headersArray = payload["headers"].GetArray();
+            foreach (var headerJson in headersArray)
+            {
+                // Get the object from the JSON array item.
+                JsonObject headerJsonObject = headerJson.GetObject();
+                string headerName = headerJsonObject["name"].GetString();
+                if (headerName == "Subject")
+                {
+                    message.Subject = headerJsonObject["value"].GetString();
+                }
+            }
+
+            return message;
+        }
         #endregion
     }
 }

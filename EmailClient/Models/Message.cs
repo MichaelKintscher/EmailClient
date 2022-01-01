@@ -26,6 +26,20 @@ namespace EmailClient.Models
             }
         }
 
+        private string _apiGivenId;
+        /// <summary>
+        /// The ID of the message given by the email provider's API.
+        /// </summary>
+        public string ApiGivenId
+        {
+            get { return this._apiGivenId; }
+            set
+            {
+                this._apiGivenId = value;
+                this.RaisePropertyChanged(nameof(ApiGivenId));
+            }
+        }
+
         private string _subject;
         /// <summary>
         /// The subject or header of the message.

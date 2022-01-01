@@ -21,9 +21,14 @@
                   Grid.Column="0"
                   MaxWidth="600"
                   ItemsSource="{x:Bind Messages}">
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <Setter Property="Background" Value="Black"></Setter>
+                </Style>
+            </ListView.ItemContainerStyle>
             <ListView.ItemTemplate>
                 <DataTemplate x:DataType="models:Message">
-                    <controls:EmailControl Margin="5"
+                    <controls:EmailControl Margin="8"
                                            Message="{x:Bind Mode=OneWay}"></controls:EmailControl>
                 </DataTemplate>
             </ListView.ItemTemplate>
