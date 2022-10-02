@@ -12,6 +12,11 @@ namespace Domain.Emails
     public class Email
     {
         /// <summary>
+        /// The ID of the message given by the email provider's API.
+        /// </summary>
+        public string ProviderGivenID { get; set; }
+
+        /// <summary>
         /// The subject of the email.
         /// </summary>
         public string Subject { get; set; }
@@ -26,8 +31,8 @@ namespace Domain.Emails
         /// </summary>
         public Email()
         {
-            this.Subject = "";
-            this.Body = "";
+            this.Subject = string.Empty;
+            this.Body = string.Empty;
         }
     }
 }

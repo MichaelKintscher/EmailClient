@@ -1,0 +1,5 @@
+C:\Users\micha\source\repos\EmailClient\WindowsOS\obj\Debug\net6.0-windows10.0.22621.0\WindowsOS.csproj.AssemblyReference.cache
+C:\Users\micha\source\repos\EmailClient\WindowsOS\obj\Debug\net6.0-windows10.0.22621.0\WindowsOS.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\micha\source\repos\EmailClient\WindowsOS\obj\Debug\net6.0-windows10.0.22621.0\WindowsOS.AssemblyInfoInputs.cache
+C:\Users\micha\source\repos\EmailClient\WindowsOS\obj\Debug\net6.0-windows10.0.22621.0\WindowsOS.AssemblyInfo.cs
+C:\Users\micha\source\repos\EmailClient\WindowsOS\obj\Debug\net6.0-windows10.0.22621.0\WindowsOS.csproj.CoreCompileInputs.cache
