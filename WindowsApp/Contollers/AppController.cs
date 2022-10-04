@@ -1,10 +1,12 @@
-﻿using Controllers.Common;
+﻿using Domain.Common;
+using Network.Google;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using WindowsApp.Pages;
+using WindowsOS.Persistence;
 
 namespace WindowsApp.Contollers
 {
@@ -27,6 +29,9 @@ namespace WindowsApp.Contollers
         /// <param name="rootPage">The root page for this initialization of the app.</param>
         public void StartApp(MainWindow rootPage)
         {
+            // Initialize the necessary resource interfaces.
+            this.InitializeInterfaces();
+
             // Subscribe to the root page's events.
 
             // Set the given page as the root page.
@@ -36,6 +41,18 @@ namespace WindowsApp.Contollers
             SettingsPage settingsPage = new SettingsPage();
             SettingsController.Instance.Initialize(settingsPage);
             this.RootPage.Navigate(settingsPage);
+        }
+        #endregion
+
+        #region Helper Methods
+        /// <summary>
+        /// Initializes the various resource interfaces.
+        /// </summary>
+        private void InitializeInterfaces()
+        {
+            // Initialize the Gmail API.
+            ApiCredential credentials = WindowsStorageProvider.Instance.LoadApiCredentials();
+            GmailAPI.Instance.Initialize(credentials);
         }
         #endregion
     }

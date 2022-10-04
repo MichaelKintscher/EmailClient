@@ -15,6 +15,12 @@ namespace Application.Network
         public string Name { get; set; }
 
         /// <summary>
+        /// Gets the URI to start the OAuth 2.0 authoization flow.
+        /// </summary>
+        /// <returns>The URI to start the OAuth 2.0 authoization flow</returns>
+        public Uri GetOAuthUri();
+
+        /// <summary>
         /// Initializes the token data cache and refreshes each token if needed.
         /// </summary>
         /// <param name="tokens">A ditionary of OAuthToken values keyed by account ID.</param>

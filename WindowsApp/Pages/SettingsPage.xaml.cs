@@ -13,6 +13,7 @@ using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Threading.Tasks;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using WindowsApp.EventArguments;
@@ -46,6 +47,30 @@ namespace WindowsApp.Pages
             ChangeAccountConnectionRequestedEventArgs args = new ChangeAccountConnectionRequestedEventArgs(accountId, emailProvider, action);
             this.ChangeAccountConnectionRequested?.Invoke(this, args);
         }
+
+        internal delegate void OauthCodeAcquiredHandler(object sender, OAuthFlowContinueEventArgs e);
+        /// <summary>
+        /// Raised when the a request is issued to connect a service.
+        /// </summary>
+        internal event OauthCodeAcquiredHandler OauthCodeAcquired;
+        private void RaiseOauthCodeAcquired(EmailProvider emailProvider, string code)
+        {
+            // Create the args and call the listening event handlers, if there are any.
+            OAuthFlowContinueEventArgs args = new OAuthFlowContinueEventArgs(emailProvider, code);
+            this.OauthCodeAcquired?.Invoke(this, args);
+        }
+
+        internal delegate void ConnectionRequestCancelledHandler(object sender, OAuthFlowContinueEventArgs e);
+        /// <summary>
+        /// Raised when the current request issued to connect a service is cancelled.
+        /// </summary>
+        internal event ConnectionRequestCancelledHandler ConnectionRequestCancelled;
+        private void RaiseConnectionRequestCancelled(EmailProvider emailProvider)
+        {
+            // Create the args and call the listening event handlers, if there are any.
+            OAuthFlowContinueEventArgs args = new OAuthFlowContinueEventArgs(emailProvider, null);
+            this.ConnectionRequestCancelled?.Invoke(this, args);
+        }
         #endregion
 
         #region Constructors
@@ -74,6 +99,40 @@ namespace WindowsApp.Pages
         private void RemoveAccountButton_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+        #endregion
+
+        #region Methods
+        /// <summary>
+        /// Shows the service OAuth Code dialog.
+        /// </summary>
+        /// <param name="serviceName">The name of the service to show the dialog box for.</param>
+        /// <returns></returns>
+        public async Task ShowServiceOAuthCodeUIAsync(string serviceName, Uri oauthUri)
+        {
+            // Set the webview to the oauth Uri.
+            this.OAuthWebView.Source = oauthUri;
+
+            // Show the OAuth code dialog box, and get a response from the user.
+            var result = await this.FinishAddingServiceDialog.ShowAsync();
+
+            switch (result)
+            {
+                case ContentDialogResult.None:
+                    // Close the dialog and raise the connection request cancelled event.
+                    this.RaiseConnectionRequestCancelled(EmailProvider.Google);
+                    break;
+                case ContentDialogResult.Primary:
+                    // Raise the code acquired event.
+                    this.RaiseOauthCodeAcquired(EmailProvider.Google, this.ServiceOauthCodeTextBox.Text);
+                    break;
+                case ContentDialogResult.Secondary:
+                    // Close the dialog and raise the connection request cancelled event.
+                    this.RaiseConnectionRequestCancelled(EmailProvider.Google);
+                    break;
+                default:
+                    break;
+            }
         }
         #endregion
     }

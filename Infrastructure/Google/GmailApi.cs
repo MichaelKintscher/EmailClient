@@ -16,7 +16,7 @@ namespace Network.Google
     /// Wrapper class for interfacing with the Gmail API. This class encapsulates
     ///  all external dependencies on the Gmail v1 API.
     /// </summary>
-    internal class GmailAPI : GoogleApi<GmailAPI>
+    public class GmailAPI : GoogleApi<GmailAPI>
     {
         #region Constants
         /// <summary>

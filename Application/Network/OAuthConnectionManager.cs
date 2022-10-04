@@ -43,6 +43,25 @@ namespace Application.Network
         }
         #endregion
 
+        #region Methods
+        /// <summary>
+        /// Gets the URI to start the OAuth 2.0 authoization flow.
+        /// </summary>
+        /// <returns>The URI to start the OAuth 2.0 authoization flow</returns>
+        public Uri GetOAuthStartUri()
+        {
+            return this.OAuthService.GetOAuthUri();
+        }
+
+        /// <summary>
+        /// Gets the name of the OAuth service provider.
+        /// </summary>
+        /// <returns></returns>
+        public string GetServiceProviderName()
+        {
+            return this.OAuthService.Name;
+        }
+
         /// <summary>
         /// Removes a connection to the API service this manager manages.
         /// </summary>
@@ -71,5 +90,6 @@ namespace Application.Network
             // Save the updated collection.
             await this.StorageProvider.SaveConnectionDataAsync(this.TokenFileName, tokenData);
         }
+        #endregion
     }
 }

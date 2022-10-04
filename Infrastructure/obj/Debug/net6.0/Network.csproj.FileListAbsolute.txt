@@ -17,5 +17,3 @@ C:\Users\micha\source\repos\EmailClient\Infrastructure\obj\Debug\net6.0\Network.
 C:\Users\micha\source\repos\EmailClient\Infrastructure\obj\Debug\net6.0\refint\Network.dll
 C:\Users\micha\source\repos\EmailClient\Infrastructure\obj\Debug\net6.0\Network.pdb
 C:\Users\micha\source\repos\EmailClient\Infrastructure\obj\Debug\net6.0\ref\Network.dll
-C:\Users\micha\source\repos\EmailClient\Infrastructure\bin\Debug\net6.0\Controllers.dll
-C:\Users\micha\source\repos\EmailClient\Infrastructure\bin\Debug\net6.0\Controllers.pdb

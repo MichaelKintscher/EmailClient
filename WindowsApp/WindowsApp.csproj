@@ -12,6 +12,9 @@
     <EnablePreviewMsixTooling>true</EnablePreviewMsixTooling>
   </PropertyGroup>
   <ItemGroup>
+    <Content Remove="Assets\Config\credentials.json" />
+  </ItemGroup>
+  <ItemGroup>
     <None Remove="Pages\SettingsPage.xaml" />
   </ItemGroup>
 
@@ -38,9 +41,15 @@
     <ProjectCapability Include="Msix" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Controllers\Controllers.csproj" />
     <ProjectReference Include="..\Domain\Domain.csproj" />
     <ProjectReference Include="..\Infrastructure\Network.csproj" />
+    <ProjectReference Include="..\InterfaceAdapters\InterfaceAdapters.csproj" />
+    <ProjectReference Include="..\WindowsOS\WindowsOS.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="Assets\Config\credentials.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Page Update="Pages\SettingsPage.xaml">

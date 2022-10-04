@@ -12,7 +12,7 @@ using WindowsOS.Persistence.Exceptions;
 
 namespace WindowsOS.Persistence
 {
-    public class WindowsStorageProvider : IStorageProvider
+    public class WindowsStorageProvider : Singleton<WindowsStorageProvider>, IStorageProvider
     {
         /// <summary>
         /// The file path the API credentials are stored in.

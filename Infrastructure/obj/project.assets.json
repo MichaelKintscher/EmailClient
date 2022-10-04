@@ -15,20 +15,6 @@
           "bin/placeholder/Application.dll": {}
         }
       },
-      "Controllers/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v6.0",
-        "dependencies": {
-          "Application": "1.0.0",
-          "Domain": "1.0.0"
-        },
-        "compile": {
-          "bin/placeholder/Controllers.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/Controllers.dll": {}
-        }
-      },
       "Domain/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
@@ -60,11 +46,6 @@
       "path": "../Application/Application.csproj",
       "msbuildProject": "../Application/Application.csproj"
     },
-    "Controllers/1.0.0": {
-      "type": "project",
-      "path": "../Controllers/Controllers.csproj",
-      "msbuildProject": "../Controllers/Controllers.csproj"
-    },
     "Domain/1.0.0": {
       "type": "project",
       "path": "../Domain/Domain.csproj",
@@ -79,7 +60,6 @@
   "projectFileDependencyGroups": {
     "net6.0": [
       "Application >= 1.0.0",
-      "Controllers >= 1.0.0",
       "Domain >= 1.0.0",
       "InterfaceAdapters >= 1.0.0"
     ]
@@ -118,9 +98,6 @@
           "projectReferences": {
             "C:\\Users\\micha\\source\\repos\\EmailClient\\Application\\Application.csproj": {
               "projectPath": "C:\\Users\\micha\\source\\repos\\EmailClient\\Application\\Application.csproj"
-            },
-            "C:\\Users\\micha\\source\\repos\\EmailClient\\Controllers\\Controllers.csproj": {
-              "projectPath": "C:\\Users\\micha\\source\\repos\\EmailClient\\Controllers\\Controllers.csproj"
             },
             "C:\\Users\\micha\\source\\repos\\EmailClient\\Domain\\Domain.csproj": {
               "projectPath": "C:\\Users\\micha\\source\\repos\\EmailClient\\Domain\\Domain.csproj"

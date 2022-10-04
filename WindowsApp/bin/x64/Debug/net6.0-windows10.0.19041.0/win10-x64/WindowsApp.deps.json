@@ -9,11 +9,12 @@
     ".NETCoreApp,Version=v6.0/win10-x64": {
       "WindowsApp/1.0.0": {
         "dependencies": {
-          "Controllers": "1.0.0",
           "Domain": "1.0.0",
+          "InterfaceAdapters": "1.0.0",
           "Microsoft.Windows.SDK.BuildTools": "10.0.22000.194",
           "Microsoft.WindowsAppSDK": "1.0.3",
           "Network": "1.0.0",
+          "WindowsOS": "1.0.0",
           "runtimepack.Microsoft.NETCore.App.Runtime.win-x64": "6.0.7",
           "runtimepack.Microsoft.Windows.SDK.NET.Ref": "10.0.19041.26"
         },
@@ -923,15 +924,6 @@
           "Application.dll": {}
         }
       },
-      "Controllers/1.0.0": {
-        "dependencies": {
-          "Application": "1.0.0",
-          "Domain": "1.0.0"
-        },
-        "runtime": {
-          "Controllers.dll": {}
-        }
-      },
       "Domain/1.0.0": {
         "runtime": {
           "Domain.dll": {}
@@ -948,12 +940,20 @@
       "Network/1.0.0": {
         "dependencies": {
           "Application": "1.0.0",
-          "Controllers": "1.0.0",
           "Domain": "1.0.0",
           "InterfaceAdapters": "1.0.0"
         },
         "runtime": {
           "Network.dll": {}
+        }
+      },
+      "WindowsOS/1.0.0": {
+        "dependencies": {
+          "Application": "1.0.0",
+          "InterfaceAdapters": "1.0.0"
+        },
+        "runtime": {
+          "WindowsOS.dll": {}
         }
       }
     }
@@ -993,11 +993,6 @@
       "serviceable": false,
       "sha512": ""
     },
-    "Controllers/1.0.0": {
-      "type": "project",
-      "serviceable": false,
-      "sha512": ""
-    },
     "Domain/1.0.0": {
       "type": "project",
       "serviceable": false,
@@ -1009,6 +1004,11 @@
       "sha512": ""
     },
     "Network/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "WindowsOS/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
