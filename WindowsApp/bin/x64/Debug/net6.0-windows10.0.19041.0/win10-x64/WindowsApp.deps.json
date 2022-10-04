@@ -9,6 +9,7 @@
     ".NETCoreApp,Version=v6.0/win10-x64": {
       "WindowsApp/1.0.0": {
         "dependencies": {
+          "Controllers": "1.0.0",
           "Domain": "1.0.0",
           "Microsoft.Windows.SDK.BuildTools": "10.0.22000.194",
           "Microsoft.WindowsAppSDK": "1.0.3",
@@ -913,6 +914,23 @@
           }
         }
       },
+      "Application/1.0.0": {
+        "dependencies": {
+          "Domain": "1.0.0"
+        },
+        "runtime": {
+          "Application.dll": {}
+        }
+      },
+      "Controllers/1.0.0": {
+        "dependencies": {
+          "Application": "1.0.0",
+          "Domain": "1.0.0"
+        },
+        "runtime": {
+          "Controllers.dll": {}
+        }
+      },
       "Domain/1.0.0": {
         "runtime": {
           "Domain.dll": {}
@@ -949,6 +967,16 @@
       "sha512": "sha512-lz0MF9OjrUaPZ11GOi1lu/GaoQrWVVojb2uZ4sly7FdkYtGeNZcKNVlhHU7fng9HQkprOLJgn4v2oAwaexV4Sw==",
       "path": "microsoft.windowsappsdk/1.0.3",
       "hashPath": "microsoft.windowsappsdk.1.0.3.nupkg.sha512"
+    },
+    "Application/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Controllers/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
     },
     "Domain/1.0.0": {
       "type": "project",

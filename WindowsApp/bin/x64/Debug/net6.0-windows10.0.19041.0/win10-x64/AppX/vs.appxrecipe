@@ -29,29 +29,29 @@
     <AppXManifest Include="C:\Users\micha\source\repos\EmailClient\WindowsApp\bin\x64\Debug\net6.0-windows10.0.19041.0\win10-x64\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2022-10-04T07:42:47.394</Modified>
+      <Modified>2022-10-04T19:10:20.924</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\micha\source\repos\EmailClient\WindowsApp\bin\x64\Debug\net6.0-windows10.0.19041.0\win10-x64\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2022-10-04T07:42:47.191</Modified>
+      <Modified>2022-10-04T19:10:20.698</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\micha\source\repos\EmailClient\WindowsApp\bin\x64\Debug\net6.0-windows10.0.19041.0\win10-x64\WindowsApp.runtimeconfig.json">
       <PackagePath>WindowsApp.runtimeconfig.json</PackagePath>
-      <Modified>2022-10-04T07:35:06.134</Modified>
+      <Modified>2022-10-04T18:47:25.528</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\micha\source\repos\EmailClient\WindowsApp\bin\x64\Debug\net6.0-windows10.0.19041.0\win10-x64\WindowsApp.dll">
       <PackagePath>WindowsApp.dll</PackagePath>
-      <Modified>2022-10-04T07:42:47.088</Modified>
+      <Modified>2022-10-04T19:10:20.577</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\micha\source\repos\EmailClient\WindowsApp\obj\x64\Debug\net6.0-windows10.0.19041.0\win10-x64\apphost.exe">
       <PackagePath>WindowsApp.exe</PackagePath>
-      <Modified>2022-10-04T07:42:47.094</Modified>
+      <Modified>2022-10-04T19:10:20.587</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\micha\source\repos\EmailClient\WindowsApp\bin\x64\Debug\net6.0-windows10.0.19041.0\win10-x64\WindowsApp.deps.json">
       <PackagePath>WindowsApp.deps.json</PackagePath>
-      <Modified>2022-10-04T07:35:06.019</Modified>
+      <Modified>2022-10-04T18:47:25.385</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\micha\.nuget\packages\microsoft.netcore.app.runtime.win-x64\6.0.7\runtimes\win-x64\lib\net6.0\Microsoft.CSharp.dll">
       <PackagePath>Microsoft.CSharp.dll</PackagePath>
@@ -985,9 +985,17 @@
       <PackagePath>Microsoft.WindowsAppRuntime.Bootstrap.dll</PackagePath>
       <Modified>2022-04-15T16:56:04.000</Modified>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\micha\source\repos\EmailClient\Application\bin\Debug\net6.0\Application.dll">
+      <PackagePath>Application.dll</PackagePath>
+      <Modified>2022-10-04T18:45:48.453</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\micha\source\repos\EmailClient\Controllers\bin\Debug\net6.0\Controllers.dll">
+      <PackagePath>Controllers.dll</PackagePath>
+      <Modified>2022-10-04T18:45:48.784</Modified>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\micha\source\repos\EmailClient\Domain\bin\Debug\net6.0\Domain.dll">
       <PackagePath>Domain.dll</PackagePath>
-      <Modified>2022-10-02T23:29:57.233</Modified>
+      <Modified>2022-10-04T18:45:45.895</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\micha\source\repos\EmailClient\WindowsApp\Assets\LockScreenLogo.scale-200.png">
       <PackagePath>Assets\LockScreenLogo.scale-200.png</PackagePath>

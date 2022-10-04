@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Network.Common
+namespace Controllers.Common
 {
     /// <summary>
     /// Provides a base class that implements the singleton design

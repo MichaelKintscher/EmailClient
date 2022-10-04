@@ -739,6 +739,12 @@
     <AppxPackagedFile Include="C:\Users\micha\.nuget\packages\microsoft.windowsappsdk\1.0.3\runtimes\win10-x64\native\Microsoft.WindowsAppRuntime.Bootstrap.dll">
       <PackagePath>Microsoft.WindowsAppRuntime.Bootstrap.dll</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\micha\source\repos\EmailClient\Application\bin\Debug\net6.0\Application.dll">
+      <PackagePath>Application.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\micha\source\repos\EmailClient\Controllers\bin\Debug\net6.0\Controllers.dll">
+      <PackagePath>Controllers.dll</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\micha\source\repos\EmailClient\Domain\bin\Debug\net6.0\Domain.dll">
       <PackagePath>Domain.dll</PackagePath>
     </AppxPackagedFile>

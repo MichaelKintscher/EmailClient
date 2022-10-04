@@ -27,7 +27,7 @@ namespace WindowsApp.Pages
     {
         #region Properties
         /// <summary>
-        /// A list of connected email service provider accounts.
+        /// A list of connected service provider accounts.
         /// </summary>
         public ObservableCollection<ServiceProviderAccount> Accounts { get; set; }
         #endregion
