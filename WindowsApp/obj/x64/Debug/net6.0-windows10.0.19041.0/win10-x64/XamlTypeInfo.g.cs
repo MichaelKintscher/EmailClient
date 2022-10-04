@@ -224,21 +224,59 @@ namespace WindowsApp.WindowsApp_XamlTypeInfo
 
         private void InitTypeTables()
         {
-            _typeNameTable = new string[6];
+            _typeNameTable = new string[25];
             _typeNameTable[0] = "Microsoft.UI.Xaml.Controls.XamlControlsResources";
             _typeNameTable[1] = "Microsoft.UI.Xaml.ResourceDictionary";
             _typeNameTable[2] = "Object";
             _typeNameTable[3] = "Boolean";
             _typeNameTable[4] = "WindowsApp.MainWindow";
             _typeNameTable[5] = "Microsoft.UI.Xaml.Window";
+            _typeNameTable[6] = "WindowsApp.Converters.BoolToVisibilityConverter";
+            _typeNameTable[7] = "Microsoft.UI.Xaml.Visibility";
+            _typeNameTable[8] = "WindowsApp.Converters.BoolToInverseBoolConverter";
+            _typeNameTable[9] = "Microsoft.UI.Xaml.Controls.PersonPicture";
+            _typeNameTable[10] = "Microsoft.UI.Xaml.Controls.Control";
+            _typeNameTable[11] = "Microsoft.UI.Xaml.Media.ImageSource";
+            _typeNameTable[12] = "String";
+            _typeNameTable[13] = "Int32";
+            _typeNameTable[14] = "Windows.ApplicationModel.Contacts.Contact";
+            _typeNameTable[15] = "Microsoft.UI.Xaml.Controls.PersonPictureTemplateSettings";
+            _typeNameTable[16] = "Microsoft.UI.Xaml.DependencyObject";
+            _typeNameTable[17] = "WindowsApp.Pages.SettingsPage";
+            _typeNameTable[18] = "Microsoft.UI.Xaml.Controls.Page";
+            _typeNameTable[19] = "Microsoft.UI.Xaml.Controls.UserControl";
+            _typeNameTable[20] = "System.Collections.ObjectModel.ObservableCollection`1<Domain.Common.ServiceProviderAccount>";
+            _typeNameTable[21] = "System.Collections.ObjectModel.Collection`1<Domain.Common.ServiceProviderAccount>";
+            _typeNameTable[22] = "Domain.Common.ServiceProviderAccount";
+            _typeNameTable[23] = "System.DateTime";
+            _typeNameTable[24] = "System.ValueType";
 
-            _typeTable = new global::System.Type[6];
+            _typeTable = new global::System.Type[25];
             _typeTable[0] = typeof(global::Microsoft.UI.Xaml.Controls.XamlControlsResources);
             _typeTable[1] = typeof(global::Microsoft.UI.Xaml.ResourceDictionary);
             _typeTable[2] = typeof(global::System.Object);
             _typeTable[3] = typeof(global::System.Boolean);
             _typeTable[4] = typeof(global::WindowsApp.MainWindow);
             _typeTable[5] = typeof(global::Microsoft.UI.Xaml.Window);
+            _typeTable[6] = typeof(global::WindowsApp.Converters.BoolToVisibilityConverter);
+            _typeTable[7] = typeof(global::Microsoft.UI.Xaml.Visibility);
+            _typeTable[8] = typeof(global::WindowsApp.Converters.BoolToInverseBoolConverter);
+            _typeTable[9] = typeof(global::Microsoft.UI.Xaml.Controls.PersonPicture);
+            _typeTable[10] = typeof(global::Microsoft.UI.Xaml.Controls.Control);
+            _typeTable[11] = typeof(global::Microsoft.UI.Xaml.Media.ImageSource);
+            _typeTable[12] = typeof(global::System.String);
+            _typeTable[13] = typeof(global::System.Int32);
+            _typeTable[14] = typeof(global::Windows.ApplicationModel.Contacts.Contact);
+            _typeTable[15] = typeof(global::Microsoft.UI.Xaml.Controls.PersonPictureTemplateSettings);
+            _typeTable[16] = typeof(global::Microsoft.UI.Xaml.DependencyObject);
+            _typeTable[17] = typeof(global::WindowsApp.Pages.SettingsPage);
+            _typeTable[18] = typeof(global::Microsoft.UI.Xaml.Controls.Page);
+            _typeTable[19] = typeof(global::Microsoft.UI.Xaml.Controls.UserControl);
+            _typeTable[20] = typeof(global::System.Collections.ObjectModel.ObservableCollection<global::Domain.Common.ServiceProviderAccount>);
+            _typeTable[21] = typeof(global::System.Collections.ObjectModel.Collection<global::Domain.Common.ServiceProviderAccount>);
+            _typeTable[22] = typeof(global::Domain.Common.ServiceProviderAccount);
+            _typeTable[23] = typeof(global::System.DateTime);
+            _typeTable[24] = typeof(global::System.ValueType);
         }
 
         private int LookupTypeIndexByName(string typeName)
@@ -275,12 +313,32 @@ namespace WindowsApp.WindowsApp_XamlTypeInfo
 
         private object Activate_0_XamlControlsResources() { return new global::Microsoft.UI.Xaml.Controls.XamlControlsResources(); }
         private object Activate_4_MainWindow() { return new global::WindowsApp.MainWindow(); }
+        private object Activate_6_BoolToVisibilityConverter() { return new global::WindowsApp.Converters.BoolToVisibilityConverter(); }
+        private object Activate_8_BoolToInverseBoolConverter() { return new global::WindowsApp.Converters.BoolToInverseBoolConverter(); }
+        private object Activate_9_PersonPicture() { return new global::Microsoft.UI.Xaml.Controls.PersonPicture(); }
+        private object Activate_14_Contact() { return new global::Windows.ApplicationModel.Contacts.Contact(); }
+        private object Activate_17_SettingsPage() { return new global::WindowsApp.Pages.SettingsPage(); }
+        private object Activate_20_ObservableCollection() { return new global::System.Collections.ObjectModel.ObservableCollection<global::Domain.Common.ServiceProviderAccount>(); }
+        private object Activate_21_Collection() { return new global::System.Collections.ObjectModel.Collection<global::Domain.Common.ServiceProviderAccount>(); }
+        private object Activate_22_ServiceProviderAccount() { return new global::Domain.Common.ServiceProviderAccount(); }
         private void MapAdd_0_XamlControlsResources(object instance, object key, object item)
         {
             var collection = (global::System.Collections.Generic.IDictionary<global::System.Object, global::System.Object>)instance;
             var newKey = (global::System.Object)key;
             var newItem = (global::System.Object)item;
             collection.Add(newKey, newItem);
+        }
+        private void VectorAdd_20_ObservableCollection(object instance, object item)
+        {
+            var collection = (global::System.Collections.Generic.ICollection<global::Domain.Common.ServiceProviderAccount>)instance;
+            var newItem = (global::Domain.Common.ServiceProviderAccount)item;
+            collection.Add(newItem);
+        }
+        private void VectorAdd_21_Collection(object instance, object item)
+        {
+            var collection = (global::System.Collections.Generic.ICollection<global::Domain.Common.ServiceProviderAccount>)instance;
+            var newItem = (global::Domain.Common.ServiceProviderAccount)item;
+            collection.Add(newItem);
         }
 
         private global::Microsoft.UI.Xaml.Markup.IXamlType CreateXamlType(int typeIndex)
@@ -322,6 +380,131 @@ namespace WindowsApp.WindowsApp_XamlTypeInfo
 
             case 5:   //  Microsoft.UI.Xaml.Window
                 xamlType = new global::WindowsApp.WindowsApp_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 6:   //  WindowsApp.Converters.BoolToVisibilityConverter
+                userType = new global::WindowsApp.WindowsApp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
+                userType.Activator = Activate_6_BoolToVisibilityConverter;
+                userType.AddMemberName("TrueVisibility");
+                userType.AddMemberName("FalseVisibility");
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 7:   //  Microsoft.UI.Xaml.Visibility
+                xamlType = new global::WindowsApp.WindowsApp_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 8:   //  WindowsApp.Converters.BoolToInverseBoolConverter
+                userType = new global::WindowsApp.WindowsApp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
+                userType.Activator = Activate_8_BoolToInverseBoolConverter;
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 9:   //  Microsoft.UI.Xaml.Controls.PersonPicture
+                userType = new global::WindowsApp.WindowsApp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.Controls.Control"));
+                userType.Activator = Activate_9_PersonPicture;
+                userType.AddMemberName("ProfilePicture");
+                userType.AddMemberName("DisplayName");
+                userType.AddMemberName("BadgeGlyph");
+                userType.AddMemberName("BadgeImageSource");
+                userType.AddMemberName("BadgeNumber");
+                userType.AddMemberName("BadgeText");
+                userType.AddMemberName("Contact");
+                userType.AddMemberName("Initials");
+                userType.AddMemberName("IsGroup");
+                userType.AddMemberName("PreferSmallImage");
+                userType.AddMemberName("TemplateSettings");
+                xamlType = userType;
+                break;
+
+            case 10:   //  Microsoft.UI.Xaml.Controls.Control
+                xamlType = new global::WindowsApp.WindowsApp_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 11:   //  Microsoft.UI.Xaml.Media.ImageSource
+                xamlType = new global::WindowsApp.WindowsApp_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 12:   //  String
+                xamlType = new global::WindowsApp.WindowsApp_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 13:   //  Int32
+                xamlType = new global::WindowsApp.WindowsApp_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 14:   //  Windows.ApplicationModel.Contacts.Contact
+                userType = new global::WindowsApp.WindowsApp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
+                userType.SetIsReturnTypeStub();
+                xamlType = userType;
+                break;
+
+            case 15:   //  Microsoft.UI.Xaml.Controls.PersonPictureTemplateSettings
+                userType = new global::WindowsApp.WindowsApp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.DependencyObject"));
+                userType.SetIsReturnTypeStub();
+                xamlType = userType;
+                break;
+
+            case 16:   //  Microsoft.UI.Xaml.DependencyObject
+                xamlType = new global::WindowsApp.WindowsApp_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 17:   //  WindowsApp.Pages.SettingsPage
+                userType = new global::WindowsApp.WindowsApp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.Controls.Page"));
+                userType.Activator = Activate_17_SettingsPage;
+                userType.AddMemberName("Accounts");
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 18:   //  Microsoft.UI.Xaml.Controls.Page
+                xamlType = new global::WindowsApp.WindowsApp_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 19:   //  Microsoft.UI.Xaml.Controls.UserControl
+                xamlType = new global::WindowsApp.WindowsApp_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 20:   //  System.Collections.ObjectModel.ObservableCollection`1<Domain.Common.ServiceProviderAccount>
+                userType = new global::WindowsApp.WindowsApp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("System.Collections.ObjectModel.Collection`1<Domain.Common.ServiceProviderAccount>"));
+                userType.CollectionAdd = VectorAdd_20_ObservableCollection;
+                userType.SetIsReturnTypeStub();
+                xamlType = userType;
+                break;
+
+            case 21:   //  System.Collections.ObjectModel.Collection`1<Domain.Common.ServiceProviderAccount>
+                userType = new global::WindowsApp.WindowsApp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
+                userType.Activator = Activate_21_Collection;
+                userType.CollectionAdd = VectorAdd_21_Collection;
+                xamlType = userType;
+                break;
+
+            case 22:   //  Domain.Common.ServiceProviderAccount
+                userType = new global::WindowsApp.WindowsApp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
+                userType.Activator = Activate_22_ServiceProviderAccount;
+                userType.AddMemberName("ID");
+                userType.AddMemberName("Provider");
+                userType.AddMemberName("ProviderGivenID");
+                userType.AddMemberName("FriendlyName");
+                userType.AddMemberName("Username");
+                userType.AddMemberName("PictureUri");
+                userType.AddMemberName("PictureLocalUri");
+                userType.AddMemberName("Connected");
+                userType.AddMemberName("LastSynced");
+                xamlType = userType;
+                break;
+
+            case 23:   //  System.DateTime
+                userType = new global::WindowsApp.WindowsApp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("System.ValueType"));
+                userType.SetIsReturnTypeStub();
+                xamlType = userType;
+                break;
+
+            case 24:   //  System.ValueType
+                userType = new global::WindowsApp.WindowsApp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
+                xamlType = userType;
                 break;
             }
             return xamlType;
@@ -392,6 +575,231 @@ namespace WindowsApp.WindowsApp_XamlTypeInfo
             var that = (global::Microsoft.UI.Xaml.Controls.XamlControlsResources)instance;
             that.UseCompactResources = (global::System.Boolean)Value;
         }
+        private object get_1_BoolToVisibilityConverter_TrueVisibility(object instance)
+        {
+            var that = (global::WindowsApp.Converters.BoolToVisibilityConverter)instance;
+            return that.TrueVisibility;
+        }
+        private void set_1_BoolToVisibilityConverter_TrueVisibility(object instance, object Value)
+        {
+            var that = (global::WindowsApp.Converters.BoolToVisibilityConverter)instance;
+            that.TrueVisibility = (global::Microsoft.UI.Xaml.Visibility)Value;
+        }
+        private object get_2_BoolToVisibilityConverter_FalseVisibility(object instance)
+        {
+            var that = (global::WindowsApp.Converters.BoolToVisibilityConverter)instance;
+            return that.FalseVisibility;
+        }
+        private void set_2_BoolToVisibilityConverter_FalseVisibility(object instance, object Value)
+        {
+            var that = (global::WindowsApp.Converters.BoolToVisibilityConverter)instance;
+            that.FalseVisibility = (global::Microsoft.UI.Xaml.Visibility)Value;
+        }
+        private object get_3_PersonPicture_ProfilePicture(object instance)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.PersonPicture)instance;
+            return that.ProfilePicture;
+        }
+        private void set_3_PersonPicture_ProfilePicture(object instance, object Value)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.PersonPicture)instance;
+            that.ProfilePicture = (global::Microsoft.UI.Xaml.Media.ImageSource)Value;
+        }
+        private object get_4_PersonPicture_DisplayName(object instance)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.PersonPicture)instance;
+            return that.DisplayName;
+        }
+        private void set_4_PersonPicture_DisplayName(object instance, object Value)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.PersonPicture)instance;
+            that.DisplayName = (global::System.String)Value;
+        }
+        private object get_5_PersonPicture_BadgeGlyph(object instance)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.PersonPicture)instance;
+            return that.BadgeGlyph;
+        }
+        private void set_5_PersonPicture_BadgeGlyph(object instance, object Value)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.PersonPicture)instance;
+            that.BadgeGlyph = (global::System.String)Value;
+        }
+        private object get_6_PersonPicture_BadgeImageSource(object instance)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.PersonPicture)instance;
+            return that.BadgeImageSource;
+        }
+        private void set_6_PersonPicture_BadgeImageSource(object instance, object Value)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.PersonPicture)instance;
+            that.BadgeImageSource = (global::Microsoft.UI.Xaml.Media.ImageSource)Value;
+        }
+        private object get_7_PersonPicture_BadgeNumber(object instance)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.PersonPicture)instance;
+            return that.BadgeNumber;
+        }
+        private void set_7_PersonPicture_BadgeNumber(object instance, object Value)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.PersonPicture)instance;
+            that.BadgeNumber = (global::System.Int32)Value;
+        }
+        private object get_8_PersonPicture_BadgeText(object instance)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.PersonPicture)instance;
+            return that.BadgeText;
+        }
+        private void set_8_PersonPicture_BadgeText(object instance, object Value)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.PersonPicture)instance;
+            that.BadgeText = (global::System.String)Value;
+        }
+        private object get_9_PersonPicture_Contact(object instance)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.PersonPicture)instance;
+            return that.Contact;
+        }
+        private void set_9_PersonPicture_Contact(object instance, object Value)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.PersonPicture)instance;
+            that.Contact = (global::Windows.ApplicationModel.Contacts.Contact)Value;
+        }
+        private object get_10_PersonPicture_Initials(object instance)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.PersonPicture)instance;
+            return that.Initials;
+        }
+        private void set_10_PersonPicture_Initials(object instance, object Value)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.PersonPicture)instance;
+            that.Initials = (global::System.String)Value;
+        }
+        private object get_11_PersonPicture_IsGroup(object instance)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.PersonPicture)instance;
+            return that.IsGroup;
+        }
+        private void set_11_PersonPicture_IsGroup(object instance, object Value)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.PersonPicture)instance;
+            that.IsGroup = (global::System.Boolean)Value;
+        }
+        private object get_12_PersonPicture_PreferSmallImage(object instance)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.PersonPicture)instance;
+            return that.PreferSmallImage;
+        }
+        private void set_12_PersonPicture_PreferSmallImage(object instance, object Value)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.PersonPicture)instance;
+            that.PreferSmallImage = (global::System.Boolean)Value;
+        }
+        private object get_13_PersonPicture_TemplateSettings(object instance)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.PersonPicture)instance;
+            return that.TemplateSettings;
+        }
+        private object get_14_SettingsPage_Accounts(object instance)
+        {
+            var that = (global::WindowsApp.Pages.SettingsPage)instance;
+            return that.Accounts;
+        }
+        private void set_14_SettingsPage_Accounts(object instance, object Value)
+        {
+            var that = (global::WindowsApp.Pages.SettingsPage)instance;
+            that.Accounts = (global::System.Collections.ObjectModel.ObservableCollection<global::Domain.Common.ServiceProviderAccount>)Value;
+        }
+        private object get_15_ServiceProviderAccount_ID(object instance)
+        {
+            var that = (global::Domain.Common.ServiceProviderAccount)instance;
+            return that.ID;
+        }
+        private void set_15_ServiceProviderAccount_ID(object instance, object Value)
+        {
+            var that = (global::Domain.Common.ServiceProviderAccount)instance;
+            that.ID = (global::System.String)Value;
+        }
+        private object get_16_ServiceProviderAccount_Provider(object instance)
+        {
+            var that = (global::Domain.Common.ServiceProviderAccount)instance;
+            return that.Provider;
+        }
+        private void set_16_ServiceProviderAccount_Provider(object instance, object Value)
+        {
+            var that = (global::Domain.Common.ServiceProviderAccount)instance;
+            that.Provider = (global::System.String)Value;
+        }
+        private object get_17_ServiceProviderAccount_ProviderGivenID(object instance)
+        {
+            var that = (global::Domain.Common.ServiceProviderAccount)instance;
+            return that.ProviderGivenID;
+        }
+        private void set_17_ServiceProviderAccount_ProviderGivenID(object instance, object Value)
+        {
+            var that = (global::Domain.Common.ServiceProviderAccount)instance;
+            that.ProviderGivenID = (global::System.String)Value;
+        }
+        private object get_18_ServiceProviderAccount_FriendlyName(object instance)
+        {
+            var that = (global::Domain.Common.ServiceProviderAccount)instance;
+            return that.FriendlyName;
+        }
+        private void set_18_ServiceProviderAccount_FriendlyName(object instance, object Value)
+        {
+            var that = (global::Domain.Common.ServiceProviderAccount)instance;
+            that.FriendlyName = (global::System.String)Value;
+        }
+        private object get_19_ServiceProviderAccount_Username(object instance)
+        {
+            var that = (global::Domain.Common.ServiceProviderAccount)instance;
+            return that.Username;
+        }
+        private void set_19_ServiceProviderAccount_Username(object instance, object Value)
+        {
+            var that = (global::Domain.Common.ServiceProviderAccount)instance;
+            that.Username = (global::System.String)Value;
+        }
+        private object get_20_ServiceProviderAccount_PictureUri(object instance)
+        {
+            var that = (global::Domain.Common.ServiceProviderAccount)instance;
+            return that.PictureUri;
+        }
+        private void set_20_ServiceProviderAccount_PictureUri(object instance, object Value)
+        {
+            var that = (global::Domain.Common.ServiceProviderAccount)instance;
+            that.PictureUri = (global::System.String)Value;
+        }
+        private object get_21_ServiceProviderAccount_PictureLocalUri(object instance)
+        {
+            var that = (global::Domain.Common.ServiceProviderAccount)instance;
+            return that.PictureLocalUri;
+        }
+        private void set_21_ServiceProviderAccount_PictureLocalUri(object instance, object Value)
+        {
+            var that = (global::Domain.Common.ServiceProviderAccount)instance;
+            that.PictureLocalUri = (global::System.String)Value;
+        }
+        private object get_22_ServiceProviderAccount_Connected(object instance)
+        {
+            var that = (global::Domain.Common.ServiceProviderAccount)instance;
+            return that.Connected;
+        }
+        private void set_22_ServiceProviderAccount_Connected(object instance, object Value)
+        {
+            var that = (global::Domain.Common.ServiceProviderAccount)instance;
+            that.Connected = (global::System.Boolean)Value;
+        }
+        private object get_23_ServiceProviderAccount_LastSynced(object instance)
+        {
+            var that = (global::Domain.Common.ServiceProviderAccount)instance;
+            return that.LastSynced;
+        }
+        private void set_23_ServiceProviderAccount_LastSynced(object instance, object Value)
+        {
+            var that = (global::Domain.Common.ServiceProviderAccount)instance;
+            that.LastSynced = (global::System.DateTime)Value;
+        }
 
         private global::Microsoft.UI.Xaml.Markup.IXamlMember CreateXamlMember(string longMemberName)
         {
@@ -406,6 +814,154 @@ namespace WindowsApp.WindowsApp_XamlTypeInfo
                 xamlMember.SetIsDependencyProperty();
                 xamlMember.Getter = get_0_XamlControlsResources_UseCompactResources;
                 xamlMember.Setter = set_0_XamlControlsResources_UseCompactResources;
+                break;
+            case "WindowsApp.Converters.BoolToVisibilityConverter.TrueVisibility":
+                userType = (global::WindowsApp.WindowsApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("WindowsApp.Converters.BoolToVisibilityConverter");
+                xamlMember = new global::WindowsApp.WindowsApp_XamlTypeInfo.XamlMember(this, "TrueVisibility", "Microsoft.UI.Xaml.Visibility");
+                xamlMember.Getter = get_1_BoolToVisibilityConverter_TrueVisibility;
+                xamlMember.Setter = set_1_BoolToVisibilityConverter_TrueVisibility;
+                break;
+            case "WindowsApp.Converters.BoolToVisibilityConverter.FalseVisibility":
+                userType = (global::WindowsApp.WindowsApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("WindowsApp.Converters.BoolToVisibilityConverter");
+                xamlMember = new global::WindowsApp.WindowsApp_XamlTypeInfo.XamlMember(this, "FalseVisibility", "Microsoft.UI.Xaml.Visibility");
+                xamlMember.Getter = get_2_BoolToVisibilityConverter_FalseVisibility;
+                xamlMember.Setter = set_2_BoolToVisibilityConverter_FalseVisibility;
+                break;
+            case "Microsoft.UI.Xaml.Controls.PersonPicture.ProfilePicture":
+                userType = (global::WindowsApp.WindowsApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.PersonPicture");
+                xamlMember = new global::WindowsApp.WindowsApp_XamlTypeInfo.XamlMember(this, "ProfilePicture", "Microsoft.UI.Xaml.Media.ImageSource");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_3_PersonPicture_ProfilePicture;
+                xamlMember.Setter = set_3_PersonPicture_ProfilePicture;
+                break;
+            case "Microsoft.UI.Xaml.Controls.PersonPicture.DisplayName":
+                userType = (global::WindowsApp.WindowsApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.PersonPicture");
+                xamlMember = new global::WindowsApp.WindowsApp_XamlTypeInfo.XamlMember(this, "DisplayName", "String");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_4_PersonPicture_DisplayName;
+                xamlMember.Setter = set_4_PersonPicture_DisplayName;
+                break;
+            case "Microsoft.UI.Xaml.Controls.PersonPicture.BadgeGlyph":
+                userType = (global::WindowsApp.WindowsApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.PersonPicture");
+                xamlMember = new global::WindowsApp.WindowsApp_XamlTypeInfo.XamlMember(this, "BadgeGlyph", "String");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_5_PersonPicture_BadgeGlyph;
+                xamlMember.Setter = set_5_PersonPicture_BadgeGlyph;
+                break;
+            case "Microsoft.UI.Xaml.Controls.PersonPicture.BadgeImageSource":
+                userType = (global::WindowsApp.WindowsApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.PersonPicture");
+                xamlMember = new global::WindowsApp.WindowsApp_XamlTypeInfo.XamlMember(this, "BadgeImageSource", "Microsoft.UI.Xaml.Media.ImageSource");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_6_PersonPicture_BadgeImageSource;
+                xamlMember.Setter = set_6_PersonPicture_BadgeImageSource;
+                break;
+            case "Microsoft.UI.Xaml.Controls.PersonPicture.BadgeNumber":
+                userType = (global::WindowsApp.WindowsApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.PersonPicture");
+                xamlMember = new global::WindowsApp.WindowsApp_XamlTypeInfo.XamlMember(this, "BadgeNumber", "Int32");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_7_PersonPicture_BadgeNumber;
+                xamlMember.Setter = set_7_PersonPicture_BadgeNumber;
+                break;
+            case "Microsoft.UI.Xaml.Controls.PersonPicture.BadgeText":
+                userType = (global::WindowsApp.WindowsApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.PersonPicture");
+                xamlMember = new global::WindowsApp.WindowsApp_XamlTypeInfo.XamlMember(this, "BadgeText", "String");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_8_PersonPicture_BadgeText;
+                xamlMember.Setter = set_8_PersonPicture_BadgeText;
+                break;
+            case "Microsoft.UI.Xaml.Controls.PersonPicture.Contact":
+                userType = (global::WindowsApp.WindowsApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.PersonPicture");
+                xamlMember = new global::WindowsApp.WindowsApp_XamlTypeInfo.XamlMember(this, "Contact", "Windows.ApplicationModel.Contacts.Contact");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_9_PersonPicture_Contact;
+                xamlMember.Setter = set_9_PersonPicture_Contact;
+                break;
+            case "Microsoft.UI.Xaml.Controls.PersonPicture.Initials":
+                userType = (global::WindowsApp.WindowsApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.PersonPicture");
+                xamlMember = new global::WindowsApp.WindowsApp_XamlTypeInfo.XamlMember(this, "Initials", "String");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_10_PersonPicture_Initials;
+                xamlMember.Setter = set_10_PersonPicture_Initials;
+                break;
+            case "Microsoft.UI.Xaml.Controls.PersonPicture.IsGroup":
+                userType = (global::WindowsApp.WindowsApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.PersonPicture");
+                xamlMember = new global::WindowsApp.WindowsApp_XamlTypeInfo.XamlMember(this, "IsGroup", "Boolean");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_11_PersonPicture_IsGroup;
+                xamlMember.Setter = set_11_PersonPicture_IsGroup;
+                break;
+            case "Microsoft.UI.Xaml.Controls.PersonPicture.PreferSmallImage":
+                userType = (global::WindowsApp.WindowsApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.PersonPicture");
+                xamlMember = new global::WindowsApp.WindowsApp_XamlTypeInfo.XamlMember(this, "PreferSmallImage", "Boolean");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_12_PersonPicture_PreferSmallImage;
+                xamlMember.Setter = set_12_PersonPicture_PreferSmallImage;
+                break;
+            case "Microsoft.UI.Xaml.Controls.PersonPicture.TemplateSettings":
+                userType = (global::WindowsApp.WindowsApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.PersonPicture");
+                xamlMember = new global::WindowsApp.WindowsApp_XamlTypeInfo.XamlMember(this, "TemplateSettings", "Microsoft.UI.Xaml.Controls.PersonPictureTemplateSettings");
+                xamlMember.Getter = get_13_PersonPicture_TemplateSettings;
+                xamlMember.SetIsReadOnly();
+                break;
+            case "WindowsApp.Pages.SettingsPage.Accounts":
+                userType = (global::WindowsApp.WindowsApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("WindowsApp.Pages.SettingsPage");
+                xamlMember = new global::WindowsApp.WindowsApp_XamlTypeInfo.XamlMember(this, "Accounts", "System.Collections.ObjectModel.ObservableCollection`1<Domain.Common.ServiceProviderAccount>");
+                xamlMember.Getter = get_14_SettingsPage_Accounts;
+                xamlMember.Setter = set_14_SettingsPage_Accounts;
+                break;
+            case "Domain.Common.ServiceProviderAccount.ID":
+                userType = (global::WindowsApp.WindowsApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Domain.Common.ServiceProviderAccount");
+                xamlMember = new global::WindowsApp.WindowsApp_XamlTypeInfo.XamlMember(this, "ID", "String");
+                xamlMember.Getter = get_15_ServiceProviderAccount_ID;
+                xamlMember.Setter = set_15_ServiceProviderAccount_ID;
+                break;
+            case "Domain.Common.ServiceProviderAccount.Provider":
+                userType = (global::WindowsApp.WindowsApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Domain.Common.ServiceProviderAccount");
+                xamlMember = new global::WindowsApp.WindowsApp_XamlTypeInfo.XamlMember(this, "Provider", "String");
+                xamlMember.Getter = get_16_ServiceProviderAccount_Provider;
+                xamlMember.Setter = set_16_ServiceProviderAccount_Provider;
+                break;
+            case "Domain.Common.ServiceProviderAccount.ProviderGivenID":
+                userType = (global::WindowsApp.WindowsApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Domain.Common.ServiceProviderAccount");
+                xamlMember = new global::WindowsApp.WindowsApp_XamlTypeInfo.XamlMember(this, "ProviderGivenID", "String");
+                xamlMember.Getter = get_17_ServiceProviderAccount_ProviderGivenID;
+                xamlMember.Setter = set_17_ServiceProviderAccount_ProviderGivenID;
+                break;
+            case "Domain.Common.ServiceProviderAccount.FriendlyName":
+                userType = (global::WindowsApp.WindowsApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Domain.Common.ServiceProviderAccount");
+                xamlMember = new global::WindowsApp.WindowsApp_XamlTypeInfo.XamlMember(this, "FriendlyName", "String");
+                xamlMember.Getter = get_18_ServiceProviderAccount_FriendlyName;
+                xamlMember.Setter = set_18_ServiceProviderAccount_FriendlyName;
+                break;
+            case "Domain.Common.ServiceProviderAccount.Username":
+                userType = (global::WindowsApp.WindowsApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Domain.Common.ServiceProviderAccount");
+                xamlMember = new global::WindowsApp.WindowsApp_XamlTypeInfo.XamlMember(this, "Username", "String");
+                xamlMember.Getter = get_19_ServiceProviderAccount_Username;
+                xamlMember.Setter = set_19_ServiceProviderAccount_Username;
+                break;
+            case "Domain.Common.ServiceProviderAccount.PictureUri":
+                userType = (global::WindowsApp.WindowsApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Domain.Common.ServiceProviderAccount");
+                xamlMember = new global::WindowsApp.WindowsApp_XamlTypeInfo.XamlMember(this, "PictureUri", "String");
+                xamlMember.Getter = get_20_ServiceProviderAccount_PictureUri;
+                xamlMember.Setter = set_20_ServiceProviderAccount_PictureUri;
+                break;
+            case "Domain.Common.ServiceProviderAccount.PictureLocalUri":
+                userType = (global::WindowsApp.WindowsApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Domain.Common.ServiceProviderAccount");
+                xamlMember = new global::WindowsApp.WindowsApp_XamlTypeInfo.XamlMember(this, "PictureLocalUri", "String");
+                xamlMember.Getter = get_21_ServiceProviderAccount_PictureLocalUri;
+                xamlMember.Setter = set_21_ServiceProviderAccount_PictureLocalUri;
+                break;
+            case "Domain.Common.ServiceProviderAccount.Connected":
+                userType = (global::WindowsApp.WindowsApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Domain.Common.ServiceProviderAccount");
+                xamlMember = new global::WindowsApp.WindowsApp_XamlTypeInfo.XamlMember(this, "Connected", "Boolean");
+                xamlMember.Getter = get_22_ServiceProviderAccount_Connected;
+                xamlMember.Setter = set_22_ServiceProviderAccount_Connected;
+                break;
+            case "Domain.Common.ServiceProviderAccount.LastSynced":
+                userType = (global::WindowsApp.WindowsApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Domain.Common.ServiceProviderAccount");
+                xamlMember = new global::WindowsApp.WindowsApp_XamlTypeInfo.XamlMember(this, "LastSynced", "System.DateTime");
+                xamlMember.Getter = get_23_ServiceProviderAccount_LastSynced;
+                xamlMember.Setter = set_23_ServiceProviderAccount_LastSynced;
                 break;
             }
             return xamlMember;
