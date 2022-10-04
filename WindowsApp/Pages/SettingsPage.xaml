@@ -1,0 +1,110 @@
+﻿<Page
+    x:Class="WindowsApp.Pages.SettingsPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:WindowsApp.Pages"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:common="using:Domain.Common"
+    xmlns:Converters="using:WindowsApp.Converters"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Page.Resources>
+        <Converters:BoolToVisibilityConverter x:Key="TrueToVisibleConverter" TrueVisibility="Visible" FalseVisibility="Collapsed"></Converters:BoolToVisibilityConverter>
+        <Converters:BoolToVisibilityConverter x:Key="FalseToVisibleConverter" TrueVisibility="Collapsed" FalseVisibility="Visible"></Converters:BoolToVisibilityConverter>
+        <Converters:BoolToInverseBoolConverter x:Key="BoolToInverseBoolConverter"></Converters:BoolToInverseBoolConverter>
+    </Page.Resources>
+
+    <Grid>
+        <ScrollViewer>
+            <!-- Accounts block -->
+            <StackPanel Margin="12">
+                <TextBlock Style="{StaticResource TitleTextBlockStyle}"
+                               Text="Accounts"></TextBlock>
+
+                <!-- Accounts List -->
+                <ListView x:Name="AccountsListView"
+                              ItemsSource="{x:Bind Accounts, Mode=OneWay}"
+                              SelectionMode="None">
+                    <ListView.ItemContainerStyle>
+                        <Style TargetType="ListViewItem">
+                            <Setter Property="HorizontalContentAlignment" Value="Stretch"></Setter>
+                        </Style>
+                    </ListView.ItemContainerStyle>
+                    <ListView.ItemTemplate>
+                        <DataTemplate x:DataType="common:ServiceProviderAccount">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+
+                                <TextBox Grid.Column="0"
+                                         VerticalAlignment="Center"
+                                         Margin="0,10,10,10"
+                                         Text="{x:Bind FriendlyName, Mode=TwoWay}"></TextBox>
+                                <PersonPicture Grid.Column="1"
+                                               VerticalAlignment="Center"
+                                               Margin="10"
+                                               MaxWidth="50"
+                                               ProfilePicture="{x:Bind PictureUri}"
+                                               DisplayName="{x:Bind Username}"></PersonPicture>
+                                <TextBlock Grid.Column="2"
+                                           VerticalAlignment="Center"
+                                           Margin="10"
+                                           Text="{x:Bind Username}"></TextBlock>
+                                <TextBlock Grid.Column="3"
+                                           VerticalAlignment="Center"
+                                           Margin="10"
+                                           Text="{x:Bind Provider}"></TextBlock>
+                                <StackPanel Grid.Column="4"
+                                            VerticalAlignment="Center"
+                                            Margin="10"
+                                            Orientation="Horizontal"
+                                            Visibility="{x:Bind Connected, Converter={StaticResource TrueToVisibleConverter}}">
+                                    <FontIcon FontFamily="{ThemeResource SymbolThemeFontFamily}"
+                                              Glyph="&#xF386;"></FontIcon>
+                                    <TextBlock Text="Connected"></TextBlock>
+                                </StackPanel>
+                                <StackPanel Grid.Column="4"
+                                            VerticalAlignment="Center"
+                                            Margin="10"
+                                            Orientation="Horizontal"
+                                            Visibility="{x:Bind Connected, Converter={StaticResource FalseToVisibleConverter}}">
+                                    <FontIcon FontFamily="{ThemeResource SymbolThemeFontFamily}"
+                                              Glyph="&#xE871;"></FontIcon>
+                                    <TextBlock Text="Connection Error"></TextBlock>
+                                </StackPanel>
+                                <TextBlock Grid.Column="5"
+                                           VerticalAlignment="Center"
+                                           Margin="10"
+                                           Text="{x:Bind LastSynced}"></TextBlock>
+                                <Button Grid.Column="6"
+                                        VerticalAlignment="Center"
+                                        Padding="10"
+                                        HorizontalAlignment="Center"
+                                        Tag="{x:Bind ID}"
+                                        Click="RemoveAccountButton_Click">
+                                    <FontIcon FontFamily="{ThemeResource SymbolThemeFontFamily}"
+                                              Glyph="&#xE107;"></FontIcon>
+                                </Button>
+                            </Grid>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                <!-- Button is disabled when no internet connection is available. To do this, bind 
+                        IsEnabled="{x:Bind InternetConnectionAvailable, Mode=OneWay}" -->
+                <Button x:Name="AuthenticateGoogleButton"
+                        Margin="0,20,20,20"
+                        IsEnabled="True"
+                        Click="AuthenticateGoogleButton_Click">Add Google Account</Button>
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</Page>

@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "aNOrOx+8cHcJ68ei70SBchlIEBsP6nuok6izKg9OZxbOkU4VZx6LzfnbgFsuk81Phb59Gxiewi971oRv02VWtg==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\micha\\source\\repos\\EmailClient\\WindowsOS\\WindowsOS.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\micha\\.nuget\\packages\\microsoft.windows.sdk.net.ref\\10.0.19041.26\\microsoft.windows.sdk.net.ref.10.0.19041.26.nupkg.sha512"
+  ],
+  "logs": []
+}
