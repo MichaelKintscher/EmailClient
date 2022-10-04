@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Application.Common.Commands.CreateServiceProviderAccount;
 using Domain.Common;
 using Domain.Emails;
+using Network.Common;
 using Network.Common.Exceptions;
 
 namespace Network.Google
@@ -82,7 +83,7 @@ namespace Network.Google
             // Create the account object.
             ServiceProviderAccount account = ServiceProviderAccountFactory.CreateServiceProviderAccount(
                 accountId,
-                "Google",
+                EmailProvider.Google.ToString(),
                 providerId,
                 userName,
                 pictureUri,
