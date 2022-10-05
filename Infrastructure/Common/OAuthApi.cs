@@ -1,4 +1,5 @@
-﻿using Application.Network;
+﻿using Application.Common.Commands.CreateServiceProviderAccount;
+using Application.Network;
 using Domain.Common;
 using Network.Common.EventArguments;
 using System;
@@ -189,6 +190,22 @@ namespace Network.Common
             return this.IsAuthorized(accountId) &&
                 (this.tokenDataCollection[accountId].ExpiresInSeconds.HasValue == false ||
                     DateTime.Compare(DateTime.UtcNow, this.tokenDataCollection[accountId].IssuedUtc.AddSeconds(this.tokenDataCollection[accountId].ExpiresInSeconds.Value)) >= 0);
+        }
+
+        /// <summary>
+        /// Gets the user's Google account.
+        /// </summary>
+        /// <param name="accountId">The ID for the account assigned by the app.</param>
+        /// <returns></returns>
+        public virtual async Task<ServiceProviderAccount> GetAccountAsync(string accountId)
+        {
+            return ServiceProviderAccountFactory.CreateServiceProviderAccount(
+                accountId,
+                string.Empty,
+                string.Empty,
+                string.Empty,
+                string.Empty,
+                false);
         }
         #endregion
 

@@ -20,6 +20,11 @@ namespace WindowsApp.Contollers
         /// The root page for app navigation.
         /// </summary>
         public MainWindow RootPage { get; private set; }
+
+        /// <summary>
+        /// A list of the service provider accounts connected to the app.
+        /// </summary>
+        private List<ServiceProviderAccount> ConnectedAccounts { get; set; }
         #endregion
 
         #region Methods
@@ -27,7 +32,7 @@ namespace WindowsApp.Contollers
         /// Intended to be called upon app launch. Initializes app navigation.
         /// </summary>
         /// <param name="rootPage">The root page for this initialization of the app.</param>
-        public void StartApp(MainWindow rootPage)
+        public async Task StartAppAsync(MainWindow rootPage)
         {
             // Initialize the necessary resource interfaces.
             this.InitializeInterfaces();
@@ -39,7 +44,7 @@ namespace WindowsApp.Contollers
 
             // Navigate to the settings page.
             SettingsPage settingsPage = new SettingsPage();
-            SettingsController.Instance.Initialize(settingsPage);
+            await SettingsController.Instance.InitializeAsync(settingsPage);
             this.RootPage.Navigate(settingsPage);
         }
         #endregion

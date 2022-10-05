@@ -89,12 +89,20 @@ namespace WindowsApp.Contollers
         /// Initializes 
         /// </summary>
         /// <param name="view"></param>
-        internal void Initialize(SettingsPage view)
+        internal async Task InitializeAsync(SettingsPage view)
         {
             // Subscribe to the page's events.
             view.ChangeAccountConnectionRequested += this.View_ChangeAccountConnectionRequested;
             view.OauthCodeAcquired += this.View_OauthCodeAcquired;
             view.ConnectionRequestCancelled += View_ConnectionRequestCancelled;
+
+            // Add the accounts logged into with this app to the page.
+            OAuthConnectionManager connectionManager = new OAuthConnectionManager(GmailAPI.Instance, WindowsStorageProvider.Instance);
+            List<ServiceProviderAccount> accounts = await connectionManager.LoadConnectionsAsync();
+            foreach (ServiceProviderAccount account in accounts)
+            {
+                view.AddConnectedAccout(account);
+            }
 
             // Store a reference to the page.
             this.View = view;
@@ -140,8 +148,11 @@ namespace WindowsApp.Contollers
             {
                 // Complete the OAuth flow and clear the state data for the pending authorization.
                 Guid accountId = new Guid();
-                await this.PendingConnectionManager.AddConnectionAsync(accountId.ToString(), code);
+                ServiceProviderAccount account = await this.PendingConnectionManager.AddConnectionAsync(accountId.ToString(), code);
                 this.PendingConnectionManager = null;
+
+                // Add the new account to the list of accounts to display.
+                this.View.AddConnectedAccout(account);
             }
         }
         #endregion

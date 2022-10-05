@@ -52,7 +52,7 @@ namespace Network.Google
         /// <param name="accountId">The ID for the account assigned by the app.</param>
         /// <returns></returns>
         /// <exception cref="ResponseFormatException">Thrown if expected data from the API call response is missing.</exception>
-        public async Task<ServiceProviderAccount> GetAccountAsync(string accountId)
+        public override async Task<ServiceProviderAccount> GetAccountAsync(string accountId)
         {
             // The endpoint for getting Google account info.
             string uri = "https://www.googleapis.com/oauth2/v3/userinfo";

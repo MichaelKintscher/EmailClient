@@ -35,6 +35,8 @@ namespace Application.Network
         /// <param name="tokens">A ditionary of OAuthToken values keyed by account ID.</param>
         public Task InitializeTokenDataAsync(Dictionary<string, OAuthToken> tokens);
 
+        public abstract Task<ServiceProviderAccount> GetAccountAsync(string accountId);
+
         /// <summary>
         /// Gets the cached token data if there is any.
         /// </summary>

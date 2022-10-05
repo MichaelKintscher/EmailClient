@@ -22,11 +22,19 @@ namespace Application.Network
         private IStorageProvider StorageProvider { get; set; }
 
         /// <summary>
-        /// The file name of the file stonring the Google Calendar API OAuth token.
+        /// The file name of the file storing the OAuth token for the OAuth service this connection manager manages.
         /// </summary>
         private string TokenFileName
         {
             get => this.OAuthService.Name + "_token.json";
+        }
+
+        /// <summary>
+        /// The file name of the file storing the connected accounts for the OAuth service this connection manager manages.
+        /// </summary>
+        private string AccountsFileName
+        {
+            get => this.OAuthService.Name + "_accounts.json";
         }
         #endregion
 
@@ -68,11 +76,20 @@ namespace Application.Network
         /// <param name="accountId">The newly assigned account ID of the account to add.</param>
         /// <param name="authorizationCode">The authorization code acquired from the OAuth authorization endpoint.</param>
         /// <returns></returns>
-        public async Task AddConnectionAsync(string accountId, string authorizationCode)
+        public async Task<ServiceProviderAccount> AddConnectionAsync(string accountId, string authorizationCode)
         {
             // Complete the OAuth flow and save the new connection data.
             await this.OAuthService.GetOauthTokenAsync(accountId, authorizationCode);
-            await this.SaveConnectionAsync();
+
+            // Get the account data.
+            ServiceProviderAccount account = await this.OAuthService.GetAccountAsync(accountId);
+
+            // Add the new account to the list, and then save the new account.
+            List<ServiceProviderAccount> accounts = await this.LoadConnectionsAsync();
+            accounts.Add(account);
+            await this.SaveConnectionsAsync(accounts);
+
+            return account;
         }
 
         /// <summary>
@@ -88,7 +105,11 @@ namespace Application.Network
             // Save the updated connection data if it changed.
             if (removed)
             {
-                await this.SaveConnectionAsync();
+                // Remove the account from the list, and then save the new list.
+                List<ServiceProviderAccount> accounts = await this.LoadConnectionsAsync();
+                ServiceProviderAccount accountToRemove = accounts.Where(a => a.ID == accountId).FirstOrDefault();
+                accounts.Remove(accountToRemove);
+                await this.SaveConnectionsAsync(accounts);
             }
         }
 
@@ -96,12 +117,39 @@ namespace Application.Network
         /// Saves the authorization data for the current connection to the OAuth API.
         /// </summary>
         /// <returns></returns>
-        public async Task SaveConnectionAsync()
+        public async Task SaveConnectionsAsync(List<ServiceProviderAccount> accounts)
         {
             // Get the updated cached token data collection.
             Dictionary<string, OAuthToken> tokenData = this.OAuthService.GetCachedTokenData();
             // Save the updated collection.
             await this.StorageProvider.SaveConnectionDataAsync(this.TokenFileName, tokenData);
+
+            // Save the list of connected accounts.
+            await this.StorageProvider.SaveConnectedAccountsAsync(this.AccountsFileName, accounts);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public async Task<List<ServiceProviderAccount>> LoadConnectionsAsync()
+        {
+            // Load and restore the cached token data collection.
+            Dictionary<string, OAuthToken> tokenData = await this.StorageProvider.TryLoadTokenDataAsync(this.TokenFileName);
+            await this.OAuthService.InitializeTokenDataAsync(tokenData);
+
+            // Get the list of connections.
+            List<ServiceProviderAccount> accounts = new List<ServiceProviderAccount>();
+            try
+            {
+                accounts = await this.StorageProvider.LoadConnectedAccountsAsync(this.AccountsFileName);
+            }
+            catch (Exception ex)
+            {
+
+            }
+
+            return accounts;
         }
         #endregion
     }

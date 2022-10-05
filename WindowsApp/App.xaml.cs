@@ -44,7 +44,7 @@ namespace WindowsApp
         {
             // Start the App Controller.
             MainWindow rootPage = new MainWindow();
-            Contollers.AppController.Instance.StartApp(rootPage);
+            Contollers.AppController.Instance.StartAppAsync(rootPage);
 
             m_window = rootPage;
             m_window.Activate();

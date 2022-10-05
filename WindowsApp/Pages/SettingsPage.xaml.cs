@@ -77,6 +77,9 @@ namespace WindowsApp.Pages
         public SettingsPage()
         {
             this.InitializeComponent();
+
+            // Initialize the collection.
+            this.Accounts = new ObservableCollection<ServiceProviderAccount>();
         }
         #endregion
 
@@ -103,6 +106,15 @@ namespace WindowsApp.Pages
         #endregion
 
         #region Methods
+        /// <summary>
+        /// Add an already connected account to display.
+        /// </summary>
+        /// <param name="account">The account to add.</param>
+        public void AddConnectedAccout(ServiceProviderAccount account)
+        {
+            this.Accounts.Add(account);
+        }
+
         /// <summary>
         /// Shows the service OAuth Code dialog.
         /// </summary>
