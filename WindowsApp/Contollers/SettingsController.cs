@@ -18,9 +18,26 @@ namespace WindowsApp.Contollers
     internal class SettingsController : Singleton<SettingsController>
     {
         #region Properties
+        /// <summary>
+        /// A reference to the view the controller is controlling.
+        /// </summary>
         private SettingsPage View { get; set; }
 
-        private OAuthConnectionManager ConnectionManager { get; set; }
+        /// <summary>
+        /// A reference to a connection manager for a pending new OAuth connection.
+        /// </summary>
+        private OAuthConnectionManager PendingConnectionManager { get; set; }
+        #endregion
+
+        #region Constructors
+        /// <summary>
+        /// Default constructor - initializes all properties to null.
+        /// </summary>
+        public SettingsController()
+        {
+            this.View = null;
+            this.PendingConnectionManager = null;
+        }
         #endregion
 
         #region Event Handlers
@@ -44,6 +61,27 @@ namespace WindowsApp.Contollers
                     break;
             }
         }
+
+        /// <summary>
+        /// Handles when the user cancells the pending connect account request from the settings page.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void View_ConnectionRequestCancelled(object sender, OAuthFlowContinueEventArgs e)
+        {
+            // Clear the state data for the pending authorization.
+            this.PendingConnectionManager = null;
+        }
+
+        /// <summary>
+        /// Handles when the user has entered an OAuth code to connect a service.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void View_OauthCodeAcquired(object sender, OAuthFlowContinueEventArgs e)
+        {
+            this.TryContinueOAuthFlowAsync(e.Code);
+        }
         #endregion
 
         #region Methods
@@ -55,6 +93,8 @@ namespace WindowsApp.Contollers
         {
             // Subscribe to the page's events.
             view.ChangeAccountConnectionRequested += this.View_ChangeAccountConnectionRequested;
+            view.OauthCodeAcquired += this.View_OauthCodeAcquired;
+            view.ConnectionRequestCancelled += View_ConnectionRequestCancelled;
 
             // Store a reference to the page.
             this.View = view;
@@ -67,12 +107,42 @@ namespace WindowsApp.Contollers
         private async Task StartOAuthFlowAsync(IOAuthService serviceProvider)
         {
             // Create a new OAuth Connection Manager.
-            this.ConnectionManager = new OAuthConnectionManager(serviceProvider, WindowsStorageProvider.Instance);
+            this.PendingConnectionManager = new OAuthConnectionManager(serviceProvider, WindowsStorageProvider.Instance);
 
             // Get the OAuth uri, and display it on the settings page.
-            string accountName = this.ConnectionManager.GetServiceProviderName();
-            Uri oauthUri = this.ConnectionManager.GetOAuthStartUri();
+            string accountName = this.PendingConnectionManager.GetServiceProviderName();
+            Uri oauthUri = this.PendingConnectionManager.GetOAuthStartUri();
             await this.View.ShowServiceOAuthCodeUIAsync(accountName, oauthUri);
+        }
+
+        /// <summary>
+        /// Attempts to complete a started OAuth flow from the Settings Page.
+        /// </summary>
+        /// <param name="code"></param>
+        /// <exception cref="InvalidOperationException"></exception>
+        /// <returns></returns>
+        private async Task TryContinueOAuthFlowAsync(string code)
+        {
+            // Ensure there is a pending connection to complete.
+            if (this.PendingConnectionManager == null)
+            {
+                throw new InvalidOperationException("No pending connection to cmoplete. Use StartOAuthFlowAsync() to begin a new connection before calling TryContinueOAuthFlowAsync().");
+            }
+
+            // Validate the code.
+            if (String.IsNullOrWhiteSpace(code))
+            {
+                // The code is definitely invalid; no point in reaching out to the server.
+                string errorMessage = "No code was entered!";
+                await this.View.ShowOAuthErrorUIAsync(errorMessage);
+            }
+            else
+            {
+                // Complete the OAuth flow and clear the state data for the pending authorization.
+                Guid accountId = new Guid();
+                await this.PendingConnectionManager.AddConnectionAsync(accountId.ToString(), code);
+                this.PendingConnectionManager = null;
+            }
         }
         #endregion
     }

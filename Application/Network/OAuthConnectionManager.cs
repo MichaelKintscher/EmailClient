@@ -63,11 +63,24 @@ namespace Application.Network
         }
 
         /// <summary>
+        /// Adds a new connection to the API service this manager manages using the supplied OAuth credentials.
+        /// </summary>
+        /// <param name="accountId">The newly assigned account ID of the account to add.</param>
+        /// <param name="authorizationCode">The authorization code acquired from the OAuth authorization endpoint.</param>
+        /// <returns></returns>
+        public async Task AddConnectionAsync(string accountId, string authorizationCode)
+        {
+            // Complete the OAuth flow and save the new connection data.
+            await this.OAuthService.GetOauthTokenAsync(accountId, authorizationCode);
+            await this.SaveConnectionAsync();
+        }
+
+        /// <summary>
         /// Removes a connection to the API service this manager manages.
         /// </summary>
         /// <param name="accountId">The account ID of the account to remove.</param>
         /// <returns></returns>
-        public async Task RemoveConnection(string accountId)
+        public async Task RemoveConnectionAsync(string accountId)
         {
             // Remove the cached connection data from the API.
             bool removed = await this.OAuthService.RemoveConnectionAsync(accountId);
@@ -75,7 +88,7 @@ namespace Application.Network
             // Save the updated connection data if it changed.
             if (removed)
             {
-                await this.SaveConnection();
+                await this.SaveConnectionAsync();
             }
         }
 
@@ -83,7 +96,7 @@ namespace Application.Network
         /// Saves the authorization data for the current connection to the OAuth API.
         /// </summary>
         /// <returns></returns>
-        public async Task SaveConnection()
+        public async Task SaveConnectionAsync()
         {
             // Get the updated cached token data collection.
             Dictionary<string, OAuthToken> tokenData = this.OAuthService.GetCachedTokenData();

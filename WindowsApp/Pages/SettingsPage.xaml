@@ -17,6 +17,14 @@
     </Page.Resources>
 
     <Grid>
+        <!-- The content dialog for authentication errors. -->
+        <ContentDialog x:Name="OauthErrorDialog"
+                       PrimaryButtonText="Try Again"
+                       CloseButtonText="Cancel"
+                       Title="Authentication Error">
+            <TextBlock x:Name="OAuthErrorTextBlock"></TextBlock>
+        </ContentDialog>
+        
         <!-- The content dialog for entering an OAuth code. -->
         <ContentDialog x:Name="FinishAddingServiceDialog"
                        PrimaryButtonText="Finish"

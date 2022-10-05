@@ -21,6 +21,15 @@ namespace Application.Network
         public Uri GetOAuthUri();
 
         /// <summary>
+        /// Completes the OAuth flow by exchanging the given authorization code for a token.
+        /// </summary>
+        /// <param name="accountId">The account ID to check the access token of.</param>
+        /// <param name="authorizationCode">The authorization code to exchange for the token.</param>
+        /// <exception cref="InvalidOperationException">Thrown if this method is called before the API credentials are initialized. Use Initialize() to set the credentials.</exception>
+        /// <exception cref="Exception">The given accountId has no data associated with it.</exception>
+        public Task GetOauthTokenAsync(string accountId, string authorizationCode);
+
+        /// <summary>
         /// Initializes the token data cache and refreshes each token if needed.
         /// </summary>
         /// <param name="tokens">A ditionary of OAuthToken values keyed by account ID.</param>

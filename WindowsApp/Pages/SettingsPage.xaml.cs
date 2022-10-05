@@ -134,6 +134,35 @@ namespace WindowsApp.Pages
                     break;
             }
         }
+
+        /// <summary>
+        /// Shows the error UI.
+        /// </summary>
+        /// <param name="errorMessage">The error message to display.</param>
+        /// <returns></returns>
+        public async Task ShowOAuthErrorUIAsync(string errorMessage)
+        {
+            // Set the error message.
+            this.OAuthErrorTextBlock.Text = errorMessage;
+
+            var result = await this.OauthErrorDialog.ShowAsync();
+
+            switch (result)
+            {
+                case ContentDialogResult.None:
+                    // Nothing to do... just close the dialog.
+                    break;
+                case ContentDialogResult.Primary:
+                    // Raise the RaiseChangeAccountConnectionRequested event to an retry connecting.
+                    this.RaiseChangeAccountConnectionRequested(null, EmailProvider.Google, ConnectionAction.RetryConnect);
+                    break;
+                case ContentDialogResult.Secondary:
+                    // Nothing to do... just close the dialog.
+                    break;
+                default:
+                    break;
+            }
+        }
         #endregion
     }
 }
