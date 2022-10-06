@@ -10,8 +10,11 @@
       "WindowsApp/1.0.0": {
         "dependencies": {
           "Domain": "1.0.0",
+          "InterfaceAdapters": "1.0.0",
           "Microsoft.Windows.SDK.BuildTools": "10.0.22000.194",
           "Microsoft.WindowsAppSDK": "1.0.3",
+          "Network": "1.0.0",
+          "WindowsOS": "1.0.0",
           "runtimepack.Microsoft.NETCore.App.Runtime.win-x64": "6.0.7",
           "runtimepack.Microsoft.Windows.SDK.NET.Ref": "10.0.19041.26"
         },
@@ -913,9 +916,44 @@
           }
         }
       },
+      "Application/1.0.0": {
+        "dependencies": {
+          "Domain": "1.0.0"
+        },
+        "runtime": {
+          "Application.dll": {}
+        }
+      },
       "Domain/1.0.0": {
         "runtime": {
           "Domain.dll": {}
+        }
+      },
+      "InterfaceAdapters/1.0.0": {
+        "dependencies": {
+          "Domain": "1.0.0"
+        },
+        "runtime": {
+          "InterfaceAdapters.dll": {}
+        }
+      },
+      "Network/1.0.0": {
+        "dependencies": {
+          "Application": "1.0.0",
+          "Domain": "1.0.0",
+          "InterfaceAdapters": "1.0.0"
+        },
+        "runtime": {
+          "Network.dll": {}
+        }
+      },
+      "WindowsOS/1.0.0": {
+        "dependencies": {
+          "Application": "1.0.0",
+          "InterfaceAdapters": "1.0.0"
+        },
+        "runtime": {
+          "WindowsOS.dll": {}
         }
       }
     }
@@ -950,7 +988,27 @@
       "path": "microsoft.windowsappsdk/1.0.3",
       "hashPath": "microsoft.windowsappsdk.1.0.3.nupkg.sha512"
     },
+    "Application/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
     "Domain/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "InterfaceAdapters/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Network/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "WindowsOS/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

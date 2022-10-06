@@ -27,9 +27,15 @@ namespace WindowsApp
         public MainWindow()
         {
             this.InitializeComponent();
+        }
 
-            // Set the frame to display the settings page for now.
-            this.ContentFrame.Content = new SettingsPage();
+        /// <summary>
+        /// Displays the requested page.
+        /// </summary>
+        /// <param name="page">The page to display.</param>
+        internal void Navigate(Page page)
+        {
+            this.ContentFrame.Content = page;
         }
     }
 }

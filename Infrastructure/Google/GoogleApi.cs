@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Network.Google
 {
-    internal abstract class GoogleApi<T> : OAuthApi<T> where T : new()
+    public abstract class GoogleApi<T> : OAuthApi<T> where T : new()
     {
         #region Constants
         /// <summary>

@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Application.Common.Commands.CreateServiceProviderAccount;
 using Domain.Common;
 using Domain.Emails;
+using Network.Common;
 using Network.Common.Exceptions;
 
 namespace Network.Google
@@ -15,7 +16,7 @@ namespace Network.Google
     /// Wrapper class for interfacing with the Gmail API. This class encapsulates
     ///  all external dependencies on the Gmail v1 API.
     /// </summary>
-    internal class GmailAPI : GoogleApi<GmailAPI>
+    public class GmailAPI : GoogleApi<GmailAPI>
     {
         #region Constants
         /// <summary>
@@ -51,7 +52,7 @@ namespace Network.Google
         /// <param name="accountId">The ID for the account assigned by the app.</param>
         /// <returns></returns>
         /// <exception cref="ResponseFormatException">Thrown if expected data from the API call response is missing.</exception>
-        public async Task<ServiceProviderAccount> GetAccountAsync(string accountId)
+        public override async Task<ServiceProviderAccount> GetAccountAsync(string accountId)
         {
             // The endpoint for getting Google account info.
             string uri = "https://www.googleapis.com/oauth2/v3/userinfo";
@@ -82,7 +83,7 @@ namespace Network.Google
             // Create the account object.
             ServiceProviderAccount account = ServiceProviderAccountFactory.CreateServiceProviderAccount(
                 accountId,
-                "Google",
+                EmailProvider.Google.ToString(),
                 providerId,
                 userName,
                 pictureUri,

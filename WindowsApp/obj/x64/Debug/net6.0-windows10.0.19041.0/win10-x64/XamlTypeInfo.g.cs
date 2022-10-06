@@ -224,7 +224,7 @@ namespace WindowsApp.WindowsApp_XamlTypeInfo
 
         private void InitTypeTables()
         {
-            _typeNameTable = new string[25];
+            _typeNameTable = new string[26];
             _typeNameTable[0] = "Microsoft.UI.Xaml.Controls.XamlControlsResources";
             _typeNameTable[1] = "Microsoft.UI.Xaml.ResourceDictionary";
             _typeNameTable[2] = "Object";
@@ -242,16 +242,17 @@ namespace WindowsApp.WindowsApp_XamlTypeInfo
             _typeNameTable[14] = "Windows.ApplicationModel.Contacts.Contact";
             _typeNameTable[15] = "Microsoft.UI.Xaml.Controls.PersonPictureTemplateSettings";
             _typeNameTable[16] = "Microsoft.UI.Xaml.DependencyObject";
-            _typeNameTable[17] = "WindowsApp.Pages.SettingsPage";
-            _typeNameTable[18] = "Microsoft.UI.Xaml.Controls.Page";
-            _typeNameTable[19] = "Microsoft.UI.Xaml.Controls.UserControl";
-            _typeNameTable[20] = "System.Collections.ObjectModel.ObservableCollection`1<Domain.Common.ServiceProviderAccount>";
-            _typeNameTable[21] = "System.Collections.ObjectModel.Collection`1<Domain.Common.ServiceProviderAccount>";
-            _typeNameTable[22] = "Domain.Common.ServiceProviderAccount";
-            _typeNameTable[23] = "System.DateTime";
-            _typeNameTable[24] = "System.ValueType";
+            _typeNameTable[17] = "Microsoft.UI.Xaml.Controls.WebView2";
+            _typeNameTable[18] = "Microsoft.UI.Xaml.FrameworkElement";
+            _typeNameTable[19] = "System.Uri";
+            _typeNameTable[20] = "Microsoft.Web.WebView2.Core.CoreWebView2";
+            _typeNameTable[21] = "Windows.UI.Color";
+            _typeNameTable[22] = "System.ValueType";
+            _typeNameTable[23] = "WindowsApp.Pages.SettingsPage";
+            _typeNameTable[24] = "Microsoft.UI.Xaml.Controls.Page";
+            _typeNameTable[25] = "Microsoft.UI.Xaml.Controls.UserControl";
 
-            _typeTable = new global::System.Type[25];
+            _typeTable = new global::System.Type[26];
             _typeTable[0] = typeof(global::Microsoft.UI.Xaml.Controls.XamlControlsResources);
             _typeTable[1] = typeof(global::Microsoft.UI.Xaml.ResourceDictionary);
             _typeTable[2] = typeof(global::System.Object);
@@ -269,14 +270,15 @@ namespace WindowsApp.WindowsApp_XamlTypeInfo
             _typeTable[14] = typeof(global::Windows.ApplicationModel.Contacts.Contact);
             _typeTable[15] = typeof(global::Microsoft.UI.Xaml.Controls.PersonPictureTemplateSettings);
             _typeTable[16] = typeof(global::Microsoft.UI.Xaml.DependencyObject);
-            _typeTable[17] = typeof(global::WindowsApp.Pages.SettingsPage);
-            _typeTable[18] = typeof(global::Microsoft.UI.Xaml.Controls.Page);
-            _typeTable[19] = typeof(global::Microsoft.UI.Xaml.Controls.UserControl);
-            _typeTable[20] = typeof(global::System.Collections.ObjectModel.ObservableCollection<global::Domain.Common.ServiceProviderAccount>);
-            _typeTable[21] = typeof(global::System.Collections.ObjectModel.Collection<global::Domain.Common.ServiceProviderAccount>);
-            _typeTable[22] = typeof(global::Domain.Common.ServiceProviderAccount);
-            _typeTable[23] = typeof(global::System.DateTime);
-            _typeTable[24] = typeof(global::System.ValueType);
+            _typeTable[17] = typeof(global::Microsoft.UI.Xaml.Controls.WebView2);
+            _typeTable[18] = typeof(global::Microsoft.UI.Xaml.FrameworkElement);
+            _typeTable[19] = typeof(global::System.Uri);
+            _typeTable[20] = typeof(global::Microsoft.Web.WebView2.Core.CoreWebView2);
+            _typeTable[21] = typeof(global::Windows.UI.Color);
+            _typeTable[22] = typeof(global::System.ValueType);
+            _typeTable[23] = typeof(global::WindowsApp.Pages.SettingsPage);
+            _typeTable[24] = typeof(global::Microsoft.UI.Xaml.Controls.Page);
+            _typeTable[25] = typeof(global::Microsoft.UI.Xaml.Controls.UserControl);
         }
 
         private int LookupTypeIndexByName(string typeName)
@@ -317,28 +319,14 @@ namespace WindowsApp.WindowsApp_XamlTypeInfo
         private object Activate_8_BoolToInverseBoolConverter() { return new global::WindowsApp.Converters.BoolToInverseBoolConverter(); }
         private object Activate_9_PersonPicture() { return new global::Microsoft.UI.Xaml.Controls.PersonPicture(); }
         private object Activate_14_Contact() { return new global::Windows.ApplicationModel.Contacts.Contact(); }
-        private object Activate_17_SettingsPage() { return new global::WindowsApp.Pages.SettingsPage(); }
-        private object Activate_20_ObservableCollection() { return new global::System.Collections.ObjectModel.ObservableCollection<global::Domain.Common.ServiceProviderAccount>(); }
-        private object Activate_21_Collection() { return new global::System.Collections.ObjectModel.Collection<global::Domain.Common.ServiceProviderAccount>(); }
-        private object Activate_22_ServiceProviderAccount() { return new global::Domain.Common.ServiceProviderAccount(); }
+        private object Activate_17_WebView2() { return new global::Microsoft.UI.Xaml.Controls.WebView2(); }
+        private object Activate_23_SettingsPage() { return new global::WindowsApp.Pages.SettingsPage(); }
         private void MapAdd_0_XamlControlsResources(object instance, object key, object item)
         {
             var collection = (global::System.Collections.Generic.IDictionary<global::System.Object, global::System.Object>)instance;
             var newKey = (global::System.Object)key;
             var newItem = (global::System.Object)item;
             collection.Add(newKey, newItem);
-        }
-        private void VectorAdd_20_ObservableCollection(object instance, object item)
-        {
-            var collection = (global::System.Collections.Generic.ICollection<global::Domain.Common.ServiceProviderAccount>)instance;
-            var newItem = (global::Domain.Common.ServiceProviderAccount)item;
-            collection.Add(newItem);
-        }
-        private void VectorAdd_21_Collection(object instance, object item)
-        {
-            var collection = (global::System.Collections.Generic.ICollection<global::Domain.Common.ServiceProviderAccount>)instance;
-            var newItem = (global::Domain.Common.ServiceProviderAccount)item;
-            collection.Add(newItem);
         }
 
         private global::Microsoft.UI.Xaml.Markup.IXamlType CreateXamlType(int typeIndex)
@@ -451,60 +439,57 @@ namespace WindowsApp.WindowsApp_XamlTypeInfo
                 xamlType = new global::WindowsApp.WindowsApp_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 17:   //  WindowsApp.Pages.SettingsPage
-                userType = new global::WindowsApp.WindowsApp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_17_SettingsPage;
-                userType.AddMemberName("Accounts");
-                userType.SetIsLocalType();
+            case 17:   //  Microsoft.UI.Xaml.Controls.WebView2
+                userType = new global::WindowsApp.WindowsApp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.FrameworkElement"));
+                userType.Activator = Activate_17_WebView2;
+                userType.AddMemberName("Source");
+                userType.AddMemberName("CanGoBack");
+                userType.AddMemberName("CanGoForward");
+                userType.AddMemberName("CoreWebView2");
+                userType.AddMemberName("DefaultBackgroundColor");
                 xamlType = userType;
                 break;
 
-            case 18:   //  Microsoft.UI.Xaml.Controls.Page
+            case 18:   //  Microsoft.UI.Xaml.FrameworkElement
                 xamlType = new global::WindowsApp.WindowsApp_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 19:   //  Microsoft.UI.Xaml.Controls.UserControl
-                xamlType = new global::WindowsApp.WindowsApp_XamlTypeInfo.XamlSystemBaseType(typeName, type);
-                break;
-
-            case 20:   //  System.Collections.ObjectModel.ObservableCollection`1<Domain.Common.ServiceProviderAccount>
-                userType = new global::WindowsApp.WindowsApp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("System.Collections.ObjectModel.Collection`1<Domain.Common.ServiceProviderAccount>"));
-                userType.CollectionAdd = VectorAdd_20_ObservableCollection;
+            case 19:   //  System.Uri
+                userType = new global::WindowsApp.WindowsApp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
                 userType.SetIsReturnTypeStub();
                 xamlType = userType;
                 break;
 
-            case 21:   //  System.Collections.ObjectModel.Collection`1<Domain.Common.ServiceProviderAccount>
+            case 20:   //  Microsoft.Web.WebView2.Core.CoreWebView2
                 userType = new global::WindowsApp.WindowsApp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
-                userType.Activator = Activate_21_Collection;
-                userType.CollectionAdd = VectorAdd_21_Collection;
+                userType.SetIsReturnTypeStub();
                 xamlType = userType;
                 break;
 
-            case 22:   //  Domain.Common.ServiceProviderAccount
-                userType = new global::WindowsApp.WindowsApp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
-                userType.Activator = Activate_22_ServiceProviderAccount;
-                userType.AddMemberName("ID");
-                userType.AddMemberName("Provider");
-                userType.AddMemberName("ProviderGivenID");
-                userType.AddMemberName("FriendlyName");
-                userType.AddMemberName("Username");
-                userType.AddMemberName("PictureUri");
-                userType.AddMemberName("PictureLocalUri");
-                userType.AddMemberName("Connected");
-                userType.AddMemberName("LastSynced");
-                xamlType = userType;
-                break;
-
-            case 23:   //  System.DateTime
+            case 21:   //  Windows.UI.Color
                 userType = new global::WindowsApp.WindowsApp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("System.ValueType"));
                 userType.SetIsReturnTypeStub();
                 xamlType = userType;
                 break;
 
-            case 24:   //  System.ValueType
+            case 22:   //  System.ValueType
                 userType = new global::WindowsApp.WindowsApp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
                 xamlType = userType;
+                break;
+
+            case 23:   //  WindowsApp.Pages.SettingsPage
+                userType = new global::WindowsApp.WindowsApp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.Controls.Page"));
+                userType.Activator = Activate_23_SettingsPage;
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 24:   //  Microsoft.UI.Xaml.Controls.Page
+                xamlType = new global::WindowsApp.WindowsApp_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 25:   //  Microsoft.UI.Xaml.Controls.UserControl
+                xamlType = new global::WindowsApp.WindowsApp_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
             }
             return xamlType;
@@ -700,105 +685,50 @@ namespace WindowsApp.WindowsApp_XamlTypeInfo
             var that = (global::Microsoft.UI.Xaml.Controls.PersonPicture)instance;
             return that.TemplateSettings;
         }
-        private object get_14_SettingsPage_Accounts(object instance)
+        private object get_14_WebView2_Source(object instance)
         {
-            var that = (global::WindowsApp.Pages.SettingsPage)instance;
-            return that.Accounts;
+            var that = (global::Microsoft.UI.Xaml.Controls.WebView2)instance;
+            return that.Source;
         }
-        private void set_14_SettingsPage_Accounts(object instance, object Value)
+        private void set_14_WebView2_Source(object instance, object Value)
         {
-            var that = (global::WindowsApp.Pages.SettingsPage)instance;
-            that.Accounts = (global::System.Collections.ObjectModel.ObservableCollection<global::Domain.Common.ServiceProviderAccount>)Value;
+            var that = (global::Microsoft.UI.Xaml.Controls.WebView2)instance;
+            that.Source = (global::System.Uri)Value;
         }
-        private object get_15_ServiceProviderAccount_ID(object instance)
+        private object get_15_WebView2_CanGoBack(object instance)
         {
-            var that = (global::Domain.Common.ServiceProviderAccount)instance;
-            return that.ID;
+            var that = (global::Microsoft.UI.Xaml.Controls.WebView2)instance;
+            return that.CanGoBack;
         }
-        private void set_15_ServiceProviderAccount_ID(object instance, object Value)
+        private void set_15_WebView2_CanGoBack(object instance, object Value)
         {
-            var that = (global::Domain.Common.ServiceProviderAccount)instance;
-            that.ID = (global::System.String)Value;
+            var that = (global::Microsoft.UI.Xaml.Controls.WebView2)instance;
+            that.CanGoBack = (global::System.Boolean)Value;
         }
-        private object get_16_ServiceProviderAccount_Provider(object instance)
+        private object get_16_WebView2_CanGoForward(object instance)
         {
-            var that = (global::Domain.Common.ServiceProviderAccount)instance;
-            return that.Provider;
+            var that = (global::Microsoft.UI.Xaml.Controls.WebView2)instance;
+            return that.CanGoForward;
         }
-        private void set_16_ServiceProviderAccount_Provider(object instance, object Value)
+        private void set_16_WebView2_CanGoForward(object instance, object Value)
         {
-            var that = (global::Domain.Common.ServiceProviderAccount)instance;
-            that.Provider = (global::System.String)Value;
+            var that = (global::Microsoft.UI.Xaml.Controls.WebView2)instance;
+            that.CanGoForward = (global::System.Boolean)Value;
         }
-        private object get_17_ServiceProviderAccount_ProviderGivenID(object instance)
+        private object get_17_WebView2_CoreWebView2(object instance)
         {
-            var that = (global::Domain.Common.ServiceProviderAccount)instance;
-            return that.ProviderGivenID;
+            var that = (global::Microsoft.UI.Xaml.Controls.WebView2)instance;
+            return that.CoreWebView2;
         }
-        private void set_17_ServiceProviderAccount_ProviderGivenID(object instance, object Value)
+        private object get_18_WebView2_DefaultBackgroundColor(object instance)
         {
-            var that = (global::Domain.Common.ServiceProviderAccount)instance;
-            that.ProviderGivenID = (global::System.String)Value;
+            var that = (global::Microsoft.UI.Xaml.Controls.WebView2)instance;
+            return that.DefaultBackgroundColor;
         }
-        private object get_18_ServiceProviderAccount_FriendlyName(object instance)
+        private void set_18_WebView2_DefaultBackgroundColor(object instance, object Value)
         {
-            var that = (global::Domain.Common.ServiceProviderAccount)instance;
-            return that.FriendlyName;
-        }
-        private void set_18_ServiceProviderAccount_FriendlyName(object instance, object Value)
-        {
-            var that = (global::Domain.Common.ServiceProviderAccount)instance;
-            that.FriendlyName = (global::System.String)Value;
-        }
-        private object get_19_ServiceProviderAccount_Username(object instance)
-        {
-            var that = (global::Domain.Common.ServiceProviderAccount)instance;
-            return that.Username;
-        }
-        private void set_19_ServiceProviderAccount_Username(object instance, object Value)
-        {
-            var that = (global::Domain.Common.ServiceProviderAccount)instance;
-            that.Username = (global::System.String)Value;
-        }
-        private object get_20_ServiceProviderAccount_PictureUri(object instance)
-        {
-            var that = (global::Domain.Common.ServiceProviderAccount)instance;
-            return that.PictureUri;
-        }
-        private void set_20_ServiceProviderAccount_PictureUri(object instance, object Value)
-        {
-            var that = (global::Domain.Common.ServiceProviderAccount)instance;
-            that.PictureUri = (global::System.String)Value;
-        }
-        private object get_21_ServiceProviderAccount_PictureLocalUri(object instance)
-        {
-            var that = (global::Domain.Common.ServiceProviderAccount)instance;
-            return that.PictureLocalUri;
-        }
-        private void set_21_ServiceProviderAccount_PictureLocalUri(object instance, object Value)
-        {
-            var that = (global::Domain.Common.ServiceProviderAccount)instance;
-            that.PictureLocalUri = (global::System.String)Value;
-        }
-        private object get_22_ServiceProviderAccount_Connected(object instance)
-        {
-            var that = (global::Domain.Common.ServiceProviderAccount)instance;
-            return that.Connected;
-        }
-        private void set_22_ServiceProviderAccount_Connected(object instance, object Value)
-        {
-            var that = (global::Domain.Common.ServiceProviderAccount)instance;
-            that.Connected = (global::System.Boolean)Value;
-        }
-        private object get_23_ServiceProviderAccount_LastSynced(object instance)
-        {
-            var that = (global::Domain.Common.ServiceProviderAccount)instance;
-            return that.LastSynced;
-        }
-        private void set_23_ServiceProviderAccount_LastSynced(object instance, object Value)
-        {
-            var that = (global::Domain.Common.ServiceProviderAccount)instance;
-            that.LastSynced = (global::System.DateTime)Value;
+            var that = (global::Microsoft.UI.Xaml.Controls.WebView2)instance;
+            that.DefaultBackgroundColor = (global::Windows.UI.Color)Value;
         }
 
         private global::Microsoft.UI.Xaml.Markup.IXamlMember CreateXamlMember(string longMemberName)
@@ -903,65 +833,39 @@ namespace WindowsApp.WindowsApp_XamlTypeInfo
                 xamlMember.Getter = get_13_PersonPicture_TemplateSettings;
                 xamlMember.SetIsReadOnly();
                 break;
-            case "WindowsApp.Pages.SettingsPage.Accounts":
-                userType = (global::WindowsApp.WindowsApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("WindowsApp.Pages.SettingsPage");
-                xamlMember = new global::WindowsApp.WindowsApp_XamlTypeInfo.XamlMember(this, "Accounts", "System.Collections.ObjectModel.ObservableCollection`1<Domain.Common.ServiceProviderAccount>");
-                xamlMember.Getter = get_14_SettingsPage_Accounts;
-                xamlMember.Setter = set_14_SettingsPage_Accounts;
+            case "Microsoft.UI.Xaml.Controls.WebView2.Source":
+                userType = (global::WindowsApp.WindowsApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.WebView2");
+                xamlMember = new global::WindowsApp.WindowsApp_XamlTypeInfo.XamlMember(this, "Source", "System.Uri");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_14_WebView2_Source;
+                xamlMember.Setter = set_14_WebView2_Source;
                 break;
-            case "Domain.Common.ServiceProviderAccount.ID":
-                userType = (global::WindowsApp.WindowsApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Domain.Common.ServiceProviderAccount");
-                xamlMember = new global::WindowsApp.WindowsApp_XamlTypeInfo.XamlMember(this, "ID", "String");
-                xamlMember.Getter = get_15_ServiceProviderAccount_ID;
-                xamlMember.Setter = set_15_ServiceProviderAccount_ID;
+            case "Microsoft.UI.Xaml.Controls.WebView2.CanGoBack":
+                userType = (global::WindowsApp.WindowsApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.WebView2");
+                xamlMember = new global::WindowsApp.WindowsApp_XamlTypeInfo.XamlMember(this, "CanGoBack", "Boolean");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_15_WebView2_CanGoBack;
+                xamlMember.Setter = set_15_WebView2_CanGoBack;
                 break;
-            case "Domain.Common.ServiceProviderAccount.Provider":
-                userType = (global::WindowsApp.WindowsApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Domain.Common.ServiceProviderAccount");
-                xamlMember = new global::WindowsApp.WindowsApp_XamlTypeInfo.XamlMember(this, "Provider", "String");
-                xamlMember.Getter = get_16_ServiceProviderAccount_Provider;
-                xamlMember.Setter = set_16_ServiceProviderAccount_Provider;
+            case "Microsoft.UI.Xaml.Controls.WebView2.CanGoForward":
+                userType = (global::WindowsApp.WindowsApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.WebView2");
+                xamlMember = new global::WindowsApp.WindowsApp_XamlTypeInfo.XamlMember(this, "CanGoForward", "Boolean");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_16_WebView2_CanGoForward;
+                xamlMember.Setter = set_16_WebView2_CanGoForward;
                 break;
-            case "Domain.Common.ServiceProviderAccount.ProviderGivenID":
-                userType = (global::WindowsApp.WindowsApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Domain.Common.ServiceProviderAccount");
-                xamlMember = new global::WindowsApp.WindowsApp_XamlTypeInfo.XamlMember(this, "ProviderGivenID", "String");
-                xamlMember.Getter = get_17_ServiceProviderAccount_ProviderGivenID;
-                xamlMember.Setter = set_17_ServiceProviderAccount_ProviderGivenID;
+            case "Microsoft.UI.Xaml.Controls.WebView2.CoreWebView2":
+                userType = (global::WindowsApp.WindowsApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.WebView2");
+                xamlMember = new global::WindowsApp.WindowsApp_XamlTypeInfo.XamlMember(this, "CoreWebView2", "Microsoft.Web.WebView2.Core.CoreWebView2");
+                xamlMember.Getter = get_17_WebView2_CoreWebView2;
+                xamlMember.SetIsReadOnly();
                 break;
-            case "Domain.Common.ServiceProviderAccount.FriendlyName":
-                userType = (global::WindowsApp.WindowsApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Domain.Common.ServiceProviderAccount");
-                xamlMember = new global::WindowsApp.WindowsApp_XamlTypeInfo.XamlMember(this, "FriendlyName", "String");
-                xamlMember.Getter = get_18_ServiceProviderAccount_FriendlyName;
-                xamlMember.Setter = set_18_ServiceProviderAccount_FriendlyName;
-                break;
-            case "Domain.Common.ServiceProviderAccount.Username":
-                userType = (global::WindowsApp.WindowsApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Domain.Common.ServiceProviderAccount");
-                xamlMember = new global::WindowsApp.WindowsApp_XamlTypeInfo.XamlMember(this, "Username", "String");
-                xamlMember.Getter = get_19_ServiceProviderAccount_Username;
-                xamlMember.Setter = set_19_ServiceProviderAccount_Username;
-                break;
-            case "Domain.Common.ServiceProviderAccount.PictureUri":
-                userType = (global::WindowsApp.WindowsApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Domain.Common.ServiceProviderAccount");
-                xamlMember = new global::WindowsApp.WindowsApp_XamlTypeInfo.XamlMember(this, "PictureUri", "String");
-                xamlMember.Getter = get_20_ServiceProviderAccount_PictureUri;
-                xamlMember.Setter = set_20_ServiceProviderAccount_PictureUri;
-                break;
-            case "Domain.Common.ServiceProviderAccount.PictureLocalUri":
-                userType = (global::WindowsApp.WindowsApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Domain.Common.ServiceProviderAccount");
-                xamlMember = new global::WindowsApp.WindowsApp_XamlTypeInfo.XamlMember(this, "PictureLocalUri", "String");
-                xamlMember.Getter = get_21_ServiceProviderAccount_PictureLocalUri;
-                xamlMember.Setter = set_21_ServiceProviderAccount_PictureLocalUri;
-                break;
-            case "Domain.Common.ServiceProviderAccount.Connected":
-                userType = (global::WindowsApp.WindowsApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Domain.Common.ServiceProviderAccount");
-                xamlMember = new global::WindowsApp.WindowsApp_XamlTypeInfo.XamlMember(this, "Connected", "Boolean");
-                xamlMember.Getter = get_22_ServiceProviderAccount_Connected;
-                xamlMember.Setter = set_22_ServiceProviderAccount_Connected;
-                break;
-            case "Domain.Common.ServiceProviderAccount.LastSynced":
-                userType = (global::WindowsApp.WindowsApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Domain.Common.ServiceProviderAccount");
-                xamlMember = new global::WindowsApp.WindowsApp_XamlTypeInfo.XamlMember(this, "LastSynced", "System.DateTime");
-                xamlMember.Getter = get_23_ServiceProviderAccount_LastSynced;
-                xamlMember.Setter = set_23_ServiceProviderAccount_LastSynced;
+            case "Microsoft.UI.Xaml.Controls.WebView2.DefaultBackgroundColor":
+                userType = (global::WindowsApp.WindowsApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.WebView2");
+                xamlMember = new global::WindowsApp.WindowsApp_XamlTypeInfo.XamlMember(this, "DefaultBackgroundColor", "Windows.UI.Color");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_18_WebView2_DefaultBackgroundColor;
+                xamlMember.Setter = set_18_WebView2_DefaultBackgroundColor;
                 break;
             }
             return xamlMember;

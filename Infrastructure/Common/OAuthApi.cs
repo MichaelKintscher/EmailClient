@@ -1,6 +1,7 @@
-﻿using Application.Network;
+﻿using Application.Common.Commands.CreateServiceProviderAccount;
+using Application.Network;
+using Application.Network.EventArguments;
 using Domain.Common;
-using Network.Common.EventArguments;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,6 +27,11 @@ namespace Network.Common
         private string OAuthRedirectUri { get; set; }
 
         private string OAuthTokenRevocationEndpoint { get; set; }
+
+        /// <summary>
+        /// A cache of the app credentials for the API.
+        /// </summary>
+        private ApiCredential? apiCredentials { get; set; }
 
         /// <summary>
         /// A cache of the token data for the API.
@@ -60,7 +66,6 @@ namespace Network.Common
         public object OAuthTokenAdapter { get; private set; }
 
         #region Delegate Functions
-        private Func<ApiCredential> LoadCredentialsFromFile;
         private Func<ApiCredential, string> GetOAuthQueryString;
         private Func<string, string, ApiCredential, IList<KeyValuePair<string, string>>> GetTokenExchangeParams;
         private Func<string, OAuthToken> ConvertResponseToToken;
@@ -117,6 +122,9 @@ namespace Network.Common
             this.OAuthRedirectUri = oauthRedirectUri;
             this.OAuthTokenRevocationEndpoint = oauthRevocationEndpoint;
 
+            // Initialize the API credentials to empty.
+            this.apiCredentials = null;
+
             // Initialize the delegate functions.
             this.GetOAuthQueryString = getOAuthQueryString;
             this.GetTokenExchangeParams = getTokenExchangeParams;
@@ -125,6 +133,14 @@ namespace Network.Common
         }
 
         #region Methods
+        /// <summary>
+        /// Initialize the app's credentials to access the API.
+        /// </summary>
+        /// <param name="credentials">The app's credentials with the API.</param>
+        public void Initialize(ApiCredential credentials)
+        {
+            this.apiCredentials = credentials;
+        }
 
         /// <summary>
         /// Gets the access token associated with the given account.
@@ -175,17 +191,39 @@ namespace Network.Common
                 (this.tokenDataCollection[accountId].ExpiresInSeconds.HasValue == false ||
                     DateTime.Compare(DateTime.UtcNow, this.tokenDataCollection[accountId].IssuedUtc.AddSeconds(this.tokenDataCollection[accountId].ExpiresInSeconds.Value)) >= 0);
         }
+
+        /// <summary>
+        /// Gets the user's Google account.
+        /// </summary>
+        /// <param name="accountId">The ID for the account assigned by the app.</param>
+        /// <returns></returns>
+        public virtual async Task<ServiceProviderAccount> GetAccountAsync(string accountId)
+        {
+            return ServiceProviderAccountFactory.CreateServiceProviderAccount(
+                accountId,
+                string.Empty,
+                string.Empty,
+                string.Empty,
+                string.Empty,
+                false);
+        }
         #endregion
 
         #region Methods - OAuth Flow
         /// <summary>
         /// Gets the URI to start the OAuth 2.0 authoization flow.
         /// </summary>
+        /// <exception cref="InvalidOperationException">Thrown if this method is called before the API credentials are initialized. Use Initialize() to set the credentials.</exception>
         /// <returns>The URI to start the OAuth 2.0 authoization flow</returns>
         public Uri GetOAuthUri()
         {
-            ApiCredential credentials = this.LoadCredentialsFromFile();
-            string oauthUri = this.OAuthEndPoint + this.GetOAuthQueryString(credentials);
+            // Throw an exception if the API credentials are not set.
+            if (this.apiCredentials == null)
+            {
+                throw new InvalidOperationException("API credentials must be initialized before making a call to GetOAuthUri(). Use Initialize() to set the credentials.");
+            }
+
+            string oauthUri = this.OAuthEndPoint + this.GetOAuthQueryString(this.apiCredentials);
 
             return new Uri(oauthUri);
         }
@@ -195,13 +233,19 @@ namespace Network.Common
         /// </summary>
         /// <param name="accountId">The account ID to check the access token of.</param>
         /// <param name="authorizationCode">The authorization code to exchange for the token.</param>
+        /// <exception cref="InvalidOperationException">Thrown if this method is called before the API credentials are initialized. Use Initialize() to set the credentials.</exception>
+        /// <exception cref="Exception">The given accountId has no data associated with it.</exception>
         public async Task GetOauthTokenAsync(string accountId, string authorizationCode)
         {
+            // Throw an exception if the API credentials are not set.
+            if (this.apiCredentials == null)
+            {
+                throw new InvalidOperationException("API credentials must be initialized before making a call to GetOauthTokenAsync(). Use Initialize() to set the credentials.");
+            }
+
             System.Diagnostics.Debug.WriteLine("Getting token using code: " + authorizationCode);
 
-            ApiCredential credentials = this.LoadCredentialsFromFile();
-
-            IList<KeyValuePair<string, string>> content = this.GetTokenExchangeParams(authorizationCode, this.OAuthRedirectUri, credentials);
+            IList<KeyValuePair<string, string>> content = this.GetTokenExchangeParams(authorizationCode, this.OAuthRedirectUri, this.apiCredentials);
 
             string responseContent = "";
             bool success = true;
@@ -363,6 +407,7 @@ namespace Network.Common
         /// </summary>
         /// <param name="accountId">The account ID to check the access token of.</param>
         /// <exception cref="Exception">The given accountId has no data associated with it.</exception>
+        /// <exception cref="Exception">The given accountId has no data associated with it.</exception>
         /// <returns></returns>
         private async Task RefreshTokenAsync(string accountId)
         {
@@ -372,9 +417,13 @@ namespace Network.Common
                 throw new Exception("No data for the given account ID");
             }
 
-            ApiCredential credentials = this.LoadCredentialsFromFile();
+            // Throw an exception if the API credentials are not set.
+            if (this.apiCredentials == null)
+            {
+                throw new InvalidOperationException("API credentials must be initialized before making a call to RefreshTokenAsync(). Use Initialize() to set the credentials.");
+            }
 
-            IList<KeyValuePair<string, string>> content = this.GetTokenRefreshParams(this.tokenDataCollection[accountId].RefreshToken, credentials);
+            IList<KeyValuePair<string, string>> content = this.GetTokenRefreshParams(this.tokenDataCollection[accountId].RefreshToken, this.apiCredentials);
 
             string responseContent = await this.PostAsync(this.OAuthTokenEndpoint, content);
 

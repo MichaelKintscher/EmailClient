@@ -12,12 +12,50 @@ using WindowsOS.Persistence.Exceptions;
 
 namespace WindowsOS.Persistence
 {
-    public class WindowsStorageProvider : IStorageProvider
+    public class WindowsStorageProvider : Singleton<WindowsStorageProvider>, IStorageProvider
     {
         /// <summary>
         /// The file path the API credentials are stored in.
         /// </summary>
         private static readonly string credentialsFilePath = "/Assets/Config/credentials.json";
+
+        /// <summary>
+        /// Saves a list of the service provider accounts connected to the app.
+        /// </summary>
+        /// <param name="accountsFileName">The name to give the connected service provider accounts file.</param>
+        /// <param name="accounts">The list of connected service provider accounts to save.</param>
+        /// <returns></returns>
+        public async Task SaveConnectedAccountsAsync(string accountsFileName, List<ServiceProviderAccount> accounts)
+        {
+            // Serialize the data to the file format.
+            string accountsString = ServiceProviderAccountAdapter.Serialize(accounts);
+
+            // Create the file, replacing the old if it already exists, and write the data to the file.
+            StorageFile file = await ApplicationData.Current.LocalFolder.CreateFileAsync(accountsFileName, CreationCollisionOption.ReplaceExisting);
+            await FileIO.WriteTextAsync(file, accountsString);
+        }
+
+        /// <summary>
+        /// Gets a list of the service provider accounts connected to the app.
+        /// </summary>
+        /// <param name="accountsFileName">The name to give the connected service provider accounts file.</param>
+        /// <returns></returns>
+        public async Task<List<ServiceProviderAccount>> LoadConnectedAccountsAsync(string accountsFileName)
+        {
+            // Initialize the list.
+            List<ServiceProviderAccount> accounts = new List<ServiceProviderAccount>();
+
+            // Try to read the list from the file.
+            IStorageItem storageItem = await ApplicationData.Current.LocalFolder.TryGetItemAsync(accountsFileName);
+            if (storageItem is StorageFile file)
+            {
+                // Read the data from the file.
+                string fileContent = await FileIO.ReadTextAsync(file);
+                accounts = ServiceProviderAccountAdapter.Deserialize(fileContent);
+            }
+
+            return accounts;
+        }
 
         /// <summary>
         /// Saves the authorization data for all acounts with the current API
