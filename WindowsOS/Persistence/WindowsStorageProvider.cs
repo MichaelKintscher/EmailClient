@@ -27,7 +27,12 @@ namespace WindowsOS.Persistence
         /// <returns></returns>
         public async Task SaveConnectedAccountsAsync(string accountsFileName, List<ServiceProviderAccount> accounts)
         {
-            throw new NotImplementedException();
+            // Serialize the data to the file format.
+            string accountsString = ServiceProviderAccountAdapter.Serialize(accounts);
+
+            // Create the file, replacing the old if it already exists, and write the data to the file.
+            StorageFile file = await ApplicationData.Current.LocalFolder.CreateFileAsync(accountsFileName, CreationCollisionOption.ReplaceExisting);
+            await FileIO.WriteTextAsync(file, accountsString);
         }
 
         /// <summary>

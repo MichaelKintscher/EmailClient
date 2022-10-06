@@ -82,6 +82,27 @@ namespace WindowsApp.Contollers
         {
             this.TryContinueOAuthFlowAsync(e.Code);
         }
+
+        /// <summary>
+        /// Handles when a pending OAuth flow completes (account is authorized).
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void OAuthAccount_Authorized(object sender, Application.Network.EventArguments.ApiAuthorizedEventArgs e)
+        {
+            // Ensure that the authorization was a success.
+            if (e.AuthorizationSuccess == false)
+            {
+                // The authorization failed.
+                string errorMessage = "Authorizing account with " + e.ApiName + " failed!";
+                this.ShowErrorUi(errorMessage);
+            }
+            else
+            {
+                // The authorization was a success, so finish adding the new account.
+                this.FinishAddingAccountAsync(e.AccountID);
+            }
+        }
         #endregion
 
         #region Methods
@@ -142,18 +163,43 @@ namespace WindowsApp.Contollers
             {
                 // The code is definitely invalid; no point in reaching out to the server.
                 string errorMessage = "No code was entered!";
-                await this.View.ShowOAuthErrorUIAsync(errorMessage);
+                await this.ShowErrorUi(errorMessage);
             }
             else
             {
-                // Complete the OAuth flow and clear the state data for the pending authorization.
-                Guid accountId = new Guid();
-                ServiceProviderAccount account = await this.PendingConnectionManager.AddConnectionAsync(accountId.ToString(), code);
-                this.PendingConnectionManager = null;
-
-                // Add the new account to the list of accounts to display.
-                this.View.AddConnectedAccout(account);
+                // Register for the authorized callback and complete the OAuth flow (authorization token exchange).
+                GmailAPI.Instance.Authorized += OAuthAccount_Authorized;
+                Guid accountId = Guid.NewGuid();
+                await GmailAPI.Instance.GetOauthTokenAsync(accountId.ToString(), code);
             }
+        }
+
+        /// <summary>
+        /// Finishes adding an authorized account.
+        /// </summary>
+        /// <param name="accountId"></param>
+        /// <returns></returns>
+        private async Task FinishAddingAccountAsync(string accountId)
+        {
+            // Complete the OAuth flow, unregister the callback, and clear the state data for the pending authorization.
+            ServiceProviderAccount account = await this.PendingConnectionManager.AddConnectionAsync(accountId);
+            this.PendingConnectionManager = null;
+            GmailAPI.Instance.Authorized -= this.OAuthAccount_Authorized;
+
+            // Add the new account to the list of accounts to display.
+            this.View.AddConnectedAccout(account);
+        }
+
+        /// <summary>
+        /// Displays the given error message on the Settings Page UI.
+        /// Wraps the error message display in an async method so it can
+        /// be called from event handlers.
+        /// </summary>
+        /// <param name="errorMessage">The error message to display.</param>
+        /// <returns></returns>
+        private async Task ShowErrorUi(string errorMessage)
+        {
+            await this.View.ShowOAuthErrorUIAsync(errorMessage);
         }
         #endregion
     }

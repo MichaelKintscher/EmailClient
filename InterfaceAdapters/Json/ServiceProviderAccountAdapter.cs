@@ -14,7 +14,31 @@ namespace InterfaceAdapters.Json
     {
         public static string Serialize(List<ServiceProviderAccount> accounts)
         {
-            return String.Empty;
+            // There are no accounts to save.
+            if (accounts == null ||
+                accounts.Count < 1)
+            {
+                return string.Empty;
+            }
+
+            // For each account in the list of accounts...
+            JsonArray accountsArray = new JsonArray();
+            foreach (ServiceProviderAccount account in accounts)
+            {
+                // Serialize the account data.
+                JsonDocument accountJson = JsonSerializer.SerializeToDocument(account);
+
+                // Add any data assoicated with the account.
+
+                // Add the account to array.
+                accountsArray.Add(accountJson);
+            }
+
+            // Store the array in a json object.
+            JsonObject jsonObject = new JsonObject();
+            jsonObject.Add("accounts", accountsArray);
+
+            return jsonObject.ToJsonString();
         }
 
         public static List<ServiceProviderAccount> Deserialize(string lines)

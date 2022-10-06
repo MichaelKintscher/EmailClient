@@ -15,6 +15,13 @@ namespace Application.Network
         public string Name { get; set; }
 
         /// <summary>
+        /// Returns whether the user has authorized the app with the API on the given account.
+        /// </summary>
+        /// <param name="accountId">The account ID to check the authorization on.</param>
+        /// <returns></returns>
+        public bool IsAuthorized(string accountId);
+
+        /// <summary>
         /// Gets the URI to start the OAuth 2.0 authoization flow.
         /// </summary>
         /// <returns>The URI to start the OAuth 2.0 authoization flow</returns>

@@ -1,7 +1,7 @@
 ﻿using Application.Common.Commands.CreateServiceProviderAccount;
 using Application.Network;
+using Application.Network.EventArguments;
 using Domain.Common;
-using Network.Common.EventArguments;
 using System;
 using System.Collections.Generic;
 using System.Linq;

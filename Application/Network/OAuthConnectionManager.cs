@@ -71,15 +71,20 @@ namespace Application.Network
         }
 
         /// <summary>
-        /// Adds a new connection to the API service this manager manages using the supplied OAuth credentials.
+        /// Adds a new connection to the API service this manager managess. Throws an error if the connection is not authorized.
         /// </summary>
         /// <param name="accountId">The newly assigned account ID of the account to add.</param>
-        /// <param name="authorizationCode">The authorization code acquired from the OAuth authorization endpoint.</param>
         /// <returns></returns>
-        public async Task<ServiceProviderAccount> AddConnectionAsync(string accountId, string authorizationCode)
+        /// <exception cref="InvalidOperationException">Thrown if the given account ID is not authorized with the API.</exception>
+        public async Task<ServiceProviderAccount> AddConnectionAsync(string accountId)
         {
-            // Complete the OAuth flow and save the new connection data.
-            await this.OAuthService.GetOauthTokenAsync(accountId, authorizationCode);
+            // Ensure the connection is authorized.
+            bool authorized = this.OAuthService.IsAuthorized(accountId);
+            if (authorized == false)
+            {
+                throw new InvalidOperationException("Account is not authorized! Authorize the account with the service provider " +
+                                                    this.OAuthService.Name + " before attempting to add a connection.");
+            }
 
             // Get the account data.
             ServiceProviderAccount account = await this.OAuthService.GetAccountAsync(accountId);
