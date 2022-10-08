@@ -47,20 +47,39 @@
                        CloseButtonText="Nevermind"
                        Title="Confirm Remove Account">
             <StackPanel>
-                <TextBlock Text="Are you sure you want to remove this account?"></TextBlock>
-                <StackPanel Margin="0,20,0,0">
+                <TextBlock Text="Are you sure you want to remove this account?"
+                           Margin="0,0,0,10"></TextBlock>
+                <StackPanel>
                     <!-- Display for the account details of the account to be removed. -->
                     <ContentControl x:ConnectionId='17' x:Name="AccountToRemoveContentControl">
                         <ContentControl.ContentTemplate>
                             <DataTemplate                                           >
-                                <StackPanel x:ConnectionId='19'>
-                                    <TextBlock x:ConnectionId='20'                             ></TextBlock>
-                                    <PersonPicture x:ConnectionId='21' MaxWidth="50"
+                                <Grid x:ConnectionId='19' Margin="10">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="auto"></RowDefinition>
+                                        <RowDefinition Height="auto"></RowDefinition>
+                                        <RowDefinition Height="auto"></RowDefinition>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="auto"></ColumnDefinition>
+                                        <ColumnDefinition Width="*"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+                                    <PersonPicture x:ConnectionId='20' Grid.RowSpan="3"
+                                                   Grid.Column="0"
+                                                   MaxWidth="50"
+                                                   Margin="0,0,20,0"
                                                                                        
                                                                                   ></PersonPicture>
-                                    <TextBlock x:ConnectionId='22'                         ></TextBlock>
-                                    <TextBlock x:ConnectionId='23'                         ></TextBlock>
-                                </StackPanel>
+                                    <TextBlock x:ConnectionId='21' Grid.Row="0"
+                                               Grid.Column="1"
+                                                                           ></TextBlock>
+                                    <TextBlock x:ConnectionId='22' Grid.Row="1"
+                                               Grid.Column="1"
+                                                                       ></TextBlock>
+                                    <TextBlock x:ConnectionId='23' Grid.Row="2"
+                                               Grid.Column="1"
+                                                                       ></TextBlock>
+                                </Grid>
                             </DataTemplate>
                         </ContentControl.ContentTemplate>
                     </ContentControl>
