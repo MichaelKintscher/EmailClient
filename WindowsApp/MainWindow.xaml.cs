@@ -32,7 +32,7 @@ namespace WindowsApp
         /// </summary>
         private readonly List<(PageTypes Tag, Type Page)> _pages = new List<(PageTypes Tag, Type Page)>
         {
-            //(PageTypes.Home, typeof(HomePage)),
+            (PageTypes.Home, typeof(HomePage)),
             (PageTypes.Settings, typeof(SettingsPage))
         };
 

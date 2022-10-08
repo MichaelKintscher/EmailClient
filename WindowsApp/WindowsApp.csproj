@@ -15,6 +15,7 @@
     <Content Remove="Assets\Config\credentials.json" />
   </ItemGroup>
   <ItemGroup>
+    <None Remove="Pages\HomePage.xaml" />
     <None Remove="Pages\SettingsPage.xaml" />
   </ItemGroup>
 
@@ -50,6 +51,9 @@
     <None Update="Assets\Config\credentials.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <Page Update="Pages\HomePage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Page Update="Pages\SettingsPage.xaml">

@@ -68,7 +68,7 @@ namespace WindowsApp.Contollers.Navigation
             // Logic to determine which page to go to will go here.
 
             // Just navigate to the settings page for now.
-            this.MainWindow.Navigate(PageTypes.Settings);
+            this.MainWindow.Navigate(PageTypes.Home);
         }
 
         /// <summary>
@@ -79,9 +79,14 @@ namespace WindowsApp.Contollers.Navigation
         /// <returns></returns>
         public async Task InitializePageControllerAsync(Page page)
         {
+            if (page is HomePage homePage)
+            {
+                // Initialize a controller for the home page.
+                await HomeController.Instance.InitializeAsync(homePage);
+            }
             if (page is SettingsPage settingsPage)
             {
-                // Navigate to the settings page.
+                // Initialize a controller for the settings page.
                 await SettingsController.Instance.InitializeAsync(settingsPage);
             }
             else
