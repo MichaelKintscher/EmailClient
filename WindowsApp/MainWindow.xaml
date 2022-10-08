@@ -8,8 +8,22 @@
     mc:Ignorable="d">
 
     <Grid>
-        <Frame x:Name="ContentFrame">
-            
-        </Frame>
+        <NavigationView x:Name="NavigationView"
+                        PaneDisplayMode="Top"
+                        AlwaysShowHeader="True"
+                        PaneTitle="Email App"
+                        Loaded="NavigationView_Loaded"
+                        ItemInvoked="NavigationView_ItemInvoked"
+                        BackRequested="NavigationView_BackRequested">
+            <NavigationView.MenuItems>
+                <NavigationViewItem Tag="Home"
+                                    Icon="Home"
+                                    Content="Home"
+                                    x:Name="HomeNavigationViewItem"></NavigationViewItem>
+            </NavigationView.MenuItems>
+            <Frame x:Name="ContentFrame"
+                   Navigated="ContentFrame_Navigated"
+                   NavigationFailed="ContentFrame_NavigationFailed"></Frame>
+        </NavigationView>
     </Grid>
 </Window>

@@ -29,6 +29,59 @@ namespace WindowsApp
             this.InitializeComponent();
         }
 
+        #region Event Handlers
+        /// <summary>
+        /// Handles relevant setup when the navigation view has loaded.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void NavigationView_Loaded(object sender, RoutedEventArgs e)
+        {
+            System.Diagnostics.Debug.WriteLine("NavView Loaded!");
+        }
+
+        /// <summary>
+        /// Handles whenever a menu item in the navigation view is invoked.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
+        private void NavigationView_ItemInvoked(NavigationView sender, NavigationViewItemInvokedEventArgs args)
+        {
+            System.Diagnostics.Debug.WriteLine("NavView Item Invoked!");
+        }
+
+        /// <summary>
+        /// Handles whenever back navigation is requested from the navigation view.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
+        private void NavigationView_BackRequested(NavigationView sender, NavigationViewBackRequestedEventArgs args)
+        {
+            System.Diagnostics.Debug.WriteLine("NavView Back Requested!");
+        }
+
+        /// <summary>
+        /// Handles logic once the content frame has completed a successful navigation
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ContentFrame_Navigated(object sender, NavigationEventArgs e)
+        {
+            System.Diagnostics.Debug.WriteLine("ContentFrame Navigated!");
+        }
+
+        /// <summary>
+        /// Handles when the content frame fails to navigate.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ContentFrame_NavigationFailed(object sender, NavigationFailedEventArgs e)
+        {
+            System.Diagnostics.Debug.WriteLine("ContentFrame Navigation Failed!");
+        }
+        #endregion
+
+        #region Methods
         /// <summary>
         /// Displays the requested page.
         /// </summary>
@@ -37,5 +90,6 @@ namespace WindowsApp
         {
             this.ContentFrame.Content = page;
         }
+        #endregion
     }
 }

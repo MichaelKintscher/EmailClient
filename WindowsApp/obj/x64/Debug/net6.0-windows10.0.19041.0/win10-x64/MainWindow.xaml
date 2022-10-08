@@ -8,9 +8,23 @@
     mc:Ignorable="d">
 
     <Grid>
-        <Frame x:ConnectionId='2' x:Name="ContentFrame">
-            
-        </Frame>
+        <NavigationView x:ConnectionId='2' x:Name="NavigationView"
+                        PaneDisplayMode="Top"
+                        AlwaysShowHeader="True"
+                        PaneTitle="Email App"
+                                                      
+                                                                
+                                                                    >
+            <NavigationView.MenuItems>
+                <NavigationViewItem x:ConnectionId='3' Tag="Home"
+                                    Icon="Home"
+                                    Content="Home"
+                                    x:Name="HomeNavigationViewItem"></NavigationViewItem>
+            </NavigationView.MenuItems>
+            <Frame x:ConnectionId='4' x:Name="ContentFrame"
+                                                     
+                                                                   ></Frame>
+        </NavigationView>
     </Grid>
 </Window>
 
