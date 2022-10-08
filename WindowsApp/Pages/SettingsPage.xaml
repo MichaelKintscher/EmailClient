@@ -41,6 +41,52 @@
             </StackPanel>
         </ContentDialog>
         
+        <!-- The content dialog for confirming account removal. -->
+        <ContentDialog x:Name="ConfirmRemoveAccountDialog"
+                       PrimaryButtonText="Remove"
+                       CloseButtonText="Nevermind"
+                       Title="Confirm Remove Account">
+            <StackPanel>
+                <TextBlock Text="Are you sure you want to remove this account?"
+                           Margin="0,0,0,10"></TextBlock>
+                <StackPanel>
+                    <!-- Display for the account details of the account to be removed. -->
+                    <ContentControl x:Name="AccountToRemoveContentControl">
+                        <ContentControl.ContentTemplate>
+                            <DataTemplate x:DataType="common:ServiceProviderAccount">
+                                <Grid Margin="10">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="auto"></RowDefinition>
+                                        <RowDefinition Height="auto"></RowDefinition>
+                                        <RowDefinition Height="auto"></RowDefinition>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="auto"></ColumnDefinition>
+                                        <ColumnDefinition Width="*"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+                                    <PersonPicture Grid.RowSpan="3"
+                                                   Grid.Column="0"
+                                                   MaxWidth="50"
+                                                   Margin="0,0,20,0"
+                                                   ProfilePicture="{x:Bind PictureUri}"
+                                                   DisplayName="{x:Bind Username}"></PersonPicture>
+                                    <TextBlock Grid.Row="0"
+                                               Grid.Column="1"
+                                               Text="{x:Bind FriendlyName}"></TextBlock>
+                                    <TextBlock Grid.Row="1"
+                                               Grid.Column="1"
+                                               Text="{x:Bind Username}"></TextBlock>
+                                    <TextBlock Grid.Row="2"
+                                               Grid.Column="1"
+                                               Text="{x:Bind Provider}"></TextBlock>
+                                </Grid>
+                            </DataTemplate>
+                        </ContentControl.ContentTemplate>
+                    </ContentControl>
+                </StackPanel>
+            </StackPanel>
+        </ContentDialog>
+        
         <ScrollViewer>
             <!-- Accounts block -->
             <StackPanel Margin="12">

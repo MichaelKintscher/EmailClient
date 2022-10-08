@@ -101,7 +101,12 @@ namespace WindowsApp.Pages
         /// <param name="e"></param>
         private void RemoveAccountButton_Click(object sender, RoutedEventArgs e)
         {
-
+            if (sender is Button button)
+            {
+                // Get the acount ID and then raise the RaiseChangeAccountConnectionRequested event.
+                string accountId = button.Tag.ToString();
+                this.RaiseChangeAccountConnectionRequested(accountId, EmailProvider.Google, ConnectionAction.Disconnect);
+            }
         }
         #endregion
 
@@ -113,6 +118,16 @@ namespace WindowsApp.Pages
         public void AddConnectedAccout(ServiceProviderAccount account)
         {
             this.Accounts.Add(account);
+        }
+
+        /// <summary>
+        /// Remove a connected account from the display.
+        /// </summary>
+        /// <param name="accountId">The ID of the account to remove.</param>
+        public void RemoveConnectedAccount(string accountId)
+        {
+            ServiceProviderAccount account = this.Accounts.Where(a => a.ID == accountId).FirstOrDefault();
+            this.Accounts.Remove(account);
         }
 
         /// <summary>
@@ -174,6 +189,38 @@ namespace WindowsApp.Pages
                 default:
                     break;
             }
+        }
+
+        /// <summary>
+        /// Shows the dialog to confirm whether to remove the given connected account.
+        /// </summary>
+        /// <param name="account">The connected account to confirm removal of.</param>
+        /// <returns>Whether the user confirmed removing the given account.</returns>
+        public async Task<bool> ShowConfirmRemoveAccountUIAsync(ServiceProviderAccount account)
+        {
+            // Display the account data in the dialog's content control, then show the dialog.
+            this.AccountToRemoveContentControl.Content = account;
+            var result = await this.ConfirmRemoveAccountDialog.ShowAsync();
+
+            bool confirmed = false;
+            switch (result)
+            {
+                case ContentDialogResult.None:
+                    // Nothing to do... just clear and close the dialog.
+                    this.AccountToRemoveContentControl.Content = null;
+                    break;
+                case ContentDialogResult.Primary:
+                    confirmed = true;
+                    break;
+                case ContentDialogResult.Secondary:
+                    // Nothing to do... just clear and close the dialog.
+                    this.AccountToRemoveContentControl.Content = null;
+                    break;
+                default:
+                    break;
+            }
+
+            return confirmed;
         }
         #endregion
     }
