@@ -56,6 +56,7 @@ namespace WindowsApp.Contollers
                 case ConnectionAction.RetryConnect:
                     break;
                 case ConnectionAction.Disconnect:
+                    this.DisconnectAccountAsync(e.AccoutId, GmailAPI.Instance);
                     break;
                 default:
                     break;
@@ -119,7 +120,8 @@ namespace WindowsApp.Contollers
 
             // Add the accounts logged into with this app to the page.
             OAuthConnectionManager connectionManager = new OAuthConnectionManager(GmailAPI.Instance, WindowsStorageProvider.Instance);
-            List<ServiceProviderAccount> accounts = await connectionManager.LoadConnectionsAsync();
+            await connectionManager.LoadConnectionsAsync();
+            List<ServiceProviderAccount> accounts = await connectionManager.GetConnectionsAsync();
             foreach (ServiceProviderAccount account in accounts)
             {
                 view.AddConnectedAccout(account);
@@ -177,7 +179,7 @@ namespace WindowsApp.Contollers
         /// <summary>
         /// Finishes adding an authorized account.
         /// </summary>
-        /// <param name="accountId"></param>
+        /// <param name="accountId">The account ID of the account to finish adding.</param>
         /// <returns></returns>
         private async Task FinishAddingAccountAsync(string accountId)
         {
@@ -188,6 +190,22 @@ namespace WindowsApp.Contollers
 
             // Add the new account to the list of accounts to display.
             this.View.AddConnectedAccout(account);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="accountId">The account ID of the account to remove.</param>
+        /// <param name="serviceProvider">The service provider the account is associated with.</param>
+        /// <returns></returns>
+        private async Task DisconnectAccountAsync(string accountId, IOAuthService serviceProvider)
+        {
+            // Remove the connection.
+            OAuthConnectionManager manager = new OAuthConnectionManager(serviceProvider, WindowsStorageProvider.Instance);
+            await manager.RemoveConnectionAsync(accountId);
+
+            // Update the displayed list of accounts.
+            this.View.RemoveConnectedAccount(accountId);
         }
 
         /// <summary>

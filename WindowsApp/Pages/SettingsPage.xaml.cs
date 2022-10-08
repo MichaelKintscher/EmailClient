@@ -101,7 +101,12 @@ namespace WindowsApp.Pages
         /// <param name="e"></param>
         private void RemoveAccountButton_Click(object sender, RoutedEventArgs e)
         {
-
+            if (sender is Button button)
+            {
+                // Get the acount ID and then raise the RaiseChangeAccountConnectionRequested event.
+                string accountId = button.Tag.ToString();
+                this.RaiseChangeAccountConnectionRequested(accountId, EmailProvider.Google, ConnectionAction.Disconnect);
+            }
         }
         #endregion
 
@@ -113,6 +118,16 @@ namespace WindowsApp.Pages
         public void AddConnectedAccout(ServiceProviderAccount account)
         {
             this.Accounts.Add(account);
+        }
+
+        /// <summary>
+        /// Remove a connected account from the display.
+        /// </summary>
+        /// <param name="accountId">The ID of the account to remove.</param>
+        public void RemoveConnectedAccount(string accountId)
+        {
+            ServiceProviderAccount account = this.Accounts.Where(a => a.ID == accountId).FirstOrDefault();
+            this.Accounts.Remove(account);
         }
 
         /// <summary>

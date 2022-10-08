@@ -71,6 +71,26 @@ namespace Application.Network
         }
 
         /// <summary>
+        /// Gets a list of the accounts connected to this app.
+        /// </summary>
+        /// <returns></returns>
+        public async Task<List<ServiceProviderAccount>> GetConnectionsAsync()
+        {
+            // Get the list of connections.
+            List<ServiceProviderAccount> accounts = new List<ServiceProviderAccount>();
+            try
+            {
+                accounts = await this.StorageProvider.LoadConnectedAccountsAsync(this.AccountsFileName);
+            }
+            catch (Exception ex)
+            {
+
+            }
+
+            return accounts;
+        }
+
+        /// <summary>
         /// Adds a new connection to the API service this manager managess. Throws an error if the connection is not authorized.
         /// </summary>
         /// <param name="accountId">The newly assigned account ID of the account to add.</param>
@@ -90,7 +110,7 @@ namespace Application.Network
             ServiceProviderAccount account = await this.OAuthService.GetAccountAsync(accountId);
 
             // Add the new account to the list, and then save the new account.
-            List<ServiceProviderAccount> accounts = await this.LoadConnectionsAsync();
+            List<ServiceProviderAccount> accounts = await this.GetConnectionsAsync();
             accounts.Add(account);
             await this.SaveConnectionsAsync(accounts);
 
@@ -111,7 +131,7 @@ namespace Application.Network
             if (removed)
             {
                 // Remove the account from the list, and then save the new list.
-                List<ServiceProviderAccount> accounts = await this.LoadConnectionsAsync();
+                List<ServiceProviderAccount> accounts = await this.GetConnectionsAsync();
                 ServiceProviderAccount accountToRemove = accounts.Where(a => a.ID == accountId).FirstOrDefault();
                 accounts.Remove(accountToRemove);
                 await this.SaveConnectionsAsync(accounts);
@@ -134,27 +154,14 @@ namespace Application.Network
         }
 
         /// <summary>
-        /// 
+        /// Initializes the list of connections in the OAuth Service Provider.
         /// </summary>
         /// <returns></returns>
-        public async Task<List<ServiceProviderAccount>> LoadConnectionsAsync()
+        public async Task LoadConnectionsAsync()
         {
             // Load and restore the cached token data collection.
             Dictionary<string, OAuthToken> tokenData = await this.StorageProvider.TryLoadTokenDataAsync(this.TokenFileName);
             await this.OAuthService.InitializeTokenDataAsync(tokenData);
-
-            // Get the list of connections.
-            List<ServiceProviderAccount> accounts = new List<ServiceProviderAccount>();
-            try
-            {
-                accounts = await this.StorageProvider.LoadConnectedAccountsAsync(this.AccountsFileName);
-            }
-            catch (Exception ex)
-            {
-
-            }
-
-            return accounts;
         }
         #endregion
     }

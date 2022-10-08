@@ -130,6 +130,9 @@ namespace Network.Common
             this.GetTokenExchangeParams = getTokenExchangeParams;
             this.ConvertResponseToToken = convertResponseToToken;
             this.GetTokenRefreshParams = getTokenRefreshParams;
+
+            // Initialize the token data collection.
+            this.tokenDataCollection = new Dictionary<string, OAuthToken>();
         }
 
         #region Methods
@@ -327,17 +330,16 @@ namespace Network.Common
         /// <param name="tokens">A ditionary of OAuthToken values keyed by account ID.</param>
         public async Task InitializeTokenDataAsync(Dictionary<string, OAuthToken> tokens)
         {
-            // If the token data is missing...
-            if (tokens == null || tokens.Count < 1)
+            // If there are tokens to initialize...
+            if (tokens != null)
             {
-                // The load was unsuccessful, so initialize the value to false.
-                this.tokenDataCollection = new Dictionary<string, OAuthToken>();
-            }
-            else
-            {
-                // Refresh the tokens if needed.
+                // Set the token data collection.
+                this.tokenDataCollection = tokens;
+
+                // For each token to initialize...
                 foreach (string accountId in this.tokenDataCollection.Keys)
                 {
+                    // Refresh the token if needed.
                     await this.RefreshTokenIfNeededAsync(accountId);
                 }
             }
