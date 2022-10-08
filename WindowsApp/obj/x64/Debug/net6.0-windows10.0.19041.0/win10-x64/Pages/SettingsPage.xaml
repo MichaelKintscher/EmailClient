@@ -22,7 +22,7 @@
                        PrimaryButtonText="Try Again"
                        CloseButtonText="Cancel"
                        Title="Authentication Error">
-            <TextBlock x:ConnectionId='18' x:Name="OAuthErrorTextBlock"></TextBlock>
+            <TextBlock x:ConnectionId='26' x:Name="OAuthErrorTextBlock"></TextBlock>
         </ContentDialog>
         
         <!-- The content dialog for entering an OAuth code. -->
@@ -31,13 +31,40 @@
                        CloseButtonText="Nevermind"
                        Title="Authentication Code">
             <StackPanel>
-                <WebView2 x:ConnectionId='16' x:Name="OAuthWebView"
+                <WebView2 x:ConnectionId='24' x:Name="OAuthWebView"
                           MinHeight="500"
                           MinWidth="500"
                           Source="https://www.microsoft.com"></WebView2>
                 <TextBlock Text="Paste the code from your web browser here."
                            Margin="0,0,0,5"></TextBlock>
-                <TextBox x:ConnectionId='17' x:Name="ServiceOauthCodeTextBox"></TextBox>
+                <TextBox x:ConnectionId='25' x:Name="ServiceOauthCodeTextBox"></TextBox>
+            </StackPanel>
+        </ContentDialog>
+        
+        <!-- The content dialog for confirming account removal. -->
+        <ContentDialog x:ConnectionId='4' x:Name="ConfirmRemoveAccountDialog"
+                       PrimaryButtonText="Remove"
+                       CloseButtonText="Nevermind"
+                       Title="Confirm Remove Account">
+            <StackPanel>
+                <TextBlock Text="Are you sure you want to remove this account?"></TextBlock>
+                <StackPanel Margin="0,20,0,0">
+                    <!-- Display for the account details of the account to be removed. -->
+                    <ContentControl x:ConnectionId='17' x:Name="AccountToRemoveContentControl">
+                        <ContentControl.ContentTemplate>
+                            <DataTemplate                                           >
+                                <StackPanel x:ConnectionId='19'>
+                                    <TextBlock x:ConnectionId='20'                             ></TextBlock>
+                                    <PersonPicture x:ConnectionId='21' MaxWidth="50"
+                                                                                       
+                                                                                  ></PersonPicture>
+                                    <TextBlock x:ConnectionId='22'                         ></TextBlock>
+                                    <TextBlock x:ConnectionId='23'                         ></TextBlock>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ContentControl.ContentTemplate>
+                    </ContentControl>
+                </StackPanel>
             </StackPanel>
         </ContentDialog>
         
@@ -48,7 +75,7 @@
                                Text="Accounts"></TextBlock>
 
                 <!-- Accounts List -->
-                <ListView x:ConnectionId='4' x:Name="AccountsListView"
+                <ListView x:ConnectionId='5' x:Name="AccountsListView"
                                                                           
                               SelectionMode="None">
                     <ListView.ItemContainerStyle>
@@ -58,7 +85,7 @@
                     </ListView.ItemContainerStyle>
                     <ListView.ItemTemplate>
                         <DataTemplate                                           >
-                            <Grid x:ConnectionId='7'>
+                            <Grid x:ConnectionId='8'>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="*"></ColumnDefinition>
                                     <ColumnDefinition Width="Auto"></ColumnDefinition>
@@ -69,25 +96,25 @@
                                     <ColumnDefinition Width="Auto"></ColumnDefinition>
                                 </Grid.ColumnDefinitions>
 
-                                <TextBox x:ConnectionId='8' Grid.Column="0"
+                                <TextBox x:ConnectionId='9' Grid.Column="0"
                                          VerticalAlignment="Center"
                                          Margin="0,10,10,10"
                                                                                   ></TextBox>
-                                <PersonPicture x:ConnectionId='9' Grid.Column="1"
+                                <PersonPicture x:ConnectionId='10' Grid.Column="1"
                                                VerticalAlignment="Center"
                                                Margin="10"
                                                MaxWidth="50"
                                                                                    
                                                                               ></PersonPicture>
-                                <TextBlock x:ConnectionId='10' Grid.Column="2"
+                                <TextBlock x:ConnectionId='11' Grid.Column="2"
                                            VerticalAlignment="Center"
                                            Margin="10"
                                                                    ></TextBlock>
-                                <TextBlock x:ConnectionId='11' Grid.Column="3"
+                                <TextBlock x:ConnectionId='12' Grid.Column="3"
                                            VerticalAlignment="Center"
                                            Margin="10"
                                                                    ></TextBlock>
-                                <StackPanel x:ConnectionId='12' Grid.Column="4"
+                                <StackPanel x:ConnectionId='13' Grid.Column="4"
                                             VerticalAlignment="Center"
                                             Margin="10"
                                             Orientation="Horizontal"
@@ -96,7 +123,7 @@
                                               Glyph="&#xF386;"></FontIcon>
                                     <TextBlock Text="Connected"></TextBlock>
                                 </StackPanel>
-                                <StackPanel x:ConnectionId='13' Grid.Column="4"
+                                <StackPanel x:ConnectionId='14' Grid.Column="4"
                                             VerticalAlignment="Center"
                                             Margin="10"
                                             Orientation="Horizontal"
@@ -105,11 +132,11 @@
                                               Glyph="&#xE871;"></FontIcon>
                                     <TextBlock Text="Connection Error"></TextBlock>
                                 </StackPanel>
-                                <TextBlock x:ConnectionId='14' Grid.Column="5"
+                                <TextBlock x:ConnectionId='15' Grid.Column="5"
                                            VerticalAlignment="Center"
                                            Margin="10"
                                                                      ></TextBlock>
-                                <Button x:ConnectionId='15' Grid.Column="6"
+                                <Button x:ConnectionId='16' Grid.Column="6"
                                         VerticalAlignment="Center"
                                         Padding="10"
                                         HorizontalAlignment="Center"
@@ -124,7 +151,7 @@
                 </ListView>
                 <!-- Button is disabled when no internet connection is available. To do this, bind 
                         IsEnabled="{x:Bind InternetConnectionAvailable, Mode=OneWay}" -->
-                <Button x:ConnectionId='5' x:Name="AuthenticateGoogleButton"
+                <Button x:ConnectionId='6' x:Name="AuthenticateGoogleButton"
                         Margin="0,20,20,20"
                         IsEnabled="True"
                                                               >Add Google Account</Button>

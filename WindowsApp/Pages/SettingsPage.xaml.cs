@@ -190,6 +190,38 @@ namespace WindowsApp.Pages
                     break;
             }
         }
+
+        /// <summary>
+        /// Shows the dialog to confirm whether to remove the given connected account.
+        /// </summary>
+        /// <param name="account">The connected account to confirm removal of.</param>
+        /// <returns>Whether the user confirmed removing the given account.</returns>
+        public async Task<bool> ShowConfirmRemoveAccountUIAsync(ServiceProviderAccount account)
+        {
+            // Display the account data in the dialog's content control, then show the dialog.
+            this.AccountToRemoveContentControl.Content = account;
+            var result = await this.ConfirmRemoveAccountDialog.ShowAsync();
+
+            bool confirmed = false;
+            switch (result)
+            {
+                case ContentDialogResult.None:
+                    // Nothing to do... just clear and close the dialog.
+                    this.AccountToRemoveContentControl.Content = null;
+                    break;
+                case ContentDialogResult.Primary:
+                    confirmed = true;
+                    break;
+                case ContentDialogResult.Secondary:
+                    // Nothing to do... just clear and close the dialog.
+                    this.AccountToRemoveContentControl.Content = null;
+                    break;
+                default:
+                    break;
+            }
+
+            return confirmed;
+        }
         #endregion
     }
 }

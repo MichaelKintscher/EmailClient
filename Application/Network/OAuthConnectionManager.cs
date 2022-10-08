@@ -71,6 +71,18 @@ namespace Application.Network
         }
 
         /// <summary>
+        /// Gets the account connected to this app with the given account ID.
+        /// </summary>
+        /// <param name="accountId">The newly assigned account ID of the account to add.</param>
+        /// <returns>The account matching the given ID, or null if no account is found.</returns>
+        public async Task<ServiceProviderAccount> GetConnectionAsync(string accountId)
+        {
+            List<ServiceProviderAccount> accounts = await this.GetConnectionsAsync();
+
+            return accounts.Where(a => a.ID == accountId).FirstOrDefault();
+        }
+
+        /// <summary>
         /// Gets a list of the accounts connected to this app.
         /// </summary>
         /// <returns></returns>

@@ -200,12 +200,22 @@ namespace WindowsApp.Contollers
         /// <returns></returns>
         private async Task DisconnectAccountAsync(string accountId, IOAuthService serviceProvider)
         {
-            // Remove the connection.
+            // Create the manager.
             OAuthConnectionManager manager = new OAuthConnectionManager(serviceProvider, WindowsStorageProvider.Instance);
-            await manager.RemoveConnectionAsync(accountId);
 
-            // Update the displayed list of accounts.
-            this.View.RemoveConnectedAccount(accountId);
+            // Prompt the user to confirm removal of the account.
+            ServiceProviderAccount account = await manager.GetConnectionAsync(accountId);
+            bool removalConfirmed = await this.View.ShowConfirmRemoveAccountUIAsync(account);
+
+            // Only proceed if the user confirmed removing the account.
+            if (removalConfirmed)
+            {
+                // Remove the connection.
+                await manager.RemoveConnectionAsync(accountId);
+
+                // Update the displayed list of accounts.
+                this.View.RemoveConnectedAccount(accountId);
+            }
         }
 
         /// <summary>
