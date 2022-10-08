@@ -48,14 +48,19 @@ namespace WindowsApp.Contollers
         /// <param name="e"></param>
         private void View_ChangeAccountConnectionRequested(object sender, ChangeAccountConnectionRequestedEventArgs e)
         {
+            // Use the action argument to determine which process to start.
             switch (e.Action)
             {
                 case ConnectionAction.Connect:
+                    // Start a new Oauth flow.
                     this.StartOAuthFlowAsync(GmailAPI.Instance);
                     break;
                 case ConnectionAction.RetryConnect:
+                    // Start a new Oauth flow.
+                    this.StartOAuthFlowAsync(GmailAPI.Instance);
                     break;
                 case ConnectionAction.Disconnect:
+                    // Start the account disconnect process.
                     this.DisconnectAccountAsync(e.AccoutId, GmailAPI.Instance);
                     break;
                 default:
