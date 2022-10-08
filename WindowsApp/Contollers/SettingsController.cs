@@ -149,15 +149,15 @@ namespace WindowsApp.Contollers
         /// <summary>
         /// Attempts to complete a started OAuth flow from the Settings Page.
         /// </summary>
-        /// <param name="code"></param>
-        /// <exception cref="InvalidOperationException"></exception>
+        /// <param name="code">The authorization code provided by the API after the user authenticated and authorized.</param>
+        /// <exception cref="InvalidOperationException">Thrown if there is no pending connection to continue the OAuth flow for.</exception>
         /// <returns></returns>
         private async Task TryContinueOAuthFlowAsync(string code)
         {
             // Ensure there is a pending connection to complete.
             if (this.PendingConnectionManager == null)
             {
-                throw new InvalidOperationException("No pending connection to cmoplete. Use StartOAuthFlowAsync() to begin a new connection before calling TryContinueOAuthFlowAsync().");
+                throw new InvalidOperationException("No pending connection to complete. Use StartOAuthFlowAsync() to begin a new connection before calling TryContinueOAuthFlowAsync().");
             }
 
             // Validate the code.
