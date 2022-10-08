@@ -83,8 +83,6 @@ namespace WindowsApp
         /// <param name="e"></param>
         private void NavigationView_Loaded(object sender, RoutedEventArgs e)
         {
-            System.Diagnostics.Debug.WriteLine("NavView Loaded!");
-
             // Default to the first menu item (home) when loaded.
             this.NavigationView.SelectedItem = NavigationView.MenuItems[0];
 
@@ -110,7 +108,6 @@ namespace WindowsApp
         /// <param name="args"></param>
         private void NavigationView_ItemInvoked(NavigationView sender, NavigationViewItemInvokedEventArgs args)
         {
-            System.Diagnostics.Debug.WriteLine("NavView Item Invoked!");
             if (args.IsSettingsInvoked == true)
             {
                 // Settings does not have a tag, as it is handled separately from the other menu items.
@@ -131,7 +128,7 @@ namespace WindowsApp
         /// <param name="args"></param>
         private void NavigationView_BackRequested(NavigationView sender, NavigationViewBackRequestedEventArgs args)
         {
-            System.Diagnostics.Debug.WriteLine("NavView Back Requested!");
+            this.OnBackRequested();
         }
 
         /// <summary>
@@ -141,7 +138,6 @@ namespace WindowsApp
         /// <param name="e"></param>
         private void ContentFrame_Navigated(object sender, NavigationEventArgs e)
         {
-            System.Diagnostics.Debug.WriteLine("ContentFrame Navigated!");
             this.NavigationView.IsBackEnabled = ContentFrame.CanGoBack;
 
             if (ContentFrame.SourcePageType == typeof(SettingsPage))
@@ -173,7 +169,6 @@ namespace WindowsApp
         /// <param name="e"></param>
         private void ContentFrame_NavigationFailed(object sender, NavigationFailedEventArgs e)
         {
-            System.Diagnostics.Debug.WriteLine("ContentFrame Navigation Failed!");
             throw new Exception("Failed to load Page " + e.SourcePageType.FullName);
         }
 

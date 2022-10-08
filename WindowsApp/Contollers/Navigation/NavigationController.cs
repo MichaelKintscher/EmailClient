@@ -34,6 +34,24 @@ namespace WindowsApp.Contollers.Navigation
 
         #region Event Handlers
         /// <summary>
+        /// Handles a navigation request between app pages.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void MainWindow_NavigationRequested(object sender, NavigationRequestedEventArgs e)
+        {
+            // If this is a back request, go back and exit this method.
+            if (e.IsBackRequest)
+            {
+                this.MainWindow.NavigateBack();
+                return;
+            }
+
+            // Navigate to the requested page.
+            this.MainWindow.Navigate(e.ToPage);
+        }
+
+        /// <summary>
         /// Handles when the main window navigated to a new page. This event must be
         /// handled to access the instance of the page actually displayed.
         /// </summary>
@@ -53,6 +71,7 @@ namespace WindowsApp.Contollers.Navigation
         public void Initialize(MainWindow mainWindow)
         {
             // Subscribe to the root page's events.
+            mainWindow.NavigationRequested += MainWindow_NavigationRequested;
             mainWindow.Navigated += MainWindow_Navigated;
 
             // Set the given page as the root page.
