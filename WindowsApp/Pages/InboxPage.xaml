@@ -5,10 +5,29 @@
     xmlns:local="using:WindowsApp.Pages"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:emails="using:Domain.Emails"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
-        <TextBlock Text="Inbox"></TextBlock>
+        <TextBlock Text="Inbox Page"></TextBlock>
+        <!-- Email Inbox -->
+        <StackPanel>
+            <TextBlock Text="Inbox"></TextBlock>
+            <ScrollViewer>
+                <ListView x:Name="InboxListView"
+                          ItemsSource="{x:Bind InboxEmails, Mode=OneWay}"
+                          SelectionMode="None">
+                    <ListView.ItemTemplate>
+                        <DataTemplate x:DataType="emails:Email">
+                            <StackPanel Margin="20">
+                                <TextBlock Style="{StaticResource SubtitleTextBlockStyle}" Text="{x:Bind Subject}"></TextBlock>
+                                <TextBlock Text="{x:Bind Body}"></TextBlock>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </ScrollViewer>
+        </StackPanel>
     </Grid>
 </Page>

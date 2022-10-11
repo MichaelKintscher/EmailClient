@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Application.Emails;
+using Domain.Emails;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -33,6 +35,14 @@ namespace WindowsApp.Contollers
         internal async Task InitializeAsync(InboxPage view)
         {
             // Subscribe to the page's events.
+
+            // Get the emails for the view.
+            EmailAccountManager manager = new EmailAccountManager();
+            List<Email> emails = await manager.GetEmailsAsync();
+            foreach (Email email in emails)
+            {
+                view.AddEmailToInbox(email);
+            }
 
             // Store a reference to the page.
             this.View = view;

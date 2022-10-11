@@ -8,6 +8,9 @@ using System.Threading.Tasks;
 
 namespace Application.Network
 {
+    /// <summary>
+    /// Manages OAuth connections.
+    /// </summary>
     public class OAuthConnectionManager
     {
         #region Properties

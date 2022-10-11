@@ -1,4 +1,5 @@
-﻿using Microsoft.UI.Xaml;
+﻿using Domain.Emails;
+using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Controls.Primitives;
 using Microsoft.UI.Xaml.Data;
@@ -7,6 +8,7 @@ using Microsoft.UI.Xaml.Media;
 using Microsoft.UI.Xaml.Navigation;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -23,9 +25,32 @@ namespace WindowsApp.Pages
     /// </summary>
     public sealed partial class InboxPage : Page
     {
+        #region Properties
+        /// <summary>
+        /// A list of emails in the inbox.
+        /// </summary>
+        private ObservableCollection<Email> InboxEmails { get; set; }
+        #endregion
+
+        #region Constructors
         public InboxPage()
         {
             this.InitializeComponent();
+
+            // Initialize the collection.
+            this.InboxEmails = new ObservableCollection<Email>();
         }
+        #endregion
+
+        #region Methods
+        /// <summary>
+        /// Add an email to be displayed in the inbox.
+        /// </summary>
+        /// <param name="email">The email to add.</param>
+        public void AddEmailToInbox(Email email)
+        {
+            this.InboxEmails.Add(email);
+        }
+        #endregion
     }
 }
