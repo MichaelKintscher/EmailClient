@@ -16,6 +16,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Remove="Pages\HomePage.xaml" />
+    <None Remove="Pages\InboxPage.xaml" />
     <None Remove="Pages\SettingsPage.xaml" />
   </ItemGroup>
 
@@ -51,6 +52,9 @@
     <None Update="Assets\Config\credentials.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <Page Update="Pages\InboxPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Update="Pages\HomePage.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>

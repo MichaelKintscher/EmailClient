@@ -20,8 +20,12 @@
                                     Icon="Home"
                                     Content="Home"
                                     x:Name="HomeNavigationViewItem"></NavigationViewItem>
+                <NavigationViewItem x:ConnectionId='4' Tag="Inbox"
+                                    Icon="Mail"
+                                    Content="Inbox"
+                                    x:Name="InboxNavigationViewItem"></NavigationViewItem>
             </NavigationView.MenuItems>
-            <Frame x:ConnectionId='4' x:Name="ContentFrame"
+            <Frame x:ConnectionId='5' x:Name="ContentFrame"
                                                      
                                                                    ></Frame>
         </NavigationView>

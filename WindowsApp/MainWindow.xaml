@@ -20,6 +20,10 @@
                                     Icon="Home"
                                     Content="Home"
                                     x:Name="HomeNavigationViewItem"></NavigationViewItem>
+                <NavigationViewItem Tag="Inbox"
+                                    Icon="Mail"
+                                    Content="Inbox"
+                                    x:Name="InboxNavigationViewItem"></NavigationViewItem>
             </NavigationView.MenuItems>
             <Frame x:Name="ContentFrame"
                    Navigated="ContentFrame_Navigated"

@@ -12,6 +12,7 @@ namespace WindowsApp.Contollers.Navigation
     internal enum PageTypes
     {
         Home,
+        Inbox,
         Settings
     }
 }

@@ -33,6 +33,7 @@ namespace WindowsApp
         private readonly List<(PageTypes Tag, Type Page)> _pages = new List<(PageTypes Tag, Type Page)>
         {
             (PageTypes.Home, typeof(HomePage)),
+            (PageTypes.Inbox, typeof(InboxPage)),
             (PageTypes.Settings, typeof(SettingsPage))
         };
 

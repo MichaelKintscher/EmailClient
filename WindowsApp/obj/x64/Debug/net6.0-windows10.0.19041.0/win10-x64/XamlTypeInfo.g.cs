@@ -224,7 +224,7 @@ namespace WindowsApp.WindowsApp_XamlTypeInfo
 
         private void InitTypeTables()
         {
-            _typeNameTable = new string[48];
+            _typeNameTable = new string[49];
             _typeNameTable[0] = "Microsoft.UI.Xaml.Controls.XamlControlsResources";
             _typeNameTable[1] = "Microsoft.UI.Xaml.ResourceDictionary";
             _typeNameTable[2] = "Object";
@@ -258,23 +258,24 @@ namespace WindowsApp.WindowsApp_XamlTypeInfo
             _typeNameTable[30] = "WindowsApp.Pages.HomePage";
             _typeNameTable[31] = "Microsoft.UI.Xaml.Controls.Page";
             _typeNameTable[32] = "Microsoft.UI.Xaml.Controls.UserControl";
-            _typeNameTable[33] = "WindowsApp.Converters.BoolToVisibilityConverter";
-            _typeNameTable[34] = "Microsoft.UI.Xaml.Visibility";
-            _typeNameTable[35] = "WindowsApp.Converters.BoolToInverseBoolConverter";
-            _typeNameTable[36] = "Microsoft.UI.Xaml.Controls.PersonPicture";
-            _typeNameTable[37] = "Microsoft.UI.Xaml.Controls.Control";
-            _typeNameTable[38] = "Microsoft.UI.Xaml.Media.ImageSource";
-            _typeNameTable[39] = "Int32";
-            _typeNameTable[40] = "Windows.ApplicationModel.Contacts.Contact";
-            _typeNameTable[41] = "Microsoft.UI.Xaml.Controls.PersonPictureTemplateSettings";
-            _typeNameTable[42] = "Microsoft.UI.Xaml.Controls.WebView2";
-            _typeNameTable[43] = "Microsoft.UI.Xaml.FrameworkElement";
-            _typeNameTable[44] = "System.Uri";
-            _typeNameTable[45] = "Microsoft.Web.WebView2.Core.CoreWebView2";
-            _typeNameTable[46] = "Windows.UI.Color";
-            _typeNameTable[47] = "WindowsApp.Pages.SettingsPage";
+            _typeNameTable[33] = "WindowsApp.Pages.InboxPage";
+            _typeNameTable[34] = "WindowsApp.Converters.BoolToVisibilityConverter";
+            _typeNameTable[35] = "Microsoft.UI.Xaml.Visibility";
+            _typeNameTable[36] = "WindowsApp.Converters.BoolToInverseBoolConverter";
+            _typeNameTable[37] = "Microsoft.UI.Xaml.Controls.PersonPicture";
+            _typeNameTable[38] = "Microsoft.UI.Xaml.Controls.Control";
+            _typeNameTable[39] = "Microsoft.UI.Xaml.Media.ImageSource";
+            _typeNameTable[40] = "Int32";
+            _typeNameTable[41] = "Windows.ApplicationModel.Contacts.Contact";
+            _typeNameTable[42] = "Microsoft.UI.Xaml.Controls.PersonPictureTemplateSettings";
+            _typeNameTable[43] = "Microsoft.UI.Xaml.Controls.WebView2";
+            _typeNameTable[44] = "Microsoft.UI.Xaml.FrameworkElement";
+            _typeNameTable[45] = "System.Uri";
+            _typeNameTable[46] = "Microsoft.Web.WebView2.Core.CoreWebView2";
+            _typeNameTable[47] = "Windows.UI.Color";
+            _typeNameTable[48] = "WindowsApp.Pages.SettingsPage";
 
-            _typeTable = new global::System.Type[48];
+            _typeTable = new global::System.Type[49];
             _typeTable[0] = typeof(global::Microsoft.UI.Xaml.Controls.XamlControlsResources);
             _typeTable[1] = typeof(global::Microsoft.UI.Xaml.ResourceDictionary);
             _typeTable[2] = typeof(global::System.Object);
@@ -308,21 +309,22 @@ namespace WindowsApp.WindowsApp_XamlTypeInfo
             _typeTable[30] = typeof(global::WindowsApp.Pages.HomePage);
             _typeTable[31] = typeof(global::Microsoft.UI.Xaml.Controls.Page);
             _typeTable[32] = typeof(global::Microsoft.UI.Xaml.Controls.UserControl);
-            _typeTable[33] = typeof(global::WindowsApp.Converters.BoolToVisibilityConverter);
-            _typeTable[34] = typeof(global::Microsoft.UI.Xaml.Visibility);
-            _typeTable[35] = typeof(global::WindowsApp.Converters.BoolToInverseBoolConverter);
-            _typeTable[36] = typeof(global::Microsoft.UI.Xaml.Controls.PersonPicture);
-            _typeTable[37] = typeof(global::Microsoft.UI.Xaml.Controls.Control);
-            _typeTable[38] = typeof(global::Microsoft.UI.Xaml.Media.ImageSource);
-            _typeTable[39] = typeof(global::System.Int32);
-            _typeTable[40] = typeof(global::Windows.ApplicationModel.Contacts.Contact);
-            _typeTable[41] = typeof(global::Microsoft.UI.Xaml.Controls.PersonPictureTemplateSettings);
-            _typeTable[42] = typeof(global::Microsoft.UI.Xaml.Controls.WebView2);
-            _typeTable[43] = typeof(global::Microsoft.UI.Xaml.FrameworkElement);
-            _typeTable[44] = typeof(global::System.Uri);
-            _typeTable[45] = typeof(global::Microsoft.Web.WebView2.Core.CoreWebView2);
-            _typeTable[46] = typeof(global::Windows.UI.Color);
-            _typeTable[47] = typeof(global::WindowsApp.Pages.SettingsPage);
+            _typeTable[33] = typeof(global::WindowsApp.Pages.InboxPage);
+            _typeTable[34] = typeof(global::WindowsApp.Converters.BoolToVisibilityConverter);
+            _typeTable[35] = typeof(global::Microsoft.UI.Xaml.Visibility);
+            _typeTable[36] = typeof(global::WindowsApp.Converters.BoolToInverseBoolConverter);
+            _typeTable[37] = typeof(global::Microsoft.UI.Xaml.Controls.PersonPicture);
+            _typeTable[38] = typeof(global::Microsoft.UI.Xaml.Controls.Control);
+            _typeTable[39] = typeof(global::Microsoft.UI.Xaml.Media.ImageSource);
+            _typeTable[40] = typeof(global::System.Int32);
+            _typeTable[41] = typeof(global::Windows.ApplicationModel.Contacts.Contact);
+            _typeTable[42] = typeof(global::Microsoft.UI.Xaml.Controls.PersonPictureTemplateSettings);
+            _typeTable[43] = typeof(global::Microsoft.UI.Xaml.Controls.WebView2);
+            _typeTable[44] = typeof(global::Microsoft.UI.Xaml.FrameworkElement);
+            _typeTable[45] = typeof(global::System.Uri);
+            _typeTable[46] = typeof(global::Microsoft.Web.WebView2.Core.CoreWebView2);
+            _typeTable[47] = typeof(global::Windows.UI.Color);
+            _typeTable[48] = typeof(global::WindowsApp.Pages.SettingsPage);
         }
 
         private int LookupTypeIndexByName(string typeName)
@@ -363,12 +365,13 @@ namespace WindowsApp.WindowsApp_XamlTypeInfo
         private object Activate_25_NavigationViewItem() { return new global::Microsoft.UI.Xaml.Controls.NavigationViewItem(); }
         private object Activate_28_MainWindow() { return new global::WindowsApp.MainWindow(); }
         private object Activate_30_HomePage() { return new global::WindowsApp.Pages.HomePage(); }
-        private object Activate_33_BoolToVisibilityConverter() { return new global::WindowsApp.Converters.BoolToVisibilityConverter(); }
-        private object Activate_35_BoolToInverseBoolConverter() { return new global::WindowsApp.Converters.BoolToInverseBoolConverter(); }
-        private object Activate_36_PersonPicture() { return new global::Microsoft.UI.Xaml.Controls.PersonPicture(); }
-        private object Activate_40_Contact() { return new global::Windows.ApplicationModel.Contacts.Contact(); }
-        private object Activate_42_WebView2() { return new global::Microsoft.UI.Xaml.Controls.WebView2(); }
-        private object Activate_47_SettingsPage() { return new global::WindowsApp.Pages.SettingsPage(); }
+        private object Activate_33_InboxPage() { return new global::WindowsApp.Pages.InboxPage(); }
+        private object Activate_34_BoolToVisibilityConverter() { return new global::WindowsApp.Converters.BoolToVisibilityConverter(); }
+        private object Activate_36_BoolToInverseBoolConverter() { return new global::WindowsApp.Converters.BoolToInverseBoolConverter(); }
+        private object Activate_37_PersonPicture() { return new global::Microsoft.UI.Xaml.Controls.PersonPicture(); }
+        private object Activate_41_Contact() { return new global::Windows.ApplicationModel.Contacts.Contact(); }
+        private object Activate_43_WebView2() { return new global::Microsoft.UI.Xaml.Controls.WebView2(); }
+        private object Activate_48_SettingsPage() { return new global::WindowsApp.Pages.SettingsPage(); }
         private void MapAdd_0_XamlControlsResources(object instance, object key, object item)
         {
             var collection = (global::System.Collections.Generic.IDictionary<global::System.Object, global::System.Object>)instance;
@@ -617,29 +620,36 @@ namespace WindowsApp.WindowsApp_XamlTypeInfo
                 xamlType = new global::WindowsApp.WindowsApp_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 33:   //  WindowsApp.Converters.BoolToVisibilityConverter
+            case 33:   //  WindowsApp.Pages.InboxPage
+                userType = new global::WindowsApp.WindowsApp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.Controls.Page"));
+                userType.Activator = Activate_33_InboxPage;
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 34:   //  WindowsApp.Converters.BoolToVisibilityConverter
                 userType = new global::WindowsApp.WindowsApp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
-                userType.Activator = Activate_33_BoolToVisibilityConverter;
+                userType.Activator = Activate_34_BoolToVisibilityConverter;
                 userType.AddMemberName("TrueVisibility");
                 userType.AddMemberName("FalseVisibility");
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 34:   //  Microsoft.UI.Xaml.Visibility
+            case 35:   //  Microsoft.UI.Xaml.Visibility
                 xamlType = new global::WindowsApp.WindowsApp_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 35:   //  WindowsApp.Converters.BoolToInverseBoolConverter
+            case 36:   //  WindowsApp.Converters.BoolToInverseBoolConverter
                 userType = new global::WindowsApp.WindowsApp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
-                userType.Activator = Activate_35_BoolToInverseBoolConverter;
+                userType.Activator = Activate_36_BoolToInverseBoolConverter;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 36:   //  Microsoft.UI.Xaml.Controls.PersonPicture
+            case 37:   //  Microsoft.UI.Xaml.Controls.PersonPicture
                 userType = new global::WindowsApp.WindowsApp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.Controls.Control"));
-                userType.Activator = Activate_36_PersonPicture;
+                userType.Activator = Activate_37_PersonPicture;
                 userType.AddMemberName("ProfilePicture");
                 userType.AddMemberName("DisplayName");
                 userType.AddMemberName("BadgeGlyph");
@@ -654,33 +664,33 @@ namespace WindowsApp.WindowsApp_XamlTypeInfo
                 xamlType = userType;
                 break;
 
-            case 37:   //  Microsoft.UI.Xaml.Controls.Control
+            case 38:   //  Microsoft.UI.Xaml.Controls.Control
                 xamlType = new global::WindowsApp.WindowsApp_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 38:   //  Microsoft.UI.Xaml.Media.ImageSource
+            case 39:   //  Microsoft.UI.Xaml.Media.ImageSource
                 xamlType = new global::WindowsApp.WindowsApp_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 39:   //  Int32
+            case 40:   //  Int32
                 xamlType = new global::WindowsApp.WindowsApp_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 40:   //  Windows.ApplicationModel.Contacts.Contact
+            case 41:   //  Windows.ApplicationModel.Contacts.Contact
                 userType = new global::WindowsApp.WindowsApp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
                 userType.SetIsReturnTypeStub();
                 xamlType = userType;
                 break;
 
-            case 41:   //  Microsoft.UI.Xaml.Controls.PersonPictureTemplateSettings
+            case 42:   //  Microsoft.UI.Xaml.Controls.PersonPictureTemplateSettings
                 userType = new global::WindowsApp.WindowsApp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.DependencyObject"));
                 userType.SetIsReturnTypeStub();
                 xamlType = userType;
                 break;
 
-            case 42:   //  Microsoft.UI.Xaml.Controls.WebView2
+            case 43:   //  Microsoft.UI.Xaml.Controls.WebView2
                 userType = new global::WindowsApp.WindowsApp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.FrameworkElement"));
-                userType.Activator = Activate_42_WebView2;
+                userType.Activator = Activate_43_WebView2;
                 userType.AddMemberName("Source");
                 userType.AddMemberName("CanGoBack");
                 userType.AddMemberName("CanGoForward");
@@ -689,31 +699,31 @@ namespace WindowsApp.WindowsApp_XamlTypeInfo
                 xamlType = userType;
                 break;
 
-            case 43:   //  Microsoft.UI.Xaml.FrameworkElement
+            case 44:   //  Microsoft.UI.Xaml.FrameworkElement
                 xamlType = new global::WindowsApp.WindowsApp_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 44:   //  System.Uri
+            case 45:   //  System.Uri
                 userType = new global::WindowsApp.WindowsApp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
                 userType.SetIsReturnTypeStub();
                 xamlType = userType;
                 break;
 
-            case 45:   //  Microsoft.Web.WebView2.Core.CoreWebView2
+            case 46:   //  Microsoft.Web.WebView2.Core.CoreWebView2
                 userType = new global::WindowsApp.WindowsApp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
                 userType.SetIsReturnTypeStub();
                 xamlType = userType;
                 break;
 
-            case 46:   //  Windows.UI.Color
+            case 47:   //  Windows.UI.Color
                 userType = new global::WindowsApp.WindowsApp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("System.ValueType"));
                 userType.SetIsReturnTypeStub();
                 xamlType = userType;
                 break;
 
-            case 47:   //  WindowsApp.Pages.SettingsPage
+            case 48:   //  WindowsApp.Pages.SettingsPage
                 userType = new global::WindowsApp.WindowsApp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_47_SettingsPage;
+                userType.Activator = Activate_48_SettingsPage;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WindowsApp.Contollers.Common;
 using WindowsApp.Pages;
 
 namespace WindowsApp.Contollers
@@ -11,13 +12,9 @@ namespace WindowsApp.Contollers
     /// <summary>
     /// The controller for managing the app home page.
     /// </summary>
-    internal class HomeController : Singleton<HomeController>
+    internal class HomeController : PageController<HomePage, HomeController>
     {
         #region Properties
-        /// <summary>
-        /// A reference to the view the controller is controlling.
-        /// </summary>
-        private HomePage View { get; set; }
         #endregion
 
         #region Constructors

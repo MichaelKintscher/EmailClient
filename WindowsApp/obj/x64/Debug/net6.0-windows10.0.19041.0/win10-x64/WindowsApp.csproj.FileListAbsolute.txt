@@ -298,3 +298,8 @@ C:\Users\micha\source\repos\EmailClient\WindowsApp\obj\x64\Debug\net6.0-windows1
 C:\Users\micha\source\repos\EmailClient\WindowsApp\obj\x64\Debug\net6.0-windows10.0.19041.0\win10-x64\Pages\HomePage.g.cs
 C:\Users\micha\source\repos\EmailClient\WindowsApp\obj\x64\Debug\net6.0-windows10.0.19041.0\win10-x64\Pages\HomePage.xaml
 C:\Users\micha\source\repos\EmailClient\WindowsApp\obj\x64\Debug\net6.0-windows10.0.19041.0\win10-x64\Pages\HomePage.xbf
+C:\Users\micha\source\repos\EmailClient\WindowsApp\bin\x64\Debug\net6.0-windows10.0.19041.0\win10-x64\Pages\InboxPage.xbf
+C:\Users\micha\source\repos\EmailClient\WindowsApp\obj\x64\Debug\net6.0-windows10.0.19041.0\win10-x64\Pages\InboxPage.g.i.cs
+C:\Users\micha\source\repos\EmailClient\WindowsApp\obj\x64\Debug\net6.0-windows10.0.19041.0\win10-x64\Pages\InboxPage.g.cs
+C:\Users\micha\source\repos\EmailClient\WindowsApp\obj\x64\Debug\net6.0-windows10.0.19041.0\win10-x64\Pages\InboxPage.xaml
+C:\Users\micha\source\repos\EmailClient\WindowsApp\obj\x64\Debug\net6.0-windows10.0.19041.0\win10-x64\Pages\InboxPage.xbf

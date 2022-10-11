@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WindowsApp.Contollers.Common;
 using WindowsApp.EventArguments;
 using WindowsApp.Pages;
 using WindowsOS.Persistence;
@@ -15,14 +16,9 @@ namespace WindowsApp.Contollers
     /// <summary>
     /// The controller for managing the app settings.
     /// </summary>
-    internal class SettingsController : Singleton<SettingsController>
+    internal class SettingsController : PageController<SettingsPage, SettingsController>
     {
         #region Properties
-        /// <summary>
-        /// A reference to the view the controller is controlling.
-        /// </summary>
-        private SettingsPage View { get; set; }
-
         /// <summary>
         /// A reference to a connection manager for a pending new OAuth connection.
         /// </summary>
@@ -34,8 +30,8 @@ namespace WindowsApp.Contollers
         /// Default constructor - initializes all properties to null.
         /// </summary>
         public SettingsController()
+            : base()
         {
-            this.View = null;
             this.PendingConnectionManager = null;
         }
         #endregion
@@ -113,7 +109,7 @@ namespace WindowsApp.Contollers
 
         #region Methods
         /// <summary>
-        /// Initializes 
+        /// Initializes the controller with the given view. 
         /// </summary>
         /// <param name="view"></param>
         internal async Task InitializeAsync(SettingsPage view)
