@@ -10,24 +10,49 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
-        <TextBlock Text="Inbox Page"></TextBlock>
-        <!-- Email Inbox -->
-        <StackPanel>
-            <TextBlock Text="Inbox"></TextBlock>
-            <ScrollViewer>
-                <ListView x:Name="InboxListView"
-                          ItemsSource="{x:Bind InboxEmails, Mode=OneWay}"
-                          SelectionMode="None">
-                    <ListView.ItemTemplate>
-                        <DataTemplate x:DataType="emails:Email">
-                            <StackPanel Margin="20">
-                                <TextBlock Style="{StaticResource SubtitleTextBlockStyle}" Text="{x:Bind Subject}"></TextBlock>
-                                <TextBlock Text="{x:Bind Body}"></TextBlock>
-                            </StackPanel>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
-            </ScrollViewer>
-        </StackPanel>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="500"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        
+        <!-- Page Title spans across the top row. -->
+        <TextBlock Grid.Row="0"
+                   Grid.ColumnSpan="2"
+                   Text="Inbox Page"></TextBlock>
+        
+        <!-- Email Inbox in the first column of the second row. -->
+        <Grid Grid.Row="1"
+              Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <TextBlock Grid.Row="0"
+                       Text="Inbox"></TextBlock>
+            <ListView x:Name="InboxListView"
+                      Grid.Row="1"
+                      ItemsSource="{x:Bind InboxEmails, Mode=OneWay}"
+                      SelectionMode="None">
+                <ListView.ItemTemplate>
+                    <DataTemplate x:DataType="emails:Email">
+                        <StackPanel Margin="20">
+                            <TextBlock Style="{StaticResource SubtitleTextBlockStyle}"
+                                       Text="{x:Bind Subject}"></TextBlock>
+                            <TextBlock Text="{x:Bind Body}"></TextBlock>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </Grid>
+        
+        <!-- Other boxes are in the second row and second column. -->
+        <Grid Grid.Row="1"
+              Grid.Column="1">
+            <TextBlock Text="Other Boxes Here"></TextBlock>
+        </Grid>
     </Grid>
 </Page>

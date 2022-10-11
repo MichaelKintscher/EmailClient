@@ -10,25 +10,50 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
-        <TextBlock Text="Inbox Page"></TextBlock>
-        <!-- Email Inbox -->
-        <StackPanel>
-            <TextBlock Text="Inbox"></TextBlock>
-            <ScrollViewer>
-                <ListView x:ConnectionId='2' x:Name="InboxListView"
-                                                                         
-                          SelectionMode="None">
-                    <ListView.ItemTemplate>
-                        <DataTemplate                          >
-                            <StackPanel x:ConnectionId='4' Margin="20">
-                                <TextBlock x:ConnectionId='5'                        ></TextBlock>
-                                <TextBlock x:ConnectionId='6'                     ></TextBlock>
-                            </StackPanel>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
-            </ScrollViewer>
-        </StackPanel>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        
+        <!-- Page Title spans across the top row. -->
+        <TextBlock Grid.Row="0"
+                   Grid.ColumnSpan="2"
+                   Text="Inbox Page"></TextBlock>
+        
+        <!-- Email Inbox in the first column of the second row. -->
+        <Grid Grid.Row="1"
+              Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <TextBlock Grid.Row="0"
+                       Text="Inbox"></TextBlock>
+            <ListView x:ConnectionId='2' x:Name="InboxListView"
+                      Grid.Row="1"
+                                                                     
+                      SelectionMode="None">
+                <ListView.ItemTemplate>
+                    <DataTemplate                          >
+                        <StackPanel x:ConnectionId='4' Margin="20">
+                            <TextBlock x:ConnectionId='5' Style="{StaticResource SubtitleTextBlockStyle}"
+                                                              ></TextBlock>
+                            <TextBlock x:ConnectionId='6'                     ></TextBlock>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </Grid>
+        
+        <!-- Other boxes are in the second row and second column. -->
+        <Grid Grid.Row="1"
+              Grid.Column="1">
+            <TextBlock Text="Other Boxes Here"></TextBlock>
+        </Grid>
     </Grid>
 </Page>
 

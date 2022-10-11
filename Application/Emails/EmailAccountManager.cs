@@ -20,7 +20,7 @@ namespace Application.Emails
         public async Task<List<Email>> GetEmailsAsync()
         {
             // Return some test data.
-            return new List<Email>()
+            List<Email> emails = new List<Email>()
             {
                 new Email()
                 {
@@ -43,6 +43,17 @@ namespace Application.Emails
                     Body = "A MUCH longer email body that will probably not fit in a smaller space"
                 }
             };
+
+            for (int i = 0; i < 100; i++)
+            {
+                emails.Add(new Email()
+                {
+                    Subject = i.ToString() + ". Email Test",
+                    Body = "Some body text goes here."
+                });
+            }
+
+            return emails;
         }
         #endregion
     }
