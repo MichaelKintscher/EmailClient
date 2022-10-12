@@ -56,7 +56,29 @@ namespace Application.Messages
         /// <exception cref="NotImplementedException"></exception>
         public Task<List<MessageBox>> GetMessageBoxesAsync()
         {
-            throw new NotImplementedException();
+            return Task.FromResult(new List<MessageBox>()
+            {
+                new MessageBox()
+                {
+                    Name = "Second Box",
+                },
+                new MessageBox()
+                {
+                    Name = "Third Box",
+                },
+                new MessageBox()
+                {
+                    Name = "Fourth Box",
+                },
+                new MessageBox()
+                {
+                    Name = "Fifth Box",
+                },
+                new MessageBox()
+                {
+                    Name = "Sixth Box",
+                }
+            });
         }
 
         /// <summary>

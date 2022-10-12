@@ -15,7 +15,7 @@
         </Grid.RowDefinitions>
         
         <TextBlock Grid.Row="0"
-                   Text="{x:Bind MessageBoxName}"></TextBlock>
+                   Text="{x:Bind MessageBoxName, Mode=OneWay}"></TextBlock>
         
         <ListView x:Name="InboxListView"
                   Grid.Row="1"

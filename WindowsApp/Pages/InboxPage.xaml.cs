@@ -27,12 +27,15 @@ namespace WindowsApp.Pages
     public sealed partial class InboxPage : Page
     {
         #region Properties
+        private ObservableCollection<MessageBox> MessageBoxes { get; set; }
         #endregion
 
         #region Constructors
         public InboxPage()
         {
             this.InitializeComponent();
+
+            this.MessageBoxes = new ObservableCollection<MessageBox>();
         }
         #endregion
 
@@ -53,8 +56,16 @@ namespace WindowsApp.Pages
         /// <exception cref="NotImplementedException"></exception>
         public void AddMessageBox(MessageBox box)
         {
-            throw new NotImplementedException();
+            this.MessageBoxes.Add(box);
         }
         #endregion
+
+        private void MessageBoxesListView_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            if (e.ClickedItem is MessageBox box)
+            {
+                System.Diagnostics.Debug.WriteLine(box.Name + " has been clicked!");
+            }
+        }
     }
 }
