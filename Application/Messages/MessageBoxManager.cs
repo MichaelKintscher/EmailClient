@@ -12,7 +12,7 @@ namespace Application.Messages
     /// <summary>
     /// Manages message boxes.
     /// </summary>
-    internal class MessageBoxManager
+    public class MessageBoxManager
     {
         #region Properties
         /// <summary>

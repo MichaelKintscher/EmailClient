@@ -1,4 +1,6 @@
-﻿using Application.Messages.Emails;
+﻿using Application.Messages;
+using Application.Messages.Emails;
+using Domain.Messages;
 using Domain.Messages.Emails;
 using System;
 using System.Collections.Generic;
@@ -7,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using WindowsApp.Contollers.Common;
 using WindowsApp.Pages;
+using WindowsOS.Persistence;
 
 namespace WindowsApp.Contollers
 {
@@ -37,11 +40,19 @@ namespace WindowsApp.Contollers
             // Subscribe to the page's events.
 
             // Get the emails for the view.
-            EmailAccountManager manager = new EmailAccountManager();
-            List<Email> emails = await manager.GetEmailsAsync();
+            EmailAccountManager emailManager = new EmailAccountManager();
+            List<Email> emails = await emailManager.GetEmailsAsync();
             foreach (Email email in emails)
             {
                 view.AddEmailToInbox(email);
+            }
+
+            // Get the message boxes for the view.
+            MessageBoxManager boxesManager = new MessageBoxManager(WindowsStorageProvider.Instance);
+            List<MessageBox> boxes = await boxesManager.GetMessageBoxesAsync();
+            foreach (MessageBox box in boxes)
+            {
+                view.AddMessageBox(box);
             }
 
             // Store a reference to the page.

@@ -5,7 +5,7 @@
     xmlns:local="using:WindowsApp.Pages"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:emails="using:Domain.Messages.Emails"
+    xmlns:controls="using:WindowsApp.Controls"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
@@ -25,29 +25,10 @@
                    Text="Inbox Page"></TextBlock>
         
         <!-- Email Inbox in the first column of the second row. -->
-        <Grid Grid.Row="1"
-              Grid.Column="0">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="auto"></RowDefinition>
-                <RowDefinition Height="*"></RowDefinition>
-            </Grid.RowDefinitions>
-            <TextBlock Grid.Row="0"
-                       Text="Inbox"></TextBlock>
-            <ListView x:Name="InboxListView"
-                      Grid.Row="1"
-                      ItemsSource="{x:Bind InboxEmails, Mode=OneWay}"
-                      SelectionMode="None">
-                <ListView.ItemTemplate>
-                    <DataTemplate x:DataType="emails:Email">
-                        <StackPanel Margin="20">
-                            <TextBlock Style="{StaticResource SubtitleTextBlockStyle}"
-                                       Text="{x:Bind Subject}"></TextBlock>
-                            <TextBlock Text="{x:Bind Body}"></TextBlock>
-                        </StackPanel>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
-        </Grid>
+        <controls:MessageBoxControl x:Name="InboxMessageBoxControl"
+                                    Grid.Row="1"
+                                    Grid.Column="0"
+                                    MessageBoxName="Inbox"></controls:MessageBoxControl>
         
         <!-- Other boxes are in the second row and second column. -->
         <Grid Grid.Row="1"

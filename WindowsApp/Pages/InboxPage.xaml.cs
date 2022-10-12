@@ -1,4 +1,5 @@
-﻿using Domain.Messages.Emails;
+﻿using Domain.Messages;
+using Domain.Messages.Emails;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Controls.Primitives;
@@ -26,19 +27,12 @@ namespace WindowsApp.Pages
     public sealed partial class InboxPage : Page
     {
         #region Properties
-        /// <summary>
-        /// A list of emails in the inbox.
-        /// </summary>
-        private ObservableCollection<Email> InboxEmails { get; set; }
         #endregion
 
         #region Constructors
         public InboxPage()
         {
             this.InitializeComponent();
-
-            // Initialize the collection.
-            this.InboxEmails = new ObservableCollection<Email>();
         }
         #endregion
 
@@ -49,7 +43,17 @@ namespace WindowsApp.Pages
         /// <param name="email">The email to add.</param>
         public void AddEmailToInbox(Email email)
         {
-            this.InboxEmails.Add(email);
+            this.InboxMessageBoxControl.AddEmail(email);
+        }
+
+        /// <summary>
+        /// Adds a message box to be displayed.
+        /// </summary>
+        /// <param name="box">The message box to add.</param>
+        /// <exception cref="NotImplementedException"></exception>
+        public void AddMessageBox(MessageBox box)
+        {
+            throw new NotImplementedException();
         }
         #endregion
     }
