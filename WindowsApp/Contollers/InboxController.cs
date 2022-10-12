@@ -1,5 +1,5 @@
-﻿using Application.Emails;
-using Domain.Emails;
+﻿using Application.Messages.Emails;
+using Domain.Messages.Emails;
 using System;
 using System.Collections.Generic;
 using System.Linq;

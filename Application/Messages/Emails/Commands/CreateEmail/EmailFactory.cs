@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Domain.Emails;
+using Domain.Messages.Emails;
 
-namespace Application.Emails.Commands.CreateEmail
+namespace Application.Messages.Emails.Commands.CreateEmail
 {
     /// <summary>
     /// Factory class for creating emails.

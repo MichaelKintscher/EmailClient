@@ -6,7 +6,7 @@ using System.Text.Json.Nodes;
 using System.Threading.Tasks;
 using Application.Common.Commands.CreateServiceProviderAccount;
 using Domain.Common;
-using Domain.Emails;
+using Domain.Messages.Emails;
 using Network.Common;
 using Network.Common.Exceptions;
 

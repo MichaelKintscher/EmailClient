@@ -1,4 +1,4 @@
-﻿using Domain.Emails;
+﻿using Domain.Messages.Emails;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Controls.Primitives;

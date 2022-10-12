@@ -1,11 +1,11 @@
-﻿using Domain.Emails;
+﻿using Domain.Messages.Emails;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Application.Emails
+namespace Application.Messages.Emails
 {
     /// <summary>
     /// Manages email accounts.

@@ -4,13 +4,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Domain.Emails
+namespace Domain.Messages.Emails
 {
     /// <summary>
     /// Model for an email message.
     /// </summary>
     public class Email
     {
+        /// <summary>
+        /// The unique ID of the message given by the app.
+        /// </summary>
+        public string ID { get; set; }
+
         /// <summary>
         /// The ID of the message given by the email provider's API.
         /// </summary>
