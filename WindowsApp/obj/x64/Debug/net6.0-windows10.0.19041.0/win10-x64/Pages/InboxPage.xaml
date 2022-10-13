@@ -36,12 +36,19 @@
             <Grid>
                 <ListView x:ConnectionId='3' x:Name="MessageBoxesListView"
                                                              
-                                                                    
-                          IsItemClickEnabled="True">
+                          SelectionMode="None">
+                    <ListView.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <StackPanel Orientation="Horizontal"
+                                        VerticalAlignment="Top"></StackPanel>
+                        </ItemsPanelTemplate>
+                    </ListView.ItemsPanel>
                     <ListView.ItemTemplate>
                         <DataTemplate                                 >
                             <controls:MessageBoxControl x:ConnectionId='5'
-                                                                           ></controls:MessageBoxControl>
+                                MinWidth="300"
+                                                                           
+                                MessageBoxMinHeight="200"></controls:MessageBoxControl>
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>

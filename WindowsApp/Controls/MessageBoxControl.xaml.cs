@@ -42,6 +42,15 @@ namespace WindowsApp.Controls
                 this.RaisePropertyChanged("MessageBoxName");
             }
         }
+
+        public double MessageBoxMinHeight
+        {
+            get => this.MessageBoxListView.MinHeight;
+            set
+            {
+                this.MessageBoxListView.MinHeight = value;
+            }
+        }
         #endregion
 
         #region Events
