@@ -24,21 +24,25 @@ namespace Application.Messages.Emails
             {
                 new Email()
                 {
+                    ID = Guid.NewGuid().ToString(),
                     Subject = "Test Email 1",
                     Body = "Some body text goes here."
                 },
                 new Email()
                 {
+                    ID = Guid.NewGuid().ToString(),
                     Subject = "Test Email 2",
                     Body = "This is also body text."
                 },
                 new Email()
                 {
+                    ID = Guid.NewGuid().ToString(),
                     Subject = "A MUCH longer email subject that will probably not fit in a smaller space",
                     Body = "Hmm... more body text."
                 },
                 new Email()
                 {
+                    ID = Guid.NewGuid().ToString(),
                     Subject = "",
                     Body = "A MUCH longer email body that will probably not fit in a smaller space"
                 }
@@ -48,6 +52,7 @@ namespace Application.Messages.Emails
             {
                 emails.Add(new Email()
                 {
+                    ID = Guid.NewGuid().ToString(),
                     Subject = i.ToString() + ". Email Test",
                     Body = "Some body text goes here."
                 });

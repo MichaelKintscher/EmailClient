@@ -28,7 +28,9 @@
         <controls:MessageBoxControl x:Name="InboxMessageBoxControl"
                                     Grid.Row="1"
                                     Grid.Column="0"
-                                    MessageBoxName="Inbox"></controls:MessageBoxControl>
+                                    MessageBoxName="Inbox"
+                                    MessageDragStarting="MessageBoxControl_MessageDragStarting"
+                                    MessageDropCompleted="MessageBoxControl_MessageDropCompleted"></controls:MessageBoxControl>
         
         <!-- Other boxes are in the second row and second column. -->
         <Grid Grid.Row="1"
@@ -48,7 +50,9 @@
                             <controls:MessageBoxControl
                                 MinWidth="300"
                                 MessageBoxName="{x:Bind Name, Mode=OneWay}"
-                                MessageBoxMinHeight="200"></controls:MessageBoxControl>
+                                MessageBoxMinHeight="200"
+                                MessageDragStarting="MessageBoxControl_MessageDragStarting"
+                                MessageDropCompleted="MessageBoxControl_MessageDropCompleted"></controls:MessageBoxControl>
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>

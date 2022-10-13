@@ -28,7 +28,9 @@
         <controls:MessageBoxControl x:ConnectionId='2' x:Name="InboxMessageBoxControl"
                                     Grid.Row="1"
                                     Grid.Column="0"
-                                    MessageBoxName="Inbox"></controls:MessageBoxControl>
+                                    MessageBoxName="Inbox"
+                                                                                               
+                                                                                                 ></controls:MessageBoxControl>
         
         <!-- Other boxes are in the second row and second column. -->
         <Grid Grid.Row="1"
@@ -48,7 +50,9 @@
                             <controls:MessageBoxControl x:ConnectionId='5'
                                 MinWidth="300"
                                                                            
-                                MessageBoxMinHeight="200"></controls:MessageBoxControl>
+                                MessageBoxMinHeight="200"
+                                                                                           
+                                                                                             ></controls:MessageBoxControl>
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>

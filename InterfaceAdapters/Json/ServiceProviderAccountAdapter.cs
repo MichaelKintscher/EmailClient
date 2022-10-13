@@ -46,7 +46,7 @@ namespace InterfaceAdapters.Json
             JsonNode? jsonObject = JsonNode.Parse(lines);
             if (jsonObject == null)
             {
-                throw new JsonFormatException("JSON to deserialize Service Provider Account from was not in the expected format.");
+                throw new JsonFormatException("JSON to deserialize Service Provider Account list from was not in the expected format.");
             }
 
             JsonArray accountsArray;
@@ -66,10 +66,12 @@ namespace InterfaceAdapters.Json
                 // This is necessary because of the type iterated over in the JsonArray.
                 string accountJson = accountJsonValue.ToJsonString();
 
-                // Parse the account data.
+                // Parse the account data and add it to the list.
                 ServiceProviderAccount? account = JsonSerializer.Deserialize<ServiceProviderAccount>(accountJson);
-
-                // Add a new hidden calendar record to the list.
+                if (account == null)
+                {
+                    throw new JsonFormatException("JSON to deserialize Service Provider Account from was not in the expected format.");
+                }
                 accounts.Add(account);
             }
 

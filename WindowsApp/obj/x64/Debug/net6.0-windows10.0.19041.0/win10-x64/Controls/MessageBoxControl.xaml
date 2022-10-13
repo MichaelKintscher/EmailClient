@@ -20,7 +20,19 @@
         <ListView x:ConnectionId='3' x:Name="MessageBoxListView"
                   Grid.Row="1"
                                                               
-                  SelectionMode="None">
+                  SelectionMode="Multiple"
+                  IsItemClickEnabled="False"
+                  CanDragItems="True"
+                  AllowDrop="True"
+                  Background="DarkGray"
+                                                                          
+                                                        
+                                                >
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <Setter Property="Background" Value="Black"></Setter>
+                </Style>
+            </ListView.ItemContainerStyle>
             <ListView.ItemTemplate>
                 <DataTemplate                          >
                     <StackPanel x:ConnectionId='5' Margin="20">
