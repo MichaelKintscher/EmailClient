@@ -13,6 +13,7 @@ namespace WindowsApp.Contollers.Navigation
     {
         Home,
         Inbox,
+        Messages,
         Settings
     }
 }

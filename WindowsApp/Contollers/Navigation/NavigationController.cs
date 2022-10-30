@@ -108,6 +108,11 @@ namespace WindowsApp.Contollers.Navigation
                 // Initialize a controller for the inbox page.
                 await InboxController.Instance.InitializeAsync(inboxPage);
             }
+            else if (page is MessageBoxesPage messageBoxesPage)
+            {
+                // Initialize a controller for the message boxes page.
+                await MessageBoxesController.Instance.InitializeAsync(messageBoxesPage);
+            }
             else if (page is SettingsPage settingsPage)
             {
                 // Initialize a controller for the settings page.

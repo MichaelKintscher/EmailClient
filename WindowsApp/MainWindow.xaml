@@ -24,6 +24,10 @@
                                     Icon="Mail"
                                     Content="Inbox"
                                     x:Name="InboxNavigationViewItem"></NavigationViewItem>
+                <NavigationViewItem Tag="Messages"
+                                    Icon="Folder"
+                                    Content="Messages"
+                                    x:Name="MessagesNavigationViewItem"></NavigationViewItem>
             </NavigationView.MenuItems>
             <Frame x:Name="ContentFrame"
                    Navigated="ContentFrame_Navigated"
