@@ -38,7 +38,10 @@
             <Grid>
                 <ListView x:ConnectionId='3' x:Name="MessageBoxesListView"
                                                              
-                          SelectionMode="None">
+                          SelectionMode="None"
+                          ScrollViewer.HorizontalScrollMode="Auto"
+                          ScrollViewer.HorizontalScrollBarVisibility="Auto"
+                          ScrollViewer.IsHorizontalRailEnabled="True">
                     <ListView.ItemsPanel>
                         <ItemsPanelTemplate>
                             <StackPanel Orientation="Horizontal"
