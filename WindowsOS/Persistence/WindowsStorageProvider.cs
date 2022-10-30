@@ -1,5 +1,6 @@
 ﻿using Application.Config;
 using Domain.Common;
+using Domain.Messages;
 using InterfaceAdapters.Json;
 using System;
 using System.Collections.Generic;
@@ -12,13 +13,59 @@ using WindowsOS.Persistence.Exceptions;
 
 namespace WindowsOS.Persistence
 {
+    /// <summary>
+    /// Implements the storage provider interface for Windows.
+    /// </summary>
     public class WindowsStorageProvider : Singleton<WindowsStorageProvider>, IStorageProvider
     {
+        #region Properties - OAuth
         /// <summary>
         /// The file path the API credentials are stored in.
         /// </summary>
         private static readonly string credentialsFilePath = "/Assets/Config/credentials.json";
+        #endregion
 
+        #region Methods - Message Boxes
+        /// <summary>
+        /// Saves a list of the message boxes.
+        /// </summary>
+        /// <param name="messageBoxesFileName">The name to give the message boxes file.</param>
+        /// <param name="messageBoxes">The list of message boxes to save.</param>
+        /// <returns></returns>
+        public async Task SaveMessageBoxesAsync(string messageBoxesFileName, List<MessageBox> messageBoxes)
+        {
+            // Serialize the data to the file format.
+            string messageBoxesString = MessageBoxAdapter.Serialize(messageBoxes);
+
+            // Create the file, replacing the old if it already exists, and write the data to the file.
+            StorageFile file = await ApplicationData.Current.LocalFolder.CreateFileAsync(messageBoxesFileName, CreationCollisionOption.ReplaceExisting);
+            await FileIO.WriteTextAsync(file, messageBoxesString);
+        }
+
+        /// <summary>
+        /// Gets the list of message boxes.
+        /// </summary>
+        /// <param name="messageBoxesFileName">The name of the message boxes file.</param>
+        /// <returns></returns>
+        public async Task<List<MessageBox>> LoadMessageBoxesAsync(string messageBoxesFileName)
+        {
+            // Initialize the list.
+            List<MessageBox> messageBoxes = new List<MessageBox>();
+
+            // Try to read the list from the file.
+            IStorageItem storageItem = await ApplicationData.Current.LocalFolder.TryGetItemAsync(messageBoxesFileName);
+            if (storageItem is StorageFile file)
+            {
+                // Read the data from the file.
+                string fileContent = await FileIO.ReadTextAsync(file);
+                messageBoxes = MessageBoxAdapter.Deserialize(fileContent);
+            }
+
+            return messageBoxes;
+        }
+        #endregion
+
+        #region Methods - OAuth
         /// <summary>
         /// Saves a list of the service provider accounts connected to the app.
         /// </summary>
@@ -151,5 +198,6 @@ namespace WindowsOS.Persistence
                 }
             }
         }
+        #endregion
     }
 }

@@ -1,4 +1,5 @@
 ﻿using Domain.Common;
+using Domain.Messages;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,13 @@ namespace Application.Config
 {
     public interface IStorageProvider
     {
+        #region Methods - Message Boxes
+        public Task SaveMessageBoxesAsync(string messageBoxesFileName, List<MessageBox> messageBoxes);
+
+        public Task<List<MessageBox>> LoadMessageBoxesAsync(string messageBoxesFileName);
+        #endregion
+
+        #region Methods - OAuth
         public Task SaveConnectedAccountsAsync(string accountsFileName, List<ServiceProviderAccount> accounts);
 
         public Task<List<ServiceProviderAccount>> LoadConnectedAccountsAsync(string accountsFileName);
@@ -16,5 +24,6 @@ namespace Application.Config
         public Task SaveConnectionDataAsync(string tokenFileName, Dictionary<string, OAuthToken> tokens);
 
         public Task<Dictionary<string, OAuthToken>> TryLoadTokenDataAsync(string tokenFileName);
+        #endregion
     }
 }
