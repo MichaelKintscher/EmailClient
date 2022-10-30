@@ -1,16 +1,64 @@
-﻿<Page
+﻿<Page x:ConnectionId='1'
     x:Class="WindowsApp.Pages.MessageBoxesPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:WindowsApp.Pages"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:messages="using:Domain.Messages"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
-        <TextBlock Text="Message Boxes"
-                   Style="{StaticResource TitleTextBlockStyle}"></TextBlock>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        
+        <!-- The content dialog for creating a new message box. -->
+        <ContentDialog x:ConnectionId='2' x:Name="CreateMessageBoxDialog"
+                       PrimaryButtonText="Create"
+                       CloseButtonText="Cancel"
+                       Title="New Message Box">
+            <StackPanel>
+                <TextBlock Text="Enter a name for the new messge box."
+                           Margin="0,0,0,5"></TextBlock>
+                <TextBox x:ConnectionId='7' x:Name="CreateMessageBoxNameTextBox"></TextBox>
+            </StackPanel>
+        </ContentDialog>
+
+        <!-- Message Boxes Header -->
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="auto"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            
+            <TextBlock Grid.Column="0"
+                       Text="Message Boxes"
+                       Style="{StaticResource TitleTextBlockStyle}"></TextBlock>
+
+            <Button x:ConnectionId='6' x:Name="AddMessageBoxButton"
+                    Grid.Column="1"
+                    ToolTipService.ToolTip="Create New Message Box"
+                                                     >
+                <FontIcon FontFamily="Segoe MDL2 Assets"
+                          Glyph="&#xE109;"></FontIcon>
+            </Button>
+        </Grid>
+
+        <!-- List of message boxes. -->
+        <ListView x:ConnectionId='3' x:Name="MessageBoxesListView"
+                  Grid.Row="1"
+                                                     
+                  SelectionMode="None"
+                  IsItemClickEnabled="True">
+            <ListView.ItemTemplate>
+                <DataTemplate                                 >
+                    <TextBlock x:ConnectionId='5'                     ></TextBlock>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
     </Grid>
 </Page>
 

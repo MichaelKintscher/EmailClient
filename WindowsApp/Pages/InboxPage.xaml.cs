@@ -131,7 +131,6 @@ namespace WindowsApp.Pages
         /// Adds a message box to be displayed.
         /// </summary>
         /// <param name="box">The message box to add.</param>
-        /// <exception cref="NotImplementedException"></exception>
         public void AddMessageBox(MessageBox box)
         {
             this.MessageBoxes.Add(box);

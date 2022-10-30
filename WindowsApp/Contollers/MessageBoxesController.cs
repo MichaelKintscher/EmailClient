@@ -27,6 +27,18 @@ namespace WindowsApp.Contollers
         }
         #endregion
 
+        #region Event Handlers
+        /// <summary>
+        /// Handles when the user requests to create a new message box.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void View_CreateMessageBoxRequested(object sender, EventArguments.CreateMessageBoxRequestedEventArgs e)
+        {
+            this.CreateNewMessageBoxAsync(e.Name);
+        }
+        #endregion
+
         #region Methods
         /// <summary>
         /// Initializes the controller with the given view.
@@ -36,17 +48,35 @@ namespace WindowsApp.Contollers
         internal async Task InitializeAsync(MessageBoxesPage view)
         {
             // Subscribe to the page's events.
+            view.CreateMessageBoxRequested += View_CreateMessageBoxRequested;
 
             // Get the message boxes for the view.
-            //MessageBoxManager boxesManager = new MessageBoxManager(WindowsStorageProvider.Instance);
-            //List<MessageBox> boxes = await boxesManager.GetMessageBoxesAsync();
-            //foreach (MessageBox box in boxes)
-            //{
-            //    view.AddMessageBox(box);
-            //}
+            MessageBoxManager boxesManager = new MessageBoxManager(WindowsStorageProvider.Instance);
+            List<MessageBox> boxes = await boxesManager.GetMessageBoxesAsync();
+            foreach (MessageBox box in boxes)
+            {
+                view.AddMessageBox(box);
+            }
 
             // Store a reference to the page.
             this.View = view;
+        }
+        #endregion
+
+        #region Helper Methods
+        /// <summary>
+        /// Creates a new message box with the given name and adds it to the view.
+        /// </summary>
+        /// <param name="name">The name to give the new message box.</param>
+        /// <returns></returns>
+        private async Task CreateNewMessageBoxAsync(string name)
+        {
+            // Create the new message box.
+            MessageBoxManager manager = new MessageBoxManager(WindowsStorageProvider.Instance);
+            MessageBox messageBox = await manager.CreateMessageBoxAsync(name);
+
+            // Add the new message box to the view.
+            this.View.AddMessageBox(messageBox);
         }
         #endregion
     }

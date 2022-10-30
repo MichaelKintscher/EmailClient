@@ -62,31 +62,10 @@ namespace Application.Messages
         /// </summary>
         /// <returns></returns>
         /// <exception cref="NotImplementedException"></exception>
-        public Task<List<MessageBox>> GetMessageBoxesAsync()
+        public async Task<List<MessageBox>> GetMessageBoxesAsync()
         {
-            return Task.FromResult(new List<MessageBox>()
-            {
-                new MessageBox()
-                {
-                    Name = "Second Box",
-                },
-                new MessageBox()
-                {
-                    Name = "Third Box",
-                },
-                new MessageBox()
-                {
-                    Name = "Fourth Box",
-                },
-                new MessageBox()
-                {
-                    Name = "Fifth Box",
-                },
-                new MessageBox()
-                {
-                    Name = "Sixth Box",
-                }
-            });
+            List<MessageBox> messageBoxes = await this.StorageProvider.LoadMessageBoxesAsync(MessageBoxManager.MessageBoxesFileName);
+            return messageBoxes;
         }
 
         /// <summary>
