@@ -42,11 +42,19 @@ namespace Application.Messages
         /// </summary>
         /// <param name="name">The name to give the new message box.</param>
         /// <returns>The newly created message box.</returns>
-        /// <exception cref="NotImplementedException"></exception>
         #region Methods
-        public Task<MessageBox> CreateMessageBoxAsync(string name)
+        public async Task<MessageBox> CreateMessageBoxAsync(string name)
         {
-            throw new NotImplementedException();
+            // Create a new message box.
+            MessageBox messageBox = MessageBoxFactory.CreateNewBox(name);
+
+            // Append the new message box to the existing list of message boxes and then save.
+            List<MessageBox> messageBoxes = await this.StorageProvider.LoadMessageBoxesAsync(MessageBoxManager.MessageBoxesFileName);
+            messageBoxes.Add(messageBox);
+            await this.StorageProvider.SaveMessageBoxesAsync(MessageBoxManager.MessageBoxesFileName, messageBoxes);
+
+            // Return the new message box.
+            return messageBox;
         }
 
         /// <summary>
