@@ -5,6 +5,7 @@ using System.Text;
 using System.Text.Json.Nodes;
 using System.Threading.Tasks;
 using Application.Common.Commands.CreateServiceProviderAccount;
+using Application.Messages;
 using Domain.Common;
 using Domain.Messages.Emails;
 using Network.Common;
@@ -16,7 +17,7 @@ namespace Network.Google
     /// Wrapper class for interfacing with the Gmail API. This class encapsulates
     ///  all external dependencies on the Gmail v1 API.
     /// </summary>
-    public class GmailAPI : GoogleApi<GmailAPI>
+    public class GmailAPI : GoogleApi<GmailAPI>, IMessageService
     {
         #region Constants
         /// <summary>

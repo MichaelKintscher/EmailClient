@@ -81,6 +81,10 @@ namespace WindowsApp.Pages
         #endregion
 
         #region Helper Methods
+        /// <summary>
+        /// Shows the create message box dialog.
+        /// </summary>
+        /// <returns></returns>
         private async Task ShowCreateMessageBoxDialogAsync()
         {
             // Show the create message box dialog and get a response from the user.

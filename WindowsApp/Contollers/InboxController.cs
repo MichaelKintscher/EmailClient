@@ -1,7 +1,9 @@
 ﻿using Application.Messages;
 using Application.Messages.Emails;
+using Domain.Common;
 using Domain.Messages;
 using Domain.Messages.Emails;
+using Network.Google;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -52,6 +54,19 @@ namespace WindowsApp.Contollers
             List<MessageBox> boxes = await boxesManager.GetMessageBoxesAsync();
             foreach (MessageBox box in boxes)
             {
+                // Get a list of accounts associated with the messages in these message boxes.
+                List<ServiceProviderAccount> accounts = AppConfigManager.GetServiceProviderAccounts();
+                foreach (ServiceProviderAccount account in accounts)
+                {
+                    // Get a list of message providers associated with the account.
+                    List<IMessageService> messageServices = AppConfigManager.GetMessageServicesForAccount(account.ID);
+                    foreach (IMessageService messageService in messageServices)
+                    {
+                        MessagesManager messagesManager = new MessagesManager(account, messageService, WindowsStorageProvider.Instance);
+                        box.Messages = await messagesManager.GetMessagesAsync();
+                    }
+                }
+
                 view.AddMessageBox(box);
             }
 

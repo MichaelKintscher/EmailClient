@@ -1,6 +1,7 @@
 ﻿using Application.Config;
 using Domain.Common;
 using Domain.Messages;
+using Domain.Messages.Emails;
 using InterfaceAdapters.Json;
 using System;
 using System.Collections.Generic;
@@ -23,6 +24,46 @@ namespace WindowsOS.Persistence
         /// The file path the API credentials are stored in.
         /// </summary>
         private static readonly string credentialsFilePath = "/Assets/Config/credentials.json";
+        #endregion
+
+        #region Methods - Messages
+        /// <summary>
+        /// Saves a list of messages.
+        /// </summary>
+        /// <param name="messagesFileName">The name to give the messages file.</param>
+        /// <param name="emails">The list of messages to save.</param>
+        /// <returns></returns>
+        public async Task SaveMessagesAsync(string messagesFileName, List<Email> emails)
+        {
+            // Serialize the data to the file format.
+            string messagesString = EmailAdapter.Serialize(emails);
+
+            // Create the file, replacing the old if it already exists, and write the data to the file.
+            StorageFile file = await ApplicationData.Current.LocalFolder.CreateFileAsync(messagesFileName, CreationCollisionOption.ReplaceExisting);
+            await FileIO.WriteTextAsync(file, messagesString);
+        }
+
+        /// <summary>
+        /// Gets a list of the messages.
+        /// </summary>
+        /// <param name="messagesFileName">The name of the messages file.</param>
+        /// <returns></returns>
+        public async Task<List<Email>> LoadMessagesAsync(string messagesFileName)
+        {
+            // Initialize the list.
+            List<Email> messages = new List<Email>();
+
+            // Try to read the list from the file.
+            IStorageItem storageItem = await ApplicationData.Current.LocalFolder.TryGetItemAsync(messagesFileName);
+            if (storageItem is StorageFile file)
+            {
+                // Read the data from the file.
+                string fileContent = await FileIO.ReadTextAsync(file);
+                messages = EmailAdapter.Deserialize(fileContent);
+            }
+
+            return messages;
+        }
         #endregion
 
         #region Methods - Message Boxes
@@ -62,6 +103,35 @@ namespace WindowsOS.Persistence
             }
 
             return messageBoxes;
+        }
+
+        /// <summary>
+        /// Loads the IDs of each message in each message box.
+        /// </summary>
+        /// <param name="messageBoxesFileName">The name of the message boxes file.</param>
+        /// <returns></returns>
+        public async Task<Dictionary<string, List<string>>> LoadMessageIdsByMessageBox(string messageBoxesFileName)
+        {
+            // Initialize the return data structure.
+            Dictionary<string, List<string>> allMessageIds = new Dictionary<string, List<string>>();
+
+            // Try to read the list from the file.
+            IStorageItem storageItem = await ApplicationData.Current.LocalFolder.TryGetItemAsync(messageBoxesFileName);
+            if (storageItem is StorageFile file)
+            {
+                // Read the data from the file.
+                string fileContent = await FileIO.ReadTextAsync(file);
+                List<MessageBox> messageBoxes = MessageBoxAdapter.Deserialize(fileContent);
+
+                // Get the messages in each message box.
+                foreach (MessageBox messageBox in messageBoxes)
+                {
+                    List<string> messageIds = MessageBoxAdapter.GetMessageIdsInBox(messageBox.ID, fileContent);
+                    allMessageIds.Add(messageBox.ID, messageIds);
+                }
+            }
+
+            return allMessageIds;
         }
         #endregion
 

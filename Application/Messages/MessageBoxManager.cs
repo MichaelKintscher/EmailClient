@@ -58,12 +58,12 @@ namespace Application.Messages
         }
 
         /// <summary>
-        /// Gets a list of all message boxes.
+        /// Gets a list of all message boxes, without populating the message list in the boxes.
         /// </summary>
         /// <returns></returns>
-        /// <exception cref="NotImplementedException"></exception>
         public async Task<List<MessageBox>> GetMessageBoxesAsync()
         {
+            // Get the message boxes.
             List<MessageBox> messageBoxes = await this.StorageProvider.LoadMessageBoxesAsync(MessageBoxManager.MessageBoxesFileName);
             return messageBoxes;
         }

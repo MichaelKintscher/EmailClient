@@ -124,7 +124,7 @@ namespace WindowsApp.Controls
             List<Email> emails = e.Items.Cast<Email>().ToList();
 
             // Get a string of the email IDs being moved.
-            string itemsString = EmailAdapter.SerializeEmailList(emails);
+            string itemsString = EmailAdapter.Serialize(emails);
 
             // Set the content of the DataPackage.
             e.Data.SetText(itemsString);
@@ -171,7 +171,7 @@ namespace WindowsApp.Controls
             List<Email> emails;
             try
             {
-                emails = EmailAdapter.DeserializeEmailList(emailsString);
+                emails = EmailAdapter.Deserialize(emailsString);
             }
             catch (Exception ex)
             {

@@ -13,33 +13,13 @@ namespace InterfaceAdapters.Json
     public static class EmailAdapter
     {
         /// <summary>
-        /// Serializes the given email to JSON.
-        /// </summary>
-        /// <param name="email">The email to serialize.</param>
-        /// <returns></returns>
-        public static string Serialize(Email email)
-        {
-            return JsonSerializer.Serialize(email);
-        }
-
-        /// <summary>
-        /// Deserializes the given email from JSON.
-        /// </summary>
-        /// <param name="emailString">The string containing the email to deserialize.</param>
-        /// <returns></returns>
-        public static Email Deserialize(string emailString)
-        {
-            return JsonSerializer.Deserialize<Email>(emailString);
-        }
-
-        /// <summary>
-        /// Serializes a list of emails.
+        /// Serializes the given list of emails to JSON.
         /// </summary>
         /// <param name="emails">The list of emails to serialize.</param>
         /// <returns></returns>
-        public static string SerializeEmailList(List<Email> emails)
+        public static string Serialize(List<Email> emails)
         {
-            // There are no emails to serialize.
+            // There are no messages to serialize.
             if (emails == null ||
                 emails.Count < 1)
             {
@@ -57,51 +37,51 @@ namespace InterfaceAdapters.Json
 
             // Store the array in a json object.
             JsonObject jsonObject = new JsonObject();
-            jsonObject.Add("emails", emailsArray);
+            jsonObject.Add("messages", emailsArray);
 
             return jsonObject.ToJsonString();
         }
 
         /// <summary>
-        /// Deserializes a list of emails.
+        /// Deserializes the given email from JSON.
         /// </summary>
-        /// <param name="emailListString">The string containing the email list to deserialize.</param>
+        /// <param name="lines">The string containing the email to deserialize.</param>
         /// <returns></returns>
-        public static List<Email> DeserializeEmailList(string emailListString)
+        public static List<Email> Deserialize(string lines)
         {
-            JsonNode? jsonObject = JsonNode.Parse(emailListString);
+            JsonNode? jsonObject = JsonNode.Parse(lines);
             if (jsonObject == null)
             {
-                throw new JsonFormatException("JSON to deserialize Email list from was not in the expected format.");
+                throw new JsonFormatException("JSON to deserialize message list from was not in the expected format.");
             }
 
-            JsonArray emailsArray;
+            JsonArray messagesArray;
             try
             {
-                emailsArray = jsonObject["emails"].AsArray();
+                messagesArray = jsonObject["messages"].AsArray();
             }
             catch (Exception ex)
             {
                 throw new JsonFormatException("Error was encountered when parsing the JSON.", ex);
             }
 
-            // For each email in the array...
-            List<Email> emails = new List<Email>();
-            foreach (var emailJsonValue in emailsArray)
+            // For each message in the array...
+            List<Email> messages = new List<Email>();
+            foreach (var messageJsonValue in messagesArray)
             {
                 // This is necessary because of the type iterated over in the JsonArray.
-                string emailJson = emailJsonValue.ToJsonString();
+                string messageJson = messageJsonValue.ToJsonString();
 
-                // Parse the email data and add it to the list.
-                Email? email = JsonSerializer.Deserialize<Email>(emailJson);
-                if (email == null)
+                // Parse the message data and add it to the list.
+                Email? message = JsonSerializer.Deserialize<Email>(messageJson);
+                if (message == null)
                 {
-                    throw new JsonFormatException("JSON to deserialize Email from was not in the expected format.");
+                    throw new JsonFormatException("JSON to deserialize message from was not in the expected format.");
                 }
-                emails.Add(email);
+                messages.Add(message);
             }
 
-            return emails;
+            return messages;
         }
     }
 }
