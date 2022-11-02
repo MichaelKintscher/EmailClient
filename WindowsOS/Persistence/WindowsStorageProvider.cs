@@ -104,35 +104,6 @@ namespace WindowsOS.Persistence
 
             return messageBoxes;
         }
-
-        /// <summary>
-        /// Loads the IDs of each message in each message box.
-        /// </summary>
-        /// <param name="messageBoxesFileName">The name of the message boxes file.</param>
-        /// <returns></returns>
-        public async Task<Dictionary<string, List<string>>> LoadMessageIdsByMessageBox(string messageBoxesFileName)
-        {
-            // Initialize the return data structure.
-            Dictionary<string, List<string>> allMessageIds = new Dictionary<string, List<string>>();
-
-            // Try to read the list from the file.
-            IStorageItem storageItem = await ApplicationData.Current.LocalFolder.TryGetItemAsync(messageBoxesFileName);
-            if (storageItem is StorageFile file)
-            {
-                // Read the data from the file.
-                string fileContent = await FileIO.ReadTextAsync(file);
-                List<MessageBox> messageBoxes = MessageBoxAdapter.Deserialize(fileContent);
-
-                // Get the messages in each message box.
-                foreach (MessageBox messageBox in messageBoxes)
-                {
-                    List<string> messageIds = MessageBoxAdapter.GetMessageIdsInBox(messageBox.ID, fileContent);
-                    allMessageIds.Add(messageBox.ID, messageIds);
-                }
-            }
-
-            return allMessageIds;
-        }
         #endregion
 
         #region Methods - OAuth

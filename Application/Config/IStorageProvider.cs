@@ -14,8 +14,6 @@ namespace Application.Config
         public Task SaveMessageBoxesAsync(string messageBoxesFileName, List<MessageBox> messageBoxes);
 
         public Task<List<MessageBox>> LoadMessageBoxesAsync(string messageBoxesFileName);
-
-        public Task<Dictionary<string, List<string>>> LoadMessageIdsByMessageBox(string messageBoxesFileName);
         #endregion
 
         #region Methods - OAuth

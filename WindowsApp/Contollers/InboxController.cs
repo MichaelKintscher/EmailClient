@@ -49,24 +49,24 @@ namespace WindowsApp.Contollers
                 view.AddEmailToInbox(email);
             }
 
+            // Convert the list of emails to a dictionary keyed by assigned Message Box.
+            Dictionary<string, List<Email>> emailsDict = emails.GroupBy(e => e.MessageBoxID)
+                                                               .ToDictionary(g => g.Key, g => g.ToList());
+
             // Get the message boxes for the view.
             MessageBoxManager boxesManager = new MessageBoxManager(WindowsStorageProvider.Instance);
             List<MessageBox> boxes = await boxesManager.GetMessageBoxesAsync();
+
+            // For each message box...
             foreach (MessageBox box in boxes)
             {
-                // Get a list of accounts associated with the messages in these message boxes.
-                List<ServiceProviderAccount> accounts = AppConfigManager.GetServiceProviderAccounts();
-                foreach (ServiceProviderAccount account in accounts)
+                // If there are any emails in the box, assign them.
+                if (emailsDict.ContainsKey(box.ID))
                 {
-                    // Get a list of message providers associated with the account.
-                    List<IMessageService> messageServices = AppConfigManager.GetMessageServicesForAccount(account.ID);
-                    foreach (IMessageService messageService in messageServices)
-                    {
-                        MessagesManager messagesManager = new MessagesManager(account, messageService, WindowsStorageProvider.Instance);
-                        box.Messages = await messagesManager.GetMessagesAsync();
-                    }
+                    box.Messages.AddRange(emailsDict[box.ID]);
                 }
 
+                // Add the box to the view.
                 view.AddMessageBox(box);
             }
 

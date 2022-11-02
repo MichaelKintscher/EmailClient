@@ -31,6 +31,13 @@ namespace Domain.Messages.Emails
         /// </summary>
         public string Body { get; set; }
 
+        #region Relational Properties
+        /// <summary>
+        /// The ID of the message box this email is assigned to.
+        /// </summary>
+        public string MessageBoxID { get; set; }
+        #endregion
+
         /// <summary>
         /// Default constructor - creates an email with an empty string subject and body.
         /// </summary>
@@ -38,6 +45,7 @@ namespace Domain.Messages.Emails
         {
             this.Subject = string.Empty;
             this.Body = string.Empty;
+            this.MessageBoxID = Guid.Empty.ToString();
         }
     }
 }

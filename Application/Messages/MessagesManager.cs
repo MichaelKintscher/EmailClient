@@ -16,16 +16,6 @@ namespace Application.Messages
     {
         #region Properties
         /// <summary>
-        /// A reference to the service provider account this message manager manages messages for.
-        /// </summary>
-        private ServiceProviderAccount ServiceProviderAccount { get; set; }
-
-        /// <summary>
-        /// A reference to the message service this message manager manages.
-        /// </summary>
-        private IMessageService MessageService { get; set; }
-
-        /// <summary>
         /// A reference to the storage provider this connection manager will interface with.
         /// </summary>
         private IStorageProvider StorageProvider { get; set; }
@@ -35,7 +25,7 @@ namespace Application.Messages
         /// </summary>
         private string MessgesFileName
         {
-            get => this.ServiceProviderAccount.ID + "_" + this.MessageService.Name + "_messages.json";
+            get => "messages.json";
         }
         #endregion
 
@@ -43,13 +33,9 @@ namespace Application.Messages
         /// <summary>
         /// Default constructor - takes in a Message Service Provider and Storage Provider as dependency injection.
         /// </summary>
-        /// <param name="serviceProviderAccount">The service provider account the messages are associated with.</param>
-        /// <param name="messageService">The message service provider the messages are associated with.</param>
         /// <param name="storageProvider">The storage provider used for persisting message data.</param>
-        public MessagesManager(ServiceProviderAccount serviceProviderAccount, IMessageService messageService, IStorageProvider storageProvider)
+        public MessagesManager(IStorageProvider storageProvider)
         {
-            this.ServiceProviderAccount = serviceProviderAccount;
-            this.MessageService = messageService;
             this.StorageProvider = storageProvider;
         }
         #endregion
