@@ -44,14 +44,17 @@ namespace WindowsApp.Contollers
             // Get the emails for the view.
             EmailAccountManager emailManager = new EmailAccountManager();
             List<Email> emails = await emailManager.GetEmailsAsync();
-            foreach (Email email in emails)
-            {
-                view.AddEmailToInbox(email);
-            }
 
             // Convert the list of emails to a dictionary keyed by assigned Message Box.
             Dictionary<string, List<Email>> emailsDict = emails.GroupBy(e => e.MessageBoxID)
                                                                .ToDictionary(g => g.Key, g => g.ToList());
+
+            // Assign the emails not in other boxes to the inbox.
+            List<Email> inboxEmails = emailsDict[Guid.Empty.ToString()];
+            foreach (Email email in inboxEmails)
+            {
+                view.AddEmailToInbox(email);
+            }
 
             // Get the message boxes for the view.
             MessageBoxManager boxesManager = new MessageBoxManager(WindowsStorageProvider.Instance);
