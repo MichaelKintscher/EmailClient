@@ -55,6 +55,7 @@
                                 MinWidth="300"
                                 Tag="{x:Bind ID, Mode=OneTime}"
                                 MessageBoxName="{x:Bind Name, Mode=OneWay}"
+                                MessagesSource="{x:Bind Messages, Mode=OneTime}"
                                 MessageBoxMinHeight="200"
                                 MessageDragStarting="MessageBoxControl_MessageDragStarting"
                                 MessageDropCompleted="MessageBoxControl_MessageDropCompleted"></controls:MessageBoxControl>

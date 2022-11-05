@@ -57,8 +57,8 @@ namespace WindowsApp.Contollers
             view.EmailMoved += View_EmailMoved;
 
             // Get the emails for the view.
-            EmailAccountManager emailManager = new EmailAccountManager();
-            List<Email> emails = await emailManager.GetEmailsAsync();
+            MessagesManager messagesManager = new MessagesManager(WindowsStorageProvider.Instance);
+            List<Email> emails = await messagesManager.GetAllMessagesAsync();
 
             // Convert the list of emails to a dictionary keyed by assigned Message Box.
             Dictionary<string, List<Email>> emailsDict = emails.GroupBy(e => e.MessageBoxID)

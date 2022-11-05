@@ -87,7 +87,7 @@ namespace Application.Messages
         /// <param name="name">The new name to give the message box.</param>
         /// <returns></returns>
         /// <exception cref="NotImplementedException"></exception>
-        public Task RenameMessageBoxAsync(string messageBoxId, string name)
+        public async Task RenameMessageBoxAsync(string messageBoxId, string name)
         {
             throw new NotImplementedException();
         }
@@ -97,11 +97,28 @@ namespace Application.Messages
         /// </summary>
         /// <param name="emails">The list of emails to move to the message box.</param>
         /// <param name="messageBoxId">The ID of the message box to move the emails to.</param>
-        /// <returns>Whether the given emails were successfully moved to the given message box.</returns>
-        /// <exception cref="NotImplementedException"></exception>
-        public Task<bool> MoveEmailsToMessageBoxAsync(List<Email> emails, string messageBoxId)
+        /// <exception cref="ArgumentException">Thrown if a given email is not found among the saved emails.</exception>
+        public async Task MoveEmailsToMessageBoxAsync(List<Email> emails, string messageBoxId)
         {
-            throw new NotImplementedException();
+            // Load the saved messages.
+            List<Email> savedEmails = await this.StorageProvider.LoadMessagesAsync(MessagesManager.MessgesFileName);
+
+            // For each email to move...
+            foreach (Email email in emails)
+            {
+                // Get a reference to the email from the saved messages.
+                Email? savedEmail = savedEmails.Where(e => e.ID == email.ID).FirstOrDefault();
+                if (savedEmail == null)
+                {
+                    throw new ArgumentException("Email to move was not found among the saved emails.");
+                }
+
+                // Update the saved email's message box assignment.
+                savedEmail.MessageBoxID = messageBoxId;
+            }
+
+            // Save the updated messages.
+            await this.StorageProvider.SaveMessagesAsync(MessagesManager.MessgesFileName, savedEmails);
         }
 
         /// <summary>

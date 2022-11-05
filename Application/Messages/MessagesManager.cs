@@ -23,7 +23,7 @@ namespace Application.Messages
         /// <summary>
         /// The file name of the file storing the messages for the account and message service this message manager manages.
         /// </summary>
-        private string MessgesFileName
+        public static string MessgesFileName
         {
             get => "messages.json";
         }
@@ -41,9 +41,13 @@ namespace Application.Messages
         #endregion
 
         #region Methods
-        public Task<List<Email>> GetMessagesAsync()
+        /// <summary>
+        /// Gets a list of all saved messages.
+        /// </summary>
+        /// <returns></returns>
+        public Task<List<Email>> GetAllMessagesAsync()
         {
-            throw new NotImplementedException();
+            return this.StorageProvider.LoadMessagesAsync(MessagesManager.MessgesFileName);
         }
         #endregion
     }

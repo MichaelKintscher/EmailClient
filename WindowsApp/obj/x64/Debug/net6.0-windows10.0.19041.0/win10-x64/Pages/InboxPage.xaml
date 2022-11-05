@@ -55,6 +55,7 @@
                                 MinWidth="300"
                                                                
                                                                            
+                                                                                
                                 MessageBoxMinHeight="200"
                                                                                            
                                                                                              ></controls:MessageBoxControl>

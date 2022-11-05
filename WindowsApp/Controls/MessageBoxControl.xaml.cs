@@ -55,6 +55,21 @@ namespace WindowsApp.Controls
                 this.MessageBoxListView.MinHeight = value;
             }
         }
+
+        /// <summary>
+        /// The source to use for the messages. ONLY SUPPORTS ONE TIME BINDING.
+        /// </summary>
+        public List<Email> MessagesSource
+        {
+            get => this.Messages.ToList();
+            set
+            {
+                foreach (Email message in value)
+                {
+                    this.AddEmail(message);
+                }
+            }
+        }
         #endregion
 
         #region Events

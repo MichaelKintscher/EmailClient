@@ -1,5 +1,6 @@
 ﻿using Domain.Common;
 using Domain.Messages;
+using Domain.Messages.Emails;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,6 +11,12 @@ namespace Application.Config
 {
     public interface IStorageProvider
     {
+        #region Methods - Messages
+        public Task SaveMessagesAsync(string messagesFileName, List<Email> emails);
+
+        public Task<List<Email>> LoadMessagesAsync(string messagesFileName);
+        #endregion
+
         #region Methods - Message Boxes
         public Task SaveMessageBoxesAsync(string messageBoxesFileName, List<MessageBox> messageBoxes);
 
