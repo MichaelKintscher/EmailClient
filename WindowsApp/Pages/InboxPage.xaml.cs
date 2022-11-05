@@ -1,4 +1,5 @@
-﻿using Domain.Messages;
+﻿using Application.Messages;
+using Domain.Messages;
 using Domain.Messages.Emails;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
@@ -16,6 +17,7 @@ using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using WindowsApp.Controls;
+using WindowsApp.EventArguments;
 
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
@@ -29,6 +31,14 @@ namespace WindowsApp.Pages
     {
         #region Properties
         /// <summary>
+        /// The ID of the inbox.
+        /// </summary>
+        private MessageBox Inbox
+        {
+            get { return MessageBoxManager.Inbox; }
+        }
+
+        /// <summary>
         /// The list of message boxes to display.
         /// </summary>
         private ObservableCollection<MessageBox> MessageBoxes { get; set; }
@@ -38,6 +48,20 @@ namespace WindowsApp.Pages
         /// if there source is not from this page.
         /// </summary>
         private MessageBoxControl MessagesDragSource { get; set; }
+        #endregion
+
+        #region Events
+        internal delegate void EmailMovedHandler(object sender, EmailsMovedEventArgs e);
+        /// <summary>
+        /// Raised when an email is moved between or within a message box.
+        /// </summary>
+        internal event EmailMovedHandler EmailMoved;
+        private void RaiseEmailMoved(List<Email> emails, MessageBox source, MessageBox destination)
+        {
+            // Create the args and call the listening event handlers, if there are any.
+            EmailsMovedEventArgs args = new EmailsMovedEventArgs(emails, source, destination);
+            this.EmailMoved?.Invoke(this, args);
+        }
         #endregion
 
         #region Constructors
@@ -98,6 +122,22 @@ namespace WindowsApp.Pages
                     {
                         // The drag and drop was between two different message box controls.
                         System.Diagnostics.Debug.WriteLine("Drag of " + e.Emails.Count + " emails completed from " + this.MessagesDragSource.MessageBoxName + " to " + messageBoxControl.MessageBoxName);
+
+                        // Get a reference to the source and destination message boxes. The ID is stored
+                        //      on the Tag property.
+                        string sourceBoxId = this.MessagesDragSource.Tag.ToString();
+                        string destinationBoxId = messageBoxControl.Tag.ToString();
+
+                        MessageBox source = (sourceBoxId == this.Inbox.ID) ?
+                            MessageBoxManager.Inbox :
+                            this.MessageBoxes.Where(b => b.ID == sourceBoxId).FirstOrDefault();
+
+                        MessageBox destination = (destinationBoxId == this.Inbox.ID) ?
+                            MessageBoxManager.Inbox :
+                            this.MessageBoxes.Where(b => b.ID == messageBoxControl.Tag.ToString()).FirstOrDefault();
+
+                        // Raise the email moved event with the source and destination message boxes.
+                        this.RaiseEmailMoved(e.Emails, source, destination);
                     }
                     else
                     {

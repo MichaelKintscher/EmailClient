@@ -31,6 +31,20 @@ namespace WindowsApp.Contollers
         }
         #endregion
 
+        #region Event Handlers
+        /// <summary>
+        /// Handles when an email is moved on the view.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void View_EmailMoved(object sender, EventArguments.EmailsMovedEventArgs e)
+        {
+            // Move the emails to the new message box.
+            MessageBoxManager manager = new MessageBoxManager(WindowsStorageProvider.Instance);
+            manager.MoveEmailsToMessageBoxAsync(e.Emails, e.Destination.ID);
+        }
+        #endregion
+
         #region Methods
         /// <summary>
         /// Initializes the controller with the given view.
@@ -40,6 +54,7 @@ namespace WindowsApp.Contollers
         internal async Task InitializeAsync(InboxPage view)
         {
             // Subscribe to the page's events.
+            view.EmailMoved += View_EmailMoved;
 
             // Get the emails for the view.
             EmailAccountManager emailManager = new EmailAccountManager();

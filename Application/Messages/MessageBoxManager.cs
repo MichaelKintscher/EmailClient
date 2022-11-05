@@ -24,6 +24,18 @@ namespace Application.Messages
         /// The file name of the file storing the message boxes.
         /// </summary>
         private static readonly string MessageBoxesFileName = "MessageBoxes.json";
+
+        public static MessageBox Inbox
+        {
+            get
+            {
+                return new MessageBox()
+                {
+                    ID = Guid.Empty.ToString(),
+                    Name = "Inbox"
+                };
+            }
+        }
         #endregion
 
         #region Constructors
@@ -81,25 +93,13 @@ namespace Application.Messages
         }
 
         /// <summary>
-        /// Adds the given email to the message box matching the given ID.
+        /// Moves the given emails to the message box matching the given ID.
         /// </summary>
-        /// <param name="email">The email to add to the message box.</param>
-        /// <param name="messageBoxId">The ID of the message box to add the email to.</param>
-        /// <returns>Whether the given email was successfully added to the given message box.</returns>
+        /// <param name="emails">The list of emails to move to the message box.</param>
+        /// <param name="messageBoxId">The ID of the message box to move the emails to.</param>
+        /// <returns>Whether the given emails were successfully moved to the given message box.</returns>
         /// <exception cref="NotImplementedException"></exception>
-        public Task<bool> AddEmailToMessageBoxAsync(Email email, string messageBoxId)
-        {
-            throw new NotImplementedException();
-        }
-
-        /// <summary>
-        /// Removes the given email from the message box matching the given ID.
-        /// </summary>
-        /// <param name="emailId">The app-given ID of the email to remove from the message box.</param>
-        /// <param name="messageBoxId">The ID of the message box to remove the email from.</param>
-        /// <returns>Whether the given email was successfully removed from the given message box.</returns>
-        /// <exception cref="NotImplementedException"></exception>
-        public Task<bool> RemoveEmailFromMessageBox(string emailId, string messageBoxId)
+        public Task<bool> MoveEmailsToMessageBoxAsync(List<Email> emails, string messageBoxId)
         {
             throw new NotImplementedException();
         }

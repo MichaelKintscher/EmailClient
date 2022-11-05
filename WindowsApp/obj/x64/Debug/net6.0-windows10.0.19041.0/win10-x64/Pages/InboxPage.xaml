@@ -28,7 +28,8 @@
         <controls:MessageBoxControl x:ConnectionId='2' x:Name="InboxMessageBoxControl"
                                     Grid.Row="1"
                                     Grid.Column="0"
-                                    MessageBoxName="Inbox"
+                                                           
+                                                                        
                                                                                                
                                                                                                  ></controls:MessageBoxControl>
         
@@ -52,6 +53,7 @@
                         <DataTemplate                                 >
                             <controls:MessageBoxControl x:ConnectionId='5'
                                 MinWidth="300"
+                                                               
                                                                            
                                 MessageBoxMinHeight="200"
                                                                                            
