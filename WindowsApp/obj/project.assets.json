@@ -1,7 +1,42 @@
 {
   "version": 3,
   "targets": {
-    "net6.0-windows10.0.19041": {
+    "net7.0-windows10.0.22621": {
+      "kintscher.dev.CleanArchitecture.Core/1.0.1": {
+        "type": "package",
+        "compile": {
+          "lib/net7.0/CleanArchitectureCore.dll": {}
+        },
+        "runtime": {
+          "lib/net7.0/CleanArchitectureCore.dll": {}
+        }
+      },
+      "kintscher.dev.CleanArchitecture.Entities/1.0.1": {
+        "type": "package",
+        "compile": {
+          "lib/net7.0/CleanArchitectureEntities.dll": {}
+        },
+        "runtime": {
+          "lib/net7.0/CleanArchitectureEntities.dll": {}
+        }
+      },
+      "kintscher.dev.CleanArchitecture.Windows/1.0.2": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.WindowsAppSDK": "1.4.231115000",
+          "kintscher.dev.CleanArchitecture.Core": "1.0.1"
+        },
+        "compile": {
+          "lib/net7.0-windows10.0.22621/CleanArchitectureWindows.dll": {
+            "related": ".pri"
+          }
+        },
+        "runtime": {
+          "lib/net7.0-windows10.0.22621/CleanArchitectureWindows.dll": {
+            "related": ".pri"
+          }
+        }
+      },
       "Microsoft.Windows.SDK.BuildTools/10.0.22621.2428": {
         "type": "package",
         "build": {
@@ -146,7 +181,7 @@
       },
       "WindowsOS/1.0.0": {
         "type": "project",
-        "framework": ".NETCoreApp,Version=v6.0",
+        "framework": ".NETCoreApp,Version=v7.0",
         "dependencies": {
           "Application": "1.0.0",
           "InterfaceAdapters": "1.0.0"
@@ -159,7 +194,42 @@
         }
       }
     },
-    "net6.0-windows10.0.19041/win10-arm64": {
+    "net7.0-windows10.0.22621/win10-arm64": {
+      "kintscher.dev.CleanArchitecture.Core/1.0.1": {
+        "type": "package",
+        "compile": {
+          "lib/net7.0/CleanArchitectureCore.dll": {}
+        },
+        "runtime": {
+          "lib/net7.0/CleanArchitectureCore.dll": {}
+        }
+      },
+      "kintscher.dev.CleanArchitecture.Entities/1.0.1": {
+        "type": "package",
+        "compile": {
+          "lib/net7.0/CleanArchitectureEntities.dll": {}
+        },
+        "runtime": {
+          "lib/net7.0/CleanArchitectureEntities.dll": {}
+        }
+      },
+      "kintscher.dev.CleanArchitecture.Windows/1.0.2": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.WindowsAppSDK": "1.4.231115000",
+          "kintscher.dev.CleanArchitecture.Core": "1.0.1"
+        },
+        "compile": {
+          "lib/net7.0-windows10.0.22621/CleanArchitectureWindows.dll": {
+            "related": ".pri"
+          }
+        },
+        "runtime": {
+          "lib/net7.0-windows10.0.22621/CleanArchitectureWindows.dll": {
+            "related": ".pri"
+          }
+        }
+      },
       "Microsoft.Windows.SDK.BuildTools/10.0.22621.2428": {
         "type": "package",
         "build": {
@@ -293,7 +363,7 @@
       },
       "WindowsOS/1.0.0": {
         "type": "project",
-        "framework": ".NETCoreApp,Version=v6.0",
+        "framework": ".NETCoreApp,Version=v7.0",
         "dependencies": {
           "Application": "1.0.0",
           "InterfaceAdapters": "1.0.0"
@@ -306,7 +376,42 @@
         }
       }
     },
-    "net6.0-windows10.0.19041/win10-x64": {
+    "net7.0-windows10.0.22621/win10-x64": {
+      "kintscher.dev.CleanArchitecture.Core/1.0.1": {
+        "type": "package",
+        "compile": {
+          "lib/net7.0/CleanArchitectureCore.dll": {}
+        },
+        "runtime": {
+          "lib/net7.0/CleanArchitectureCore.dll": {}
+        }
+      },
+      "kintscher.dev.CleanArchitecture.Entities/1.0.1": {
+        "type": "package",
+        "compile": {
+          "lib/net7.0/CleanArchitectureEntities.dll": {}
+        },
+        "runtime": {
+          "lib/net7.0/CleanArchitectureEntities.dll": {}
+        }
+      },
+      "kintscher.dev.CleanArchitecture.Windows/1.0.2": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.WindowsAppSDK": "1.4.231115000",
+          "kintscher.dev.CleanArchitecture.Core": "1.0.1"
+        },
+        "compile": {
+          "lib/net7.0-windows10.0.22621/CleanArchitectureWindows.dll": {
+            "related": ".pri"
+          }
+        },
+        "runtime": {
+          "lib/net7.0-windows10.0.22621/CleanArchitectureWindows.dll": {
+            "related": ".pri"
+          }
+        }
+      },
       "Microsoft.Windows.SDK.BuildTools/10.0.22621.2428": {
         "type": "package",
         "build": {
@@ -440,7 +545,7 @@
       },
       "WindowsOS/1.0.0": {
         "type": "project",
-        "framework": ".NETCoreApp,Version=v6.0",
+        "framework": ".NETCoreApp,Version=v7.0",
         "dependencies": {
           "Application": "1.0.0",
           "InterfaceAdapters": "1.0.0"
@@ -453,7 +558,42 @@
         }
       }
     },
-    "net6.0-windows10.0.19041/win10-x86": {
+    "net7.0-windows10.0.22621/win10-x86": {
+      "kintscher.dev.CleanArchitecture.Core/1.0.1": {
+        "type": "package",
+        "compile": {
+          "lib/net7.0/CleanArchitectureCore.dll": {}
+        },
+        "runtime": {
+          "lib/net7.0/CleanArchitectureCore.dll": {}
+        }
+      },
+      "kintscher.dev.CleanArchitecture.Entities/1.0.1": {
+        "type": "package",
+        "compile": {
+          "lib/net7.0/CleanArchitectureEntities.dll": {}
+        },
+        "runtime": {
+          "lib/net7.0/CleanArchitectureEntities.dll": {}
+        }
+      },
+      "kintscher.dev.CleanArchitecture.Windows/1.0.2": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.WindowsAppSDK": "1.4.231115000",
+          "kintscher.dev.CleanArchitecture.Core": "1.0.1"
+        },
+        "compile": {
+          "lib/net7.0-windows10.0.22621/CleanArchitectureWindows.dll": {
+            "related": ".pri"
+          }
+        },
+        "runtime": {
+          "lib/net7.0-windows10.0.22621/CleanArchitectureWindows.dll": {
+            "related": ".pri"
+          }
+        }
+      },
       "Microsoft.Windows.SDK.BuildTools/10.0.22621.2428": {
         "type": "package",
         "build": {
@@ -587,7 +727,7 @@
       },
       "WindowsOS/1.0.0": {
         "type": "project",
-        "framework": ".NETCoreApp,Version=v6.0",
+        "framework": ".NETCoreApp,Version=v7.0",
         "dependencies": {
           "Application": "1.0.0",
           "InterfaceAdapters": "1.0.0"
@@ -602,6 +742,46 @@
     }
   },
   "libraries": {
+    "kintscher.dev.CleanArchitecture.Core/1.0.1": {
+      "sha512": "dI/nUuitE1prGrVwgalAOEHnX/YpKDVx8JRCAvxmvYYy/DGitEP1daLHVNcsSVN7/LEHyX5/+K/+9JPNoXJ4QA==",
+      "type": "package",
+      "path": "kintscher.dev.cleanarchitecture.core/1.0.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "kintscher.dev.cleanarchitecture.core.1.0.1.nupkg.sha512",
+        "kintscher.dev.cleanarchitecture.core.nuspec",
+        "lib/net7.0/CleanArchitectureCore.dll",
+        "readme.md"
+      ]
+    },
+    "kintscher.dev.CleanArchitecture.Entities/1.0.1": {
+      "sha512": "2tkr8gRgpO/3wf9fgurOkueevP7eEFgDcvLTNsXDcfckaTmDPUEbPVJzN4M3gZn91s0/fB0Kzyum/EGhk6ey9g==",
+      "type": "package",
+      "path": "kintscher.dev.cleanarchitecture.entities/1.0.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "kintscher.dev.cleanarchitecture.entities.1.0.1.nupkg.sha512",
+        "kintscher.dev.cleanarchitecture.entities.nuspec",
+        "lib/net7.0/CleanArchitectureEntities.dll",
+        "readme.md"
+      ]
+    },
+    "kintscher.dev.CleanArchitecture.Windows/1.0.2": {
+      "sha512": "LVHK2UasWFafLetjIk9xEJ1KryHr8moQbmsWpTS6hfzQaQj+aKVqRLxRS6mma63LKNq8nEp3v7yCyAchBIAHSA==",
+      "type": "package",
+      "path": "kintscher.dev.cleanarchitecture.windows/1.0.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "kintscher.dev.cleanarchitecture.windows.1.0.2.nupkg.sha512",
+        "kintscher.dev.cleanarchitecture.windows.nuspec",
+        "lib/net7.0-windows10.0.22621/CleanArchitectureWindows.dll",
+        "lib/net7.0-windows10.0.22621/CleanArchitectureWindows.pri",
+        "readme.md"
+      ]
+    },
     "Microsoft.Windows.SDK.BuildTools/10.0.22621.2428": {
       "sha512": "qCNAxtpkIvn/mTXLoj5uW80qPyPvNcnTPTLgm2U+d53LS75DT6iQSpLnkVYCvxuRLx4FYPAcKackwpc0cDZGUg==",
       "type": "package",
@@ -1471,13 +1651,16 @@
     }
   },
   "projectFileDependencyGroups": {
-    "net6.0-windows10.0.19041": [
+    "net7.0-windows10.0.22621": [
       "Domain >= 1.0.0",
       "InterfaceAdapters >= 1.0.0",
       "Microsoft.Windows.SDK.BuildTools >= 10.0.22621.2428",
       "Microsoft.WindowsAppSDK >= 1.4.231115000",
       "Network >= 1.0.0",
-      "WindowsOS >= 1.0.0"
+      "WindowsOS >= 1.0.0",
+      "kintscher.dev.CleanArchitecture.Core >= 1.0.1",
+      "kintscher.dev.CleanArchitecture.Entities >= 1.0.1",
+      "kintscher.dev.CleanArchitecture.Windows >= 1.0.2"
     ]
   },
   "packageFolders": {
@@ -1502,7 +1685,7 @@
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
-        "net6.0-windows10.0.19041.0"
+        "net7.0-windows10.0.22621.0"
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
@@ -1510,8 +1693,8 @@
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
-        "net6.0-windows10.0.19041": {
-          "targetAlias": "net6.0-windows10.0.19041.0",
+        "net7.0-windows10.0.22621": {
+          "targetAlias": "net7.0-windows10.0.22621.0",
           "projectReferences": {
             "C:\\Users\\micha\\source\\repos\\EmailClient\\Domain\\Domain.csproj": {
               "projectPath": "C:\\Users\\micha\\source\\repos\\EmailClient\\Domain\\Domain.csproj"
@@ -1535,8 +1718,8 @@
       }
     },
     "frameworks": {
-      "net6.0-windows10.0.19041": {
-        "targetAlias": "net6.0-windows10.0.19041.0",
+      "net7.0-windows10.0.22621": {
+        "targetAlias": "net7.0-windows10.0.22621.0",
         "dependencies": {
           "Microsoft.Windows.SDK.BuildTools": {
             "target": "Package",
@@ -1545,6 +1728,18 @@
           "Microsoft.WindowsAppSDK": {
             "target": "Package",
             "version": "[1.4.231115000, )"
+          },
+          "kintscher.dev.CleanArchitecture.Core": {
+            "target": "Package",
+            "version": "[1.0.1, )"
+          },
+          "kintscher.dev.CleanArchitecture.Entities": {
+            "target": "Package",
+            "version": "[1.0.1, )"
+          },
+          "kintscher.dev.CleanArchitecture.Windows": {
+            "target": "Package",
+            "version": "[1.0.2, )"
           }
         },
         "imports": [
@@ -1561,43 +1756,43 @@
         "downloadDependencies": [
           {
             "name": "Microsoft.AspNetCore.App.Runtime.win-arm64",
-            "version": "[6.0.16, 6.0.16]"
+            "version": "[7.0.5, 7.0.5]"
           },
           {
             "name": "Microsoft.AspNetCore.App.Runtime.win-x64",
-            "version": "[6.0.16, 6.0.16]"
+            "version": "[7.0.5, 7.0.5]"
           },
           {
             "name": "Microsoft.AspNetCore.App.Runtime.win-x86",
-            "version": "[6.0.16, 6.0.16]"
+            "version": "[7.0.5, 7.0.5]"
           },
           {
             "name": "Microsoft.NETCore.App.Runtime.win-arm64",
-            "version": "[6.0.16, 6.0.16]"
+            "version": "[7.0.5, 7.0.5]"
           },
           {
             "name": "Microsoft.NETCore.App.Runtime.win-x64",
-            "version": "[6.0.16, 6.0.16]"
+            "version": "[7.0.5, 7.0.5]"
           },
           {
             "name": "Microsoft.NETCore.App.Runtime.win-x86",
-            "version": "[6.0.16, 6.0.16]"
+            "version": "[7.0.5, 7.0.5]"
           },
           {
             "name": "Microsoft.Windows.SDK.NET.Ref",
-            "version": "[10.0.19041.28, 10.0.19041.28]"
+            "version": "[10.0.22621.28, 10.0.22621.28]"
           },
           {
             "name": "Microsoft.WindowsDesktop.App.Runtime.win-arm64",
-            "version": "[6.0.16, 6.0.16]"
+            "version": "[7.0.5, 7.0.5]"
           },
           {
             "name": "Microsoft.WindowsDesktop.App.Runtime.win-x64",
-            "version": "[6.0.16, 6.0.16]"
+            "version": "[7.0.5, 7.0.5]"
           },
           {
             "name": "Microsoft.WindowsDesktop.App.Runtime.win-x86",
-            "version": "[6.0.16, 6.0.16]"
+            "version": "[7.0.5, 7.0.5]"
           }
         ],
         "frameworkReferences": {

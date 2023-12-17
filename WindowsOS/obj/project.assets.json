@@ -1,7 +1,7 @@
 {
   "version": 3,
   "targets": {
-    "net6.0-windows10.0.19041": {
+    "net7.0-windows10.0.22621": {
       "Application/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
@@ -58,7 +58,7 @@
     }
   },
   "projectFileDependencyGroups": {
-    "net6.0-windows10.0.19041": [
+    "net7.0-windows10.0.22621": [
       "Application >= 1.0.0",
       "InterfaceAdapters >= 1.0.0"
     ]
@@ -85,7 +85,7 @@
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
-        "net6.0-windows10.0.19041.0"
+        "net7.0-windows10.0.22621.0"
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
@@ -93,8 +93,8 @@
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
-        "net6.0-windows10.0.19041": {
-          "targetAlias": "net6.0-windows10.0.19041.0",
+        "net7.0-windows10.0.22621": {
+          "targetAlias": "net7.0-windows10.0.22621.0",
           "projectReferences": {
             "C:\\Users\\micha\\source\\repos\\EmailClient\\Application\\Application.csproj": {
               "projectPath": "C:\\Users\\micha\\source\\repos\\EmailClient\\Application\\Application.csproj"
@@ -112,8 +112,8 @@
       }
     },
     "frameworks": {
-      "net6.0-windows10.0.19041": {
-        "targetAlias": "net6.0-windows10.0.19041.0",
+      "net7.0-windows10.0.22621": {
+        "targetAlias": "net7.0-windows10.0.22621.0",
         "imports": [
           "net461",
           "net462",
@@ -128,7 +128,7 @@
         "downloadDependencies": [
           {
             "name": "Microsoft.Windows.SDK.NET.Ref",
-            "version": "[10.0.19041.28, 10.0.19041.28]"
+            "version": "[10.0.22621.28, 10.0.22621.28]"
           }
         ],
         "frameworkReferences": {

@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "Mr6E4BCuoSa6bHdQPlrz5Pr6jF7JaUrbGx9pNx+L9cpjs1Ovus4ZXNx2q5nRZklVs2xDGL4fY4G/aeVsarCv4Q==",
+  "dgSpecHash": "tjg1TAbgxBYQfymhc0E/KCufrW66sWB3LQF2O7zkes5+cYLj5NLE/KnF8IfjAW4prKNPYtZ0DpvnhvzkU6raJw==",
   "success": true,
   "projectFilePath": "C:\\Users\\micha\\source\\repos\\EmailClient\\WindowsOS\\WindowsOS.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\micha\\.nuget\\packages\\microsoft.windows.sdk.net.ref\\10.0.19041.28\\microsoft.windows.sdk.net.ref.10.0.19041.28.nupkg.sha512"
+    "C:\\Users\\micha\\.nuget\\packages\\microsoft.windows.sdk.net.ref\\10.0.22621.28\\microsoft.windows.sdk.net.ref.10.0.22621.28.nupkg.sha512"
   ],
   "logs": []
 }
