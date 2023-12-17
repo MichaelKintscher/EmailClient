@@ -20,7 +20,7 @@ namespace WindowsApp
         [global::System.Runtime.InteropServices.DllImport("Microsoft.ui.xaml.dll")]
         private static extern void XamlCheckProcessRequirements();
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.UI.Xaml.Markup.Compiler"," 1.0.0.0")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.UI.Xaml.Markup.Compiler"," 3.0.0.2311")]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.STAThreadAttribute]
         static void Main(string[] args)
@@ -39,12 +39,12 @@ namespace WindowsApp
 
     partial class App : global::Microsoft.UI.Xaml.Application
     {
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.UI.Xaml.Markup.Compiler"," 1.0.0.0")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.UI.Xaml.Markup.Compiler"," 3.0.0.2311")]
         private bool _contentLoaded;
         /// <summary>
         /// InitializeComponent()
         /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.UI.Xaml.Markup.Compiler"," 1.0.0.0")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.UI.Xaml.Markup.Compiler"," 3.0.0.2311")]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         public void InitializeComponent()
         {
@@ -58,6 +58,12 @@ namespace WindowsApp
 
 #if DEBUG && !DISABLE_XAML_GENERATED_BINDING_DEBUG_OUTPUT
             DebugSettings.BindingFailed += (sender, args) =>
+            {
+                global::System.Diagnostics.Debug.WriteLine(args.Message);
+            };
+#endif
+#if DEBUG && !DISABLE_XAML_GENERATED_RESOURCE_REFERENCE_DEBUG_OUTPUT
+            DebugSettings.XamlResourceReferenceFailed  += (sender, args) =>
             {
                 global::System.Diagnostics.Debug.WriteLine(args.Message);
             };

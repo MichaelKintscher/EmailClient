@@ -14,7 +14,7 @@ namespace WindowsApp.Pages
         global::Microsoft.UI.Xaml.Controls.Page, 
         global::Microsoft.UI.Xaml.Markup.IComponentConnector
     {
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.UI.Xaml.Markup.Compiler"," 1.0.0.0")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.UI.Xaml.Markup.Compiler"," 3.0.0.2311")]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         private static class XamlBindingSetters
         {
@@ -72,7 +72,7 @@ namespace WindowsApp.Pages
             }
         };
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.UI.Xaml.Markup.Compiler"," 1.0.0.0")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.UI.Xaml.Markup.Compiler"," 3.0.0.2311")]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         private class SettingsPage_obj8_Bindings :
             global::Microsoft.UI.Xaml.IDataTemplateExtension,
@@ -196,7 +196,7 @@ namespace WindowsApp.Pages
                         break;
                 }
             }
-                        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.UI.Xaml.Markup.Compiler"," 1.0.0.0")]
+                        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.UI.Xaml.Markup.Compiler"," 3.0.0.2311")]
                         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
                         public global::Microsoft.UI.Xaml.Markup.IComponentConnector GetBindingConnector(int connectionId, object target) 
                         {
@@ -428,7 +428,7 @@ namespace WindowsApp.Pages
                 }
             }
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.UI.Xaml.Markup.Compiler"," 1.0.0.0")]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.UI.Xaml.Markup.Compiler"," 3.0.0.2311")]
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             private class SettingsPage_obj8_BindingsTracking
             {
@@ -472,7 +472,7 @@ namespace WindowsApp.Pages
             }
         }
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.UI.Xaml.Markup.Compiler"," 1.0.0.0")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.UI.Xaml.Markup.Compiler"," 3.0.0.2311")]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         private class SettingsPage_obj19_Bindings :
             global::Microsoft.UI.Xaml.IDataTemplateExtension,
@@ -554,7 +554,7 @@ namespace WindowsApp.Pages
                         break;
                 }
             }
-                        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.UI.Xaml.Markup.Compiler"," 1.0.0.0")]
+                        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.UI.Xaml.Markup.Compiler"," 3.0.0.2311")]
                         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
                         public global::Microsoft.UI.Xaml.Markup.IComponentConnector GetBindingConnector(int connectionId, object target) 
                         {
@@ -713,7 +713,7 @@ namespace WindowsApp.Pages
             }
         }
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.UI.Xaml.Markup.Compiler"," 1.0.0.0")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.UI.Xaml.Markup.Compiler"," 3.0.0.2311")]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         private class SettingsPage_obj1_Bindings :
             global::Microsoft.UI.Xaml.Markup.IDataTemplateComponent,
@@ -760,7 +760,7 @@ namespace WindowsApp.Pages
                         break;
                 }
             }
-                        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.UI.Xaml.Markup.Compiler"," 1.0.0.0")]
+                        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.UI.Xaml.Markup.Compiler"," 3.0.0.2311")]
                         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
                         public global::Microsoft.UI.Xaml.Markup.IComponentConnector GetBindingConnector(int connectionId, object target) 
                         {
@@ -851,7 +851,7 @@ namespace WindowsApp.Pages
                 }
             }
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.UI.Xaml.Markup.Compiler"," 1.0.0.0")]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.UI.Xaml.Markup.Compiler"," 3.0.0.2311")]
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             private class SettingsPage_obj1_BindingsTracking
             {
@@ -935,7 +935,7 @@ namespace WindowsApp.Pages
         /// <summary>
         /// Connect()
         /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.UI.Xaml.Markup.Compiler"," 1.0.0.0")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.UI.Xaml.Markup.Compiler"," 3.0.0.2311")]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         public void Connect(int connectionId, object target)
         {
@@ -1002,7 +1002,7 @@ namespace WindowsApp.Pages
         /// <summary>
         /// GetBindingConnector(int connectionId, object target)
         /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.UI.Xaml.Markup.Compiler"," 1.0.0.0")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.UI.Xaml.Markup.Compiler"," 3.0.0.2311")]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         public global::Microsoft.UI.Xaml.Markup.IComponentConnector GetBindingConnector(int connectionId, object target)
         {

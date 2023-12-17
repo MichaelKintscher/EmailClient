@@ -1,21 +1,21 @@
 {
   "version": 2,
-  "dgSpecHash": "IRu8l/13oP5X6QpeSvQVQP5yoojZbtYzF7f2+HTd5GoVfMgjh2Pp0rhUJQLPTbw0UxXxcwclPlkTsrNn0o5fJQ==",
+  "dgSpecHash": "8/iLTS/XIlz+ARtWDdvImnz99ia8iTXZDcTClhm5rLucjwL173rXhilS0am/RuA0uRrkMiUB4qFFA6UvRJ3zDg==",
   "success": true,
   "projectFilePath": "C:\\Users\\micha\\source\\repos\\EmailClient\\WindowsApp\\WindowsApp.csproj",
   "expectedPackageFiles": [
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages\\microsoft.windows.sdk.buildtools\\10.0.22000.194\\microsoft.windows.sdk.buildtools.10.0.22000.194.nupkg.sha512",
-    "C:\\Users\\micha\\.nuget\\packages\\microsoft.windowsappsdk\\1.0.3\\microsoft.windowsappsdk.1.0.3.nupkg.sha512",
-    "C:\\Users\\micha\\.nuget\\packages\\microsoft.netcore.app.runtime.win-x64\\6.0.7\\microsoft.netcore.app.runtime.win-x64.6.0.7.nupkg.sha512",
-    "C:\\Users\\micha\\.nuget\\packages\\microsoft.aspnetcore.app.runtime.win-x64\\6.0.7\\microsoft.aspnetcore.app.runtime.win-x64.6.0.7.nupkg.sha512",
-    "C:\\Users\\micha\\.nuget\\packages\\microsoft.netcore.app.runtime.win-arm64\\6.0.7\\microsoft.netcore.app.runtime.win-arm64.6.0.7.nupkg.sha512",
-    "C:\\Users\\micha\\.nuget\\packages\\microsoft.windowsdesktop.app.runtime.win-x64\\6.0.7\\microsoft.windowsdesktop.app.runtime.win-x64.6.0.7.nupkg.sha512",
-    "C:\\Users\\micha\\.nuget\\packages\\microsoft.windows.sdk.net.ref\\10.0.19041.26\\microsoft.windows.sdk.net.ref.10.0.19041.26.nupkg.sha512",
-    "C:\\Users\\micha\\.nuget\\packages\\microsoft.aspnetcore.app.runtime.win-arm64\\6.0.7\\microsoft.aspnetcore.app.runtime.win-arm64.6.0.7.nupkg.sha512",
-    "C:\\Users\\micha\\.nuget\\packages\\microsoft.netcore.app.runtime.win-x86\\6.0.7\\microsoft.netcore.app.runtime.win-x86.6.0.7.nupkg.sha512",
-    "C:\\Users\\micha\\.nuget\\packages\\microsoft.windowsdesktop.app.runtime.win-arm64\\6.0.7\\microsoft.windowsdesktop.app.runtime.win-arm64.6.0.7.nupkg.sha512",
-    "C:\\Users\\micha\\.nuget\\packages\\microsoft.aspnetcore.app.runtime.win-x86\\6.0.7\\microsoft.aspnetcore.app.runtime.win-x86.6.0.7.nupkg.sha512",
-    "C:\\Users\\micha\\.nuget\\packages\\microsoft.windowsdesktop.app.runtime.win-x86\\6.0.7\\microsoft.windowsdesktop.app.runtime.win-x86.6.0.7.nupkg.sha512"
+    "C:\\Users\\micha\\.nuget\\packages\\microsoft.windows.sdk.buildtools\\10.0.22621.2428\\microsoft.windows.sdk.buildtools.10.0.22621.2428.nupkg.sha512",
+    "C:\\Users\\micha\\.nuget\\packages\\microsoft.windowsappsdk\\1.4.231115000\\microsoft.windowsappsdk.1.4.231115000.nupkg.sha512",
+    "C:\\Users\\micha\\.nuget\\packages\\microsoft.netcore.app.runtime.win-x86\\6.0.16\\microsoft.netcore.app.runtime.win-x86.6.0.16.nupkg.sha512",
+    "C:\\Users\\micha\\.nuget\\packages\\microsoft.windows.sdk.net.ref\\10.0.19041.28\\microsoft.windows.sdk.net.ref.10.0.19041.28.nupkg.sha512",
+    "C:\\Users\\micha\\.nuget\\packages\\microsoft.aspnetcore.app.runtime.win-x86\\6.0.16\\microsoft.aspnetcore.app.runtime.win-x86.6.0.16.nupkg.sha512",
+    "C:\\Users\\micha\\.nuget\\packages\\microsoft.netcore.app.runtime.win-arm64\\6.0.16\\microsoft.netcore.app.runtime.win-arm64.6.0.16.nupkg.sha512",
+    "C:\\Users\\micha\\.nuget\\packages\\microsoft.aspnetcore.app.runtime.win-x64\\6.0.16\\microsoft.aspnetcore.app.runtime.win-x64.6.0.16.nupkg.sha512",
+    "C:\\Users\\micha\\.nuget\\packages\\microsoft.windowsdesktop.app.runtime.win-arm64\\6.0.16\\microsoft.windowsdesktop.app.runtime.win-arm64.6.0.16.nupkg.sha512",
+    "C:\\Users\\micha\\.nuget\\packages\\microsoft.windowsdesktop.app.runtime.win-x64\\6.0.16\\microsoft.windowsdesktop.app.runtime.win-x64.6.0.16.nupkg.sha512",
+    "C:\\Users\\micha\\.nuget\\packages\\microsoft.aspnetcore.app.runtime.win-arm64\\6.0.16\\microsoft.aspnetcore.app.runtime.win-arm64.6.0.16.nupkg.sha512",
+    "C:\\Users\\micha\\.nuget\\packages\\microsoft.netcore.app.runtime.win-x64\\6.0.16\\microsoft.netcore.app.runtime.win-x64.6.0.16.nupkg.sha512",
+    "C:\\Users\\micha\\.nuget\\packages\\microsoft.windowsdesktop.app.runtime.win-x86\\6.0.16\\microsoft.windowsdesktop.app.runtime.win-x86.6.0.16.nupkg.sha512"
   ],
   "logs": []
 }

@@ -266,7 +266,6 @@ C:\Users\micha\source\repos\EmailClient\WindowsApp\bin\x64\Debug\net6.0-windows1
 C:\Users\micha\source\repos\EmailClient\WindowsApp\bin\x64\Debug\net6.0-windows10.0.19041.0\win10-x64\hostfxr.dll
 C:\Users\micha\source\repos\EmailClient\WindowsApp\bin\x64\Debug\net6.0-windows10.0.19041.0\win10-x64\hostpolicy.dll
 C:\Users\micha\source\repos\EmailClient\WindowsApp\bin\x64\Debug\net6.0-windows10.0.19041.0\win10-x64\mscordaccore.dll
-C:\Users\micha\source\repos\EmailClient\WindowsApp\bin\x64\Debug\net6.0-windows10.0.19041.0\win10-x64\mscordaccore_amd64_amd64_6.0.722.32202.dll
 C:\Users\micha\source\repos\EmailClient\WindowsApp\bin\x64\Debug\net6.0-windows10.0.19041.0\win10-x64\mscordbi.dll
 C:\Users\micha\source\repos\EmailClient\WindowsApp\bin\x64\Debug\net6.0-windows10.0.19041.0\win10-x64\mscorrc.dll
 C:\Users\micha\source\repos\EmailClient\WindowsApp\bin\x64\Debug\net6.0-windows10.0.19041.0\win10-x64\msquic.dll
@@ -313,3 +312,10 @@ C:\Users\micha\source\repos\EmailClient\WindowsApp\obj\x64\Debug\net6.0-windows1
 C:\Users\micha\source\repos\EmailClient\WindowsApp\obj\x64\Debug\net6.0-windows10.0.19041.0\win10-x64\Pages\MessageBoxesPage.g.cs
 C:\Users\micha\source\repos\EmailClient\WindowsApp\obj\x64\Debug\net6.0-windows10.0.19041.0\win10-x64\Pages\MessageBoxesPage.xaml
 C:\Users\micha\source\repos\EmailClient\WindowsApp\obj\x64\Debug\net6.0-windows10.0.19041.0\win10-x64\Pages\MessageBoxesPage.xbf
+C:\Users\micha\source\repos\EmailClient\WindowsApp\bin\x64\Debug\net6.0-windows10.0.19041.0\win10-x64\mscordaccore_amd64_amd64_6.0.1623.17311.dll
+C:\Users\micha\source\repos\EmailClient\WindowsApp\bin\x64\Debug\net6.0-windows10.0.19041.0\win10-x64\Microsoft.Windows.AppNotifications.Builder.Projection.dll
+C:\Users\micha\source\repos\EmailClient\WindowsApp\bin\x64\Debug\net6.0-windows10.0.19041.0\win10-x64\Microsoft.Windows.AppNotifications.Projection.dll
+C:\Users\micha\source\repos\EmailClient\WindowsApp\bin\x64\Debug\net6.0-windows10.0.19041.0\win10-x64\Microsoft.Windows.PushNotifications.Projection.dll
+C:\Users\micha\source\repos\EmailClient\WindowsApp\bin\x64\Debug\net6.0-windows10.0.19041.0\win10-x64\Microsoft.Windows.Security.AccessControl.Projection.dll
+C:\Users\micha\source\repos\EmailClient\WindowsApp\bin\x64\Debug\net6.0-windows10.0.19041.0\win10-x64\Microsoft.Windows.System.Projection.dll
+C:\Users\micha\source\repos\EmailClient\WindowsApp\bin\x64\Debug\net6.0-windows10.0.19041.0\win10-x64\Microsoft.Windows.Widgets.Providers.Projection.dll
