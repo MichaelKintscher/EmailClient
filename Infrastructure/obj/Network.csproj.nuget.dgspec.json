@@ -22,7 +22,7 @@
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "net6.0"
+          "net7.0"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
@@ -30,8 +30,8 @@
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "net6.0": {
-            "targetAlias": "net6.0",
+          "net7.0": {
+            "targetAlias": "net7.0",
             "projectReferences": {
               "C:\\Users\\micha\\source\\repos\\EmailClient\\Domain\\Domain.csproj": {
                 "projectPath": "C:\\Users\\micha\\source\\repos\\EmailClient\\Domain\\Domain.csproj"
@@ -46,8 +46,14 @@
         }
       },
       "frameworks": {
-        "net6.0": {
-          "targetAlias": "net6.0",
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "dependencies": {
+            "kintscher.dev.CleanArchitecture.Core": {
+              "target": "Package",
+              "version": "[1.0.4, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -146,7 +152,7 @@
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "net6.0"
+          "net7.0"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
@@ -154,8 +160,8 @@
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "net6.0": {
-            "targetAlias": "net6.0",
+          "net7.0": {
+            "targetAlias": "net7.0",
             "projectReferences": {
               "C:\\Users\\micha\\source\\repos\\EmailClient\\Application\\Application.csproj": {
                 "projectPath": "C:\\Users\\micha\\source\\repos\\EmailClient\\Application\\Application.csproj"
@@ -176,8 +182,8 @@
         }
       },
       "frameworks": {
-        "net6.0": {
-          "targetAlias": "net6.0",
+        "net7.0": {
+          "targetAlias": "net7.0",
           "imports": [
             "net461",
             "net462",
@@ -216,7 +222,7 @@
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "net6.0"
+          "net7.0"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
@@ -224,8 +230,8 @@
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "net6.0": {
-            "targetAlias": "net6.0",
+          "net7.0": {
+            "targetAlias": "net7.0",
             "projectReferences": {
               "C:\\Users\\micha\\source\\repos\\EmailClient\\Domain\\Domain.csproj": {
                 "projectPath": "C:\\Users\\micha\\source\\repos\\EmailClient\\Domain\\Domain.csproj"
@@ -240,8 +246,14 @@
         }
       },
       "frameworks": {
-        "net6.0": {
-          "targetAlias": "net6.0",
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "dependencies": {
+            "kintscher.dev.CleanArchitecture.Core": {
+              "target": "Package",
+              "version": "[1.0.3, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

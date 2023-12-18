@@ -22,7 +22,7 @@
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "net6.0"
+          "net7.0"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
@@ -30,8 +30,8 @@
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "net6.0": {
-            "targetAlias": "net6.0",
+          "net7.0": {
+            "targetAlias": "net7.0",
             "projectReferences": {
               "C:\\Users\\micha\\source\\repos\\EmailClient\\Domain\\Domain.csproj": {
                 "projectPath": "C:\\Users\\micha\\source\\repos\\EmailClient\\Domain\\Domain.csproj"
@@ -46,8 +46,14 @@
         }
       },
       "frameworks": {
-        "net6.0": {
-          "targetAlias": "net6.0",
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "dependencies": {
+            "kintscher.dev.CleanArchitecture.Core": {
+              "target": "Package",
+              "version": "[1.0.4, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -146,7 +152,7 @@
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "net6.0"
+          "net7.0"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
@@ -154,8 +160,8 @@
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "net6.0": {
-            "targetAlias": "net6.0",
+          "net7.0": {
+            "targetAlias": "net7.0",
             "projectReferences": {
               "C:\\Users\\micha\\source\\repos\\EmailClient\\Application\\Application.csproj": {
                 "projectPath": "C:\\Users\\micha\\source\\repos\\EmailClient\\Application\\Application.csproj"
@@ -176,8 +182,8 @@
         }
       },
       "frameworks": {
-        "net6.0": {
-          "targetAlias": "net6.0",
+        "net7.0": {
+          "targetAlias": "net7.0",
           "imports": [
             "net461",
             "net462",
@@ -216,7 +222,7 @@
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "net6.0"
+          "net7.0"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
@@ -224,8 +230,8 @@
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "net6.0": {
-            "targetAlias": "net6.0",
+          "net7.0": {
+            "targetAlias": "net7.0",
             "projectReferences": {
               "C:\\Users\\micha\\source\\repos\\EmailClient\\Domain\\Domain.csproj": {
                 "projectPath": "C:\\Users\\micha\\source\\repos\\EmailClient\\Domain\\Domain.csproj"
@@ -240,8 +246,14 @@
         }
       },
       "frameworks": {
-        "net6.0": {
-          "targetAlias": "net6.0",
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "dependencies": {
+            "kintscher.dev.CleanArchitecture.Core": {
+              "target": "Package",
+              "version": "[1.0.3, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -326,7 +338,7 @@
             },
             "kintscher.dev.CleanArchitecture.Core": {
               "target": "Package",
-              "version": "[1.0.1, )"
+              "version": "[1.0.4, )"
             },
             "kintscher.dev.CleanArchitecture.Entities": {
               "target": "Package",
@@ -334,7 +346,7 @@
             },
             "kintscher.dev.CleanArchitecture.Windows": {
               "target": "Package",
-              "version": "[1.0.2, )"
+              "version": "[1.1.2, )"
             }
           },
           "imports": [
@@ -460,6 +472,12 @@
       "frameworks": {
         "net7.0-windows10.0.22621": {
           "targetAlias": "net7.0-windows10.0.22621.0",
+          "dependencies": {
+            "kintscher.dev.CleanArchitecture.Windows": {
+              "target": "Package",
+              "version": "[1.1.2, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -473,8 +491,52 @@
           "warn": true,
           "downloadDependencies": [
             {
+              "name": "Microsoft.AspNetCore.App.Runtime.win-arm",
+              "version": "[7.0.5, 7.0.5]"
+            },
+            {
+              "name": "Microsoft.AspNetCore.App.Runtime.win-arm64",
+              "version": "[7.0.5, 7.0.5]"
+            },
+            {
+              "name": "Microsoft.AspNetCore.App.Runtime.win-x64",
+              "version": "[7.0.5, 7.0.5]"
+            },
+            {
+              "name": "Microsoft.AspNetCore.App.Runtime.win-x86",
+              "version": "[7.0.5, 7.0.5]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Runtime.win-arm",
+              "version": "[7.0.5, 7.0.5]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Runtime.win-arm64",
+              "version": "[7.0.5, 7.0.5]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Runtime.win-x64",
+              "version": "[7.0.5, 7.0.5]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Runtime.win-x86",
+              "version": "[7.0.5, 7.0.5]"
+            },
+            {
               "name": "Microsoft.Windows.SDK.NET.Ref",
               "version": "[10.0.22621.28, 10.0.22621.28]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Runtime.win-arm64",
+              "version": "[7.0.5, 7.0.5]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Runtime.win-x64",
+              "version": "[7.0.5, 7.0.5]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Runtime.win-x86",
+              "version": "[7.0.5, 7.0.5]"
             }
           ],
           "frameworkReferences": {
@@ -486,6 +548,29 @@
             }
           },
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
+        }
+      },
+      "runtimes": {
+        "win10-arm": {
+          "#import": []
+        },
+        "win10-arm-aot": {
+          "#import": []
+        },
+        "win10-arm64-aot": {
+          "#import": []
+        },
+        "win10-x64": {
+          "#import": []
+        },
+        "win10-x64-aot": {
+          "#import": []
+        },
+        "win10-x86": {
+          "#import": []
+        },
+        "win10-x86-aot": {
+          "#import": []
         }
       }
     }

@@ -13,4 +13,10 @@
     <SourceRoot Include="C:\Users\micha\.nuget\packages\" />
     <SourceRoot Include="C:\Program Files (x86)\Microsoft Visual Studio\Shared\NuGetPackages\" />
   </ItemGroup>
+  <ImportGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+    <Import Project="$(NuGetPackageRoot)microsoft.windowsappsdk\1.4.231115000\buildTransitive\Microsoft.WindowsAppSDK.props" Condition="Exists('$(NuGetPackageRoot)microsoft.windowsappsdk\1.4.231115000\buildTransitive\Microsoft.WindowsAppSDK.props')" />
+  </ImportGroup>
+  <PropertyGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+    <PkgMicrosoft_WindowsAppSDK Condition=" '$(PkgMicrosoft_WindowsAppSDK)' == '' ">C:\Users\micha\.nuget\packages\microsoft.windowsappsdk\1.4.231115000</PkgMicrosoft_WindowsAppSDK>
+  </PropertyGroup>
 </Project>

@@ -1,7 +1,16 @@
 {
   "version": 3,
   "targets": {
-    "net6.0": {
+    "net7.0": {
+      "kintscher.dev.CleanArchitecture.Core/1.0.3": {
+        "type": "package",
+        "compile": {
+          "lib/net7.0/CleanArchitectureCore.dll": {}
+        },
+        "runtime": {
+          "lib/net7.0/CleanArchitectureCore.dll": {}
+        }
+      },
       "Domain/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
@@ -15,6 +24,19 @@
     }
   },
   "libraries": {
+    "kintscher.dev.CleanArchitecture.Core/1.0.3": {
+      "sha512": "k/JbxG8BeZ6O/8AxVtJ8E1QZxSVV9NenOIDkDEQjaHUnGsG8DC+8fRJq68PkVXe4Rv3AkjtFTVAw9IFrwwzJJw==",
+      "type": "package",
+      "path": "kintscher.dev.cleanarchitecture.core/1.0.3",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "kintscher.dev.cleanarchitecture.core.1.0.3.nupkg.sha512",
+        "kintscher.dev.cleanarchitecture.core.nuspec",
+        "lib/net7.0/CleanArchitectureCore.dll",
+        "readme.md"
+      ]
+    },
     "Domain/1.0.0": {
       "type": "project",
       "path": "../Domain/Domain.csproj",
@@ -22,8 +44,9 @@
     }
   },
   "projectFileDependencyGroups": {
-    "net6.0": [
-      "Domain >= 1.0.0"
+    "net7.0": [
+      "Domain >= 1.0.0",
+      "kintscher.dev.CleanArchitecture.Core >= 1.0.3"
     ]
   },
   "packageFolders": {
@@ -48,7 +71,7 @@
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
-        "net6.0"
+        "net7.0"
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
@@ -56,8 +79,8 @@
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
-        "net6.0": {
-          "targetAlias": "net6.0",
+        "net7.0": {
+          "targetAlias": "net7.0",
           "projectReferences": {
             "C:\\Users\\micha\\source\\repos\\EmailClient\\Domain\\Domain.csproj": {
               "projectPath": "C:\\Users\\micha\\source\\repos\\EmailClient\\Domain\\Domain.csproj"
@@ -72,8 +95,14 @@
       }
     },
     "frameworks": {
-      "net6.0": {
-        "targetAlias": "net6.0",
+      "net7.0": {
+        "targetAlias": "net7.0",
+        "dependencies": {
+          "kintscher.dev.CleanArchitecture.Core": {
+            "target": "Package",
+            "version": "[1.0.3, )"
+          }
+        },
         "imports": [
           "net461",
           "net462",

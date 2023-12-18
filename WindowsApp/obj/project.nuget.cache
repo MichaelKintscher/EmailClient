@@ -1,12 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "3Rxu32EDxiqBfgqSrhjuJcsR/zim/IItdn80DVD5rtzuRUf4eOejnXmsn4vrt7+Pizs3qOlZ71677a9N8b0Ypw==",
+  "dgSpecHash": "UhjVr+HViTOpvQBsNxmslybjrFpw86fcfpwaDjnI/S64zjz2bozPaijseasadOjRmFau9jaqAxZkkpuBTtEGYA==",
   "success": true,
   "projectFilePath": "C:\\Users\\micha\\source\\repos\\EmailClient\\WindowsApp\\WindowsApp.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\micha\\.nuget\\packages\\kintscher.dev.cleanarchitecture.core\\1.0.1\\kintscher.dev.cleanarchitecture.core.1.0.1.nupkg.sha512",
+    "C:\\Users\\micha\\.nuget\\packages\\kintscher.dev.cleanarchitecture.core\\1.0.4\\kintscher.dev.cleanarchitecture.core.1.0.4.nupkg.sha512",
     "C:\\Users\\micha\\.nuget\\packages\\kintscher.dev.cleanarchitecture.entities\\1.0.1\\kintscher.dev.cleanarchitecture.entities.1.0.1.nupkg.sha512",
-    "C:\\Users\\micha\\.nuget\\packages\\kintscher.dev.cleanarchitecture.windows\\1.0.2\\kintscher.dev.cleanarchitecture.windows.1.0.2.nupkg.sha512",
+    "C:\\Users\\micha\\.nuget\\packages\\kintscher.dev.cleanarchitecture.windows\\1.1.2\\kintscher.dev.cleanarchitecture.windows.1.1.2.nupkg.sha512",
     "C:\\Users\\micha\\.nuget\\packages\\microsoft.windows.sdk.buildtools\\10.0.22621.2428\\microsoft.windows.sdk.buildtools.10.0.22621.2428.nupkg.sha512",
     "C:\\Users\\micha\\.nuget\\packages\\microsoft.windowsappsdk\\1.4.231115000\\microsoft.windowsappsdk.1.4.231115000.nupkg.sha512",
     "C:\\Users\\micha\\.nuget\\packages\\microsoft.netcore.app.runtime.win-x86\\7.0.5\\microsoft.netcore.app.runtime.win-x86.7.0.5.nupkg.sha512",

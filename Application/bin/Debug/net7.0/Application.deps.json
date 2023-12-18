@@ -1,0 +1,52 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v7.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v7.0": {
+      "Application/1.0.0": {
+        "dependencies": {
+          "Domain": "1.0.0",
+          "kintscher.dev.CleanArchitecture.Core": "1.0.4"
+        },
+        "runtime": {
+          "Application.dll": {}
+        }
+      },
+      "kintscher.dev.CleanArchitecture.Core/1.0.4": {
+        "runtime": {
+          "lib/net7.0/CleanArchitectureCore.dll": {
+            "assemblyVersion": "1.0.4.0",
+            "fileVersion": "1.0.4.0"
+          }
+        }
+      },
+      "Domain/1.0.0": {
+        "runtime": {
+          "Domain.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Application/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "kintscher.dev.CleanArchitecture.Core/1.0.4": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-pjx6HvULt9Y0xI6WupZBD0JJisNY2HsTAjAFnU7z4cMtedI4MN16GZ3i2802I0JOfYRNdTg2QN8XqHhOWaX2Pw==",
+      "path": "kintscher.dev.cleanarchitecture.core/1.0.4",
+      "hashPath": "kintscher.dev.cleanarchitecture.core.1.0.4.nupkg.sha512"
+    },
+    "Domain/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

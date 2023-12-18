@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "EuI4UtXDcLd6ovX5ryHy1eSqCBMh7S1WxU0FmBN9VHre8A9R/ppxZvkyF6kBDE6PL3g1ZVXZKmWquN4U1SHJdg==",
+  "dgSpecHash": "A06e7nve1sEpM/4S6gytPa1ZLPj/vv2KxTMM60jM1vmGGoqMHJI7gJp7w6soAhut86gzfsnDFHgBBoWU3ho1zA==",
   "success": true,
   "projectFilePath": "C:\\Users\\micha\\source\\repos\\EmailClient\\InterfaceAdapters\\InterfaceAdapters.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\micha\\.nuget\\packages\\kintscher.dev.cleanarchitecture.core\\1.0.3\\kintscher.dev.cleanarchitecture.core.1.0.3.nupkg.sha512"
+  ],
   "logs": []
 }

@@ -1,12 +1,22 @@
 {
   "version": 3,
   "targets": {
-    "net6.0": {
+    "net7.0": {
+      "kintscher.dev.CleanArchitecture.Core/1.0.4": {
+        "type": "package",
+        "compile": {
+          "lib/net7.0/CleanArchitectureCore.dll": {}
+        },
+        "runtime": {
+          "lib/net7.0/CleanArchitectureCore.dll": {}
+        }
+      },
       "Application/1.0.0": {
         "type": "project",
-        "framework": ".NETCoreApp,Version=v6.0",
+        "framework": ".NETCoreApp,Version=v7.0",
         "dependencies": {
-          "Domain": "1.0.0"
+          "Domain": "1.0.0",
+          "kintscher.dev.CleanArchitecture.Core": "1.0.4"
         },
         "compile": {
           "bin/placeholder/Application.dll": {}
@@ -27,9 +37,10 @@
       },
       "InterfaceAdapters/1.0.0": {
         "type": "project",
-        "framework": ".NETCoreApp,Version=v6.0",
+        "framework": ".NETCoreApp,Version=v7.0",
         "dependencies": {
-          "Domain": "1.0.0"
+          "Domain": "1.0.0",
+          "kintscher.dev.CleanArchitecture.Core": "1.0.3"
         },
         "compile": {
           "bin/placeholder/InterfaceAdapters.dll": {}
@@ -41,6 +52,19 @@
     }
   },
   "libraries": {
+    "kintscher.dev.CleanArchitecture.Core/1.0.4": {
+      "sha512": "pjx6HvULt9Y0xI6WupZBD0JJisNY2HsTAjAFnU7z4cMtedI4MN16GZ3i2802I0JOfYRNdTg2QN8XqHhOWaX2Pw==",
+      "type": "package",
+      "path": "kintscher.dev.cleanarchitecture.core/1.0.4",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "kintscher.dev.cleanarchitecture.core.1.0.4.nupkg.sha512",
+        "kintscher.dev.cleanarchitecture.core.nuspec",
+        "lib/net7.0/CleanArchitectureCore.dll",
+        "readme.md"
+      ]
+    },
     "Application/1.0.0": {
       "type": "project",
       "path": "../Application/Application.csproj",
@@ -58,7 +82,7 @@
     }
   },
   "projectFileDependencyGroups": {
-    "net6.0": [
+    "net7.0": [
       "Application >= 1.0.0",
       "Domain >= 1.0.0",
       "InterfaceAdapters >= 1.0.0"
@@ -86,7 +110,7 @@
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
-        "net6.0"
+        "net7.0"
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
@@ -94,8 +118,8 @@
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
-        "net6.0": {
-          "targetAlias": "net6.0",
+        "net7.0": {
+          "targetAlias": "net7.0",
           "projectReferences": {
             "C:\\Users\\micha\\source\\repos\\EmailClient\\Application\\Application.csproj": {
               "projectPath": "C:\\Users\\micha\\source\\repos\\EmailClient\\Application\\Application.csproj"
@@ -116,8 +140,8 @@
       }
     },
     "frameworks": {
-      "net6.0": {
-        "targetAlias": "net6.0",
+      "net7.0": {
+        "targetAlias": "net7.0",
         "imports": [
           "net461",
           "net462",

@@ -15,9 +15,9 @@
           "Microsoft.WindowsAppSDK": "1.4.231115000",
           "Network": "1.0.0",
           "WindowsOS": "1.0.0",
-          "kintscher.dev.CleanArchitecture.Core": "1.0.1",
+          "kintscher.dev.CleanArchitecture.Core": "1.0.4",
           "kintscher.dev.CleanArchitecture.Entities": "1.0.1",
-          "kintscher.dev.CleanArchitecture.Windows": "1.0.2",
+          "kintscher.dev.CleanArchitecture.Windows": "1.1.2",
           "runtimepack.Microsoft.NETCore.App.Runtime.win-x64": "7.0.5",
           "runtimepack.Microsoft.Windows.SDK.NET.Ref": "10.0.22621.28"
         },
@@ -757,11 +757,11 @@
           }
         }
       },
-      "kintscher.dev.CleanArchitecture.Core/1.0.1": {
+      "kintscher.dev.CleanArchitecture.Core/1.0.4": {
         "runtime": {
           "lib/net7.0/CleanArchitectureCore.dll": {
-            "assemblyVersion": "1.0.1.0",
-            "fileVersion": "1.0.1.0"
+            "assemblyVersion": "1.0.4.0",
+            "fileVersion": "1.0.4.0"
           }
         }
       },
@@ -773,15 +773,15 @@
           }
         }
       },
-      "kintscher.dev.CleanArchitecture.Windows/1.0.2": {
+      "kintscher.dev.CleanArchitecture.Windows/1.1.2": {
         "dependencies": {
           "Microsoft.WindowsAppSDK": "1.4.231115000",
-          "kintscher.dev.CleanArchitecture.Core": "1.0.1"
+          "kintscher.dev.CleanArchitecture.Core": "1.0.4"
         },
         "runtime": {
           "lib/net7.0-windows10.0.22621/CleanArchitectureWindows.dll": {
-            "assemblyVersion": "1.0.2.0",
-            "fileVersion": "1.0.2.0"
+            "assemblyVersion": "1.1.2.0",
+            "fileVersion": "1.1.2.0"
           }
         }
       },
@@ -856,7 +856,8 @@
       },
       "Application/1.0.0": {
         "dependencies": {
-          "Domain": "1.0.0"
+          "Domain": "1.0.0",
+          "kintscher.dev.CleanArchitecture.Core": "1.0.4"
         },
         "runtime": {
           "Application.dll": {}
@@ -869,7 +870,8 @@
       },
       "InterfaceAdapters/1.0.0": {
         "dependencies": {
-          "Domain": "1.0.0"
+          "Domain": "1.0.0",
+          "kintscher.dev.CleanArchitecture.Core": "1.0.4"
         },
         "runtime": {
           "InterfaceAdapters.dll": {}
@@ -888,7 +890,8 @@
       "WindowsOS/1.0.0": {
         "dependencies": {
           "Application": "1.0.0",
-          "InterfaceAdapters": "1.0.0"
+          "InterfaceAdapters": "1.0.0",
+          "kintscher.dev.CleanArchitecture.Windows": "1.1.2"
         },
         "runtime": {
           "WindowsOS.dll": {}
@@ -912,12 +915,12 @@
       "serviceable": false,
       "sha512": ""
     },
-    "kintscher.dev.CleanArchitecture.Core/1.0.1": {
+    "kintscher.dev.CleanArchitecture.Core/1.0.4": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-dI/nUuitE1prGrVwgalAOEHnX/YpKDVx8JRCAvxmvYYy/DGitEP1daLHVNcsSVN7/LEHyX5/+K/+9JPNoXJ4QA==",
-      "path": "kintscher.dev.cleanarchitecture.core/1.0.1",
-      "hashPath": "kintscher.dev.cleanarchitecture.core.1.0.1.nupkg.sha512"
+      "sha512": "sha512-pjx6HvULt9Y0xI6WupZBD0JJisNY2HsTAjAFnU7z4cMtedI4MN16GZ3i2802I0JOfYRNdTg2QN8XqHhOWaX2Pw==",
+      "path": "kintscher.dev.cleanarchitecture.core/1.0.4",
+      "hashPath": "kintscher.dev.cleanarchitecture.core.1.0.4.nupkg.sha512"
     },
     "kintscher.dev.CleanArchitecture.Entities/1.0.1": {
       "type": "package",
@@ -926,12 +929,12 @@
       "path": "kintscher.dev.cleanarchitecture.entities/1.0.1",
       "hashPath": "kintscher.dev.cleanarchitecture.entities.1.0.1.nupkg.sha512"
     },
-    "kintscher.dev.CleanArchitecture.Windows/1.0.2": {
+    "kintscher.dev.CleanArchitecture.Windows/1.1.2": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-LVHK2UasWFafLetjIk9xEJ1KryHr8moQbmsWpTS6hfzQaQj+aKVqRLxRS6mma63LKNq8nEp3v7yCyAchBIAHSA==",
-      "path": "kintscher.dev.cleanarchitecture.windows/1.0.2",
-      "hashPath": "kintscher.dev.cleanarchitecture.windows.1.0.2.nupkg.sha512"
+      "sha512": "sha512-YRAZImUEoEQ9SzttF9Jjq/Ka9MZWC2CdsshBuCoJT8PJTkrGNKDru8sp0iww1URIoaK+DCZcQv/4oPufdwabAw==",
+      "path": "kintscher.dev.cleanarchitecture.windows/1.1.2",
+      "hashPath": "kintscher.dev.cleanarchitecture.windows.1.1.2.nupkg.sha512"
     },
     "Microsoft.Windows.SDK.BuildTools/10.0.22621.2428": {
       "type": "package",

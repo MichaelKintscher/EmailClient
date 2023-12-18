@@ -1,4 +1,4 @@
-﻿using Application.Config;
+﻿using Application.Persistence;
 using Domain.Messages;
 using Domain.Messages.Emails;
 using System;
@@ -61,9 +61,9 @@ namespace Application.Messages
             MessageBox messageBox = MessageBoxFactory.CreateNewBox(name);
 
             // Append the new message box to the existing list of message boxes and then save.
-            List<MessageBox> messageBoxes = await this.StorageProvider.LoadMessageBoxesAsync(MessageBoxManager.MessageBoxesFileName);
+            List<MessageBox> messageBoxes = await this.StorageProvider.LoadAsync<MessageBox>(MessageBoxManager.MessageBoxesFileName);
             messageBoxes.Add(messageBox);
-            await this.StorageProvider.SaveMessageBoxesAsync(MessageBoxManager.MessageBoxesFileName, messageBoxes);
+            await this.StorageProvider.SaveAsync<MessageBox>(messageBoxes, MessageBoxManager.MessageBoxesFileName);
 
             // Return the new message box.
             return messageBox;
@@ -76,7 +76,7 @@ namespace Application.Messages
         public async Task<List<MessageBox>> GetMessageBoxesAsync()
         {
             // Get the message boxes.
-            List<MessageBox> messageBoxes = await this.StorageProvider.LoadMessageBoxesAsync(MessageBoxManager.MessageBoxesFileName);
+            List<MessageBox> messageBoxes = await this.StorageProvider.LoadAsync<MessageBox>(MessageBoxManager.MessageBoxesFileName);
             return messageBoxes;
         }
 
@@ -101,7 +101,7 @@ namespace Application.Messages
         public async Task MoveEmailsToMessageBoxAsync(List<Email> emails, string messageBoxId)
         {
             // Load the saved messages.
-            List<Email> savedEmails = await this.StorageProvider.LoadMessagesAsync(MessagesManager.MessgesFileName);
+            List<Email> savedEmails = await this.StorageProvider.LoadAsync<Email>(MessagesManager.MessgesFileName);
 
             // For each email to move...
             foreach (Email email in emails)
@@ -118,7 +118,7 @@ namespace Application.Messages
             }
 
             // Save the updated messages.
-            await this.StorageProvider.SaveMessagesAsync(MessagesManager.MessgesFileName, savedEmails);
+            await this.StorageProvider.SaveAsync<Email>(savedEmails, MessagesManager.MessgesFileName);
         }
 
         /// <summary>

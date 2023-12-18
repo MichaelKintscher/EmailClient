@@ -1,4 +1,4 @@
-﻿using Application.Config;
+﻿using Application.Persistence;
 using Domain.Common;
 using System;
 using System.Collections.Generic;
@@ -95,7 +95,7 @@ namespace Application.Network
             List<ServiceProviderAccount> accounts = new List<ServiceProviderAccount>();
             try
             {
-                accounts = await this.StorageProvider.LoadConnectedAccountsAsync(this.AccountsFileName);
+                accounts = await this.StorageProvider.LoadAsync<ServiceProviderAccount>(this.AccountsFileName);
             }
             catch (Exception ex)
             {
@@ -165,7 +165,7 @@ namespace Application.Network
             await this.StorageProvider.SaveConnectionDataAsync(this.TokenFileName, tokenData);
 
             // Save the list of connected accounts.
-            await this.StorageProvider.SaveConnectedAccountsAsync(this.AccountsFileName, accounts);
+            await this.StorageProvider.SaveAsync<ServiceProviderAccount>(accounts, this.AccountsFileName);
         }
 
         /// <summary>

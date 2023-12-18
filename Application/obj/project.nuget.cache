@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "eFy2Ew7p57wRFex7NtDArKGTmf3v4r47vuU6ISki3A10DKq2CYk3drkaMW9WqnZKXOaW9JzKnKcZ8MLoCKbAsQ==",
+  "dgSpecHash": "GCYqYLGuTt9rTy5lCV9p/thxeyvebWf1qOMUcrTI5UXA3/9RyqbXY32HpJU5uXD4ysjC7535K+Jxc/XaNw/4ew==",
   "success": true,
   "projectFilePath": "C:\\Users\\micha\\source\\repos\\EmailClient\\Application\\Application.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\micha\\.nuget\\packages\\kintscher.dev.cleanarchitecture.core\\1.0.4\\kintscher.dev.cleanarchitecture.core.1.0.4.nupkg.sha512"
+  ],
   "logs": []
 }

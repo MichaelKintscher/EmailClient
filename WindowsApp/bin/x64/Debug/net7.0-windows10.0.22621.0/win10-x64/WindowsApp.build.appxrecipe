@@ -595,13 +595,13 @@
     <AppxPackagedFile Include="C:\Users\micha\.nuget\packages\microsoft.windows.sdk.net.ref\10.0.22621.28\lib\net6.0\WinRT.Runtime.dll">
       <PackagePath>WinRT.Runtime.dll</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\micha\.nuget\packages\kintscher.dev.cleanarchitecture.core\1.0.1\lib\net7.0\CleanArchitectureCore.dll">
+    <AppxPackagedFile Include="C:\Users\micha\.nuget\packages\kintscher.dev.cleanarchitecture.core\1.0.4\lib\net7.0\CleanArchitectureCore.dll">
       <PackagePath>CleanArchitectureCore.dll</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\micha\.nuget\packages\kintscher.dev.cleanarchitecture.entities\1.0.1\lib\net7.0\CleanArchitectureEntities.dll">
       <PackagePath>CleanArchitectureEntities.dll</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\micha\.nuget\packages\kintscher.dev.cleanarchitecture.windows\1.0.2\lib\net7.0-windows10.0.22621\CleanArchitectureWindows.dll">
+    <AppxPackagedFile Include="C:\Users\micha\.nuget\packages\kintscher.dev.cleanarchitecture.windows\1.1.2\lib\net7.0-windows10.0.22621\CleanArchitectureWindows.dll">
       <PackagePath>CleanArchitectureWindows.dll</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\micha\.nuget\packages\microsoft.windowsappsdk\1.4.231115000\lib\net6.0-windows10.0.18362.0\Microsoft.InteractiveExperiences.Projection.dll">
@@ -649,22 +649,25 @@
     <AppxPackagedFile Include="C:\Users\micha\.nuget\packages\microsoft.windowsappsdk\1.4.231115000\runtimes\win10-x64\native\Microsoft.WindowsAppRuntime.Bootstrap.dll">
       <PackagePath>Microsoft.WindowsAppRuntime.Bootstrap.dll</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\micha\source\repos\EmailClient\Application\bin\Debug\net6.0\Application.dll">
+    <AppxPackagedFile Include="C:\Users\micha\source\repos\EmailClient\Application\bin\Debug\net7.0\Application.dll">
       <PackagePath>Application.dll</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\micha\source\repos\EmailClient\Domain\bin\Debug\net6.0\Domain.dll">
       <PackagePath>Domain.dll</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\micha\source\repos\EmailClient\InterfaceAdapters\bin\Debug\net6.0\InterfaceAdapters.dll">
+    <AppxPackagedFile Include="C:\Users\micha\source\repos\EmailClient\InterfaceAdapters\bin\Debug\net7.0\InterfaceAdapters.dll">
       <PackagePath>InterfaceAdapters.dll</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\micha\source\repos\EmailClient\Infrastructure\bin\Debug\net6.0\Network.dll">
+    <AppxPackagedFile Include="C:\Users\micha\source\repos\EmailClient\Infrastructure\bin\Debug\net7.0\Network.dll">
       <PackagePath>Network.dll</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\micha\source\repos\EmailClient\WindowsOS\bin\Debug\net7.0-windows10.0.22621.0\WindowsOS.dll">
       <PackagePath>WindowsOS.dll</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\micha\.nuget\packages\kintscher.dev.cleanarchitecture.windows\1.0.2\lib\net7.0-windows10.0.22621\CleanArchitectureWindows.pri">
+    <AppxPackagedFile Include="C:\Users\micha\source\repos\EmailClient\WindowsOS\bin\Debug\net7.0-windows10.0.22621.0\WindowsOS.pri">
+      <PackagePath>WindowsOS.pri</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\micha\.nuget\packages\kintscher.dev.cleanarchitecture.windows\1.1.2\lib\net7.0-windows10.0.22621\CleanArchitectureWindows.pri">
       <PackagePath>CleanArchitectureWindows.pri</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\micha\source\repos\EmailClient\WindowsApp\Assets\LockScreenLogo.scale-200.png">

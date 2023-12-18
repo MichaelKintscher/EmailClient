@@ -1,0 +1,52 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v7.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v7.0": {
+      "InterfaceAdapters/1.0.0": {
+        "dependencies": {
+          "Domain": "1.0.0",
+          "kintscher.dev.CleanArchitecture.Core": "1.0.3"
+        },
+        "runtime": {
+          "InterfaceAdapters.dll": {}
+        }
+      },
+      "kintscher.dev.CleanArchitecture.Core/1.0.3": {
+        "runtime": {
+          "lib/net7.0/CleanArchitectureCore.dll": {
+            "assemblyVersion": "1.0.3.0",
+            "fileVersion": "1.0.3.0"
+          }
+        }
+      },
+      "Domain/1.0.0": {
+        "runtime": {
+          "Domain.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "InterfaceAdapters/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "kintscher.dev.CleanArchitecture.Core/1.0.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-k/JbxG8BeZ6O/8AxVtJ8E1QZxSVV9NenOIDkDEQjaHUnGsG8DC+8fRJq68PkVXe4Rv3AkjtFTVAw9IFrwwzJJw==",
+      "path": "kintscher.dev.cleanarchitecture.core/1.0.3",
+      "hashPath": "kintscher.dev.cleanarchitecture.core.1.0.3.nupkg.sha512"
+    },
+    "Domain/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

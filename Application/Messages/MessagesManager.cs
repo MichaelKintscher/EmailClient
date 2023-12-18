@@ -1,4 +1,4 @@
-﻿using Application.Config;
+﻿using Application.Persistence;
 using Domain.Common;
 using Domain.Messages.Emails;
 using System;
@@ -47,7 +47,7 @@ namespace Application.Messages
         /// <returns></returns>
         public Task<List<Email>> GetAllMessagesAsync()
         {
-            return this.StorageProvider.LoadMessagesAsync(MessagesManager.MessgesFileName);
+            return this.StorageProvider.LoadAsync<Email>(MessagesManager.MessgesFileName);
         }
         #endregion
     }
