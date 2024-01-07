@@ -40,6 +40,25 @@ namespace WindowsApp.Pages
         /// A list of folders for the current account.
         /// </summary>
         private ObservableCollection<string> Folders { get; set; }
+
+        /// <summary>
+        /// A list of messages in the current folder.
+        /// </summary>
+        private ObservableCollection<Email> Messages { get; set; }
+        #endregion
+
+        #region Events
+        internal delegate void SelectedAccountChangedHandler(object sender, ServiceProviderAccountEventArgs e);
+        /// <summary>
+        /// Raised when the selected account changes.
+        /// </summary>
+        internal event SelectedAccountChangedHandler SelectedAccountChanged;
+        private void RaiseSelectedAccountChanged(ServiceProviderAccount account)
+        {
+            // Create the args and call the listening event handlers, if there are any.
+            ServiceProviderAccountEventArgs args = new ServiceProviderAccountEventArgs(account);
+            this.SelectedAccountChanged?.Invoke(this, args);
+        }
         #endregion
 
         #region Constructors
@@ -57,10 +76,34 @@ namespace WindowsApp.Pages
                 "Sent",
                 "Trash"
             };
+            this.Messages = new ObservableCollection<Email>();
+        }
+        #endregion
+
+        #region Event Handlers
+        /// <summary>
+        /// Handles when the selected account changes.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void AccountsListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            // Get the new selected account and raise the associated event.
+            ServiceProviderAccount account = e.AddedItems[0] as ServiceProviderAccount;
+            this.RaiseSelectedAccountChanged(account);
         }
         #endregion
 
         #region Methods
+        /// <summary>
+        /// Selects the given account.
+        /// </summary>
+        /// <param name="account">The account to select.</param>
+        public void SelectAccount(ServiceProviderAccount account)
+        {
+            this.AccountsListView.SelectedItem = account;
+        }
+
         /// <summary>
         /// Add an already connected account to display.
         /// </summary>
@@ -69,6 +112,23 @@ namespace WindowsApp.Pages
         {
             // Store a reference to the page.
             this.Accounts.Add(account);
+        }
+
+        /// <summary>
+        /// Add a message to the message list.
+        /// </summary>
+        /// <param name="message">The message to add.</param>
+        public void AddMessageToList(Email message)
+        {
+            this.Messages.Add(message);
+        }
+
+        /// <summary>
+        /// Clears the message list.
+        /// </summary>
+        public void ClearMessageList()
+        {
+            this.Messages.Clear();
         }
         #endregion
     }

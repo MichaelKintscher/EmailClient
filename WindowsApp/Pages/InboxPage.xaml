@@ -5,12 +5,17 @@
     xmlns:local="using:WindowsApp.Pages"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:common="using:Domain.Common"
+    xmlns:common="using:Domain.Common" xmlns:emails="using:Domain.Messages.Emails" xmlns:Converters="using:WindowsApp.Converters"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
+    <Page.Resources>
+        <Converters:ObjectToEmailConverter x:Key="ObjectToEmailConverter"></Converters:ObjectToEmailConverter>
+    </Page.Resources>
+
     <Grid>
         <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="300"></ColumnDefinition>
             <ColumnDefinition Width="300"></ColumnDefinition>
             <ColumnDefinition Width="*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
@@ -35,7 +40,8 @@
                 <ListView x:Name="AccountsListView"
                           Grid.Row="1"
                           ItemsSource="{x:Bind Accounts, Mode=OneWay}"
-                          SelectionMode="Single">
+                          SelectionMode="Single"
+                          SelectionChanged="AccountsListView_SelectionChanged">
                     <ListView.ItemContainerStyle>
                         <Style TargetType="ListViewItem">
                             <Setter Property="HorizontalContentAlignment" Value="Stretch"></Setter>
@@ -101,5 +107,78 @@
                 </ListView>
             </Grid>
         </Border>
+        
+        <!-- Messages List -->
+        <Border Grid.Column="1"
+                BorderBrush="#444444"
+                BorderThickness="0,0,1,0">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                </Grid.RowDefinitions>
+
+                <TextBlock Grid.Row="0"
+                           Margin="20,10,10,10"
+                           Text="Inbox"
+                           Style="{StaticResource SubtitleTextBlockStyle}"></TextBlock>
+
+                <ListView x:Name="MessagesListView"
+                          Grid.Row="1"
+                          ItemsSource="{x:Bind Messages}"
+                          SelectionMode="Single">
+                    <ListView.ItemTemplate>
+                        <DataTemplate x:DataType="emails:Email">
+                            <Border BorderBrush="#333333"
+                                    BorderThickness="0,0,0,1">
+                                <Grid Padding="10,10,10,20">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="auto"></RowDefinition>
+                                        <RowDefinition Height="*"></RowDefinition>
+                                    </Grid.RowDefinitions>
+
+                                    <TextBlock Grid.Row="0"
+                                               Margin="0,0,0,2"
+                                               Text="{x:Bind Subject}"
+                                               TextWrapping="NoWrap"
+                                               Style="{StaticResource BodyStrongTextBlockStyle}"></TextBlock>
+
+                                    <TextBlock Grid.Row="1"
+                                               TextWrapping="NoWrap"
+                                               Text="{x:Bind Body}"></TextBlock>
+                                </Grid>
+                            </Border>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </Grid>
+        </Border>
+        
+        <!-- Message Details -->
+        <ContentPresenter Grid.Column="2"
+                          Content="{x:Bind MessagesListView.SelectedItem, Mode=OneWay, Converter={StaticResource ObjectToEmailConverter}}">
+            <ContentPresenter.ContentTemplate>
+                <DataTemplate x:DataType="emails:Email">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"></RowDefinition>
+                            <RowDefinition Height="*"></RowDefinition>
+                        </Grid.RowDefinitions>
+
+                        <!-- Subject -->
+                        <Border Grid.Row="0">
+                            <TextBlock Text="{x:Bind Subject}"
+                                       TextWrapping="WrapWholeWords"></TextBlock>
+                        </Border>
+
+                        <!-- Body -->
+                        <Border Grid.Row="1">
+                            <TextBlock Text="{x:Bind Body}"
+                                       TextWrapping="WrapWholeWords"></TextBlock>
+                        </Border>
+                    </Grid>
+                </DataTemplate>
+            </ContentPresenter.ContentTemplate>
+        </ContentPresenter>
     </Grid>
 </Page>

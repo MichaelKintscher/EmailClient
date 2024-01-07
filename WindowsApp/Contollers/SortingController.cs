@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using WindowsApp.Pages;
 using WindowsOS.Persistence;
 using WindowsApp.Contollers.Common;
+using Network.Google;
 
 namespace WindowsApp.Contollers
 {
@@ -51,7 +52,7 @@ namespace WindowsApp.Contollers
             view.EmailMoved += View_EmailMoved;
 
             // Get the emails for the view.
-            MessagesManager messagesManager = new MessagesManager(WindowsStorageProvider.Instance);
+            MessagesManager messagesManager = new MessagesManager(GmailAPI.Instance, WindowsStorageProvider.Instance);
             List<Email> emails = await messagesManager.GetAllMessagesAsync();
 
             // Convert the list of emails to a dictionary keyed by assigned Message Box.
