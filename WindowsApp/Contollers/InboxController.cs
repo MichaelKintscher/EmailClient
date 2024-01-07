@@ -1,5 +1,6 @@
 ﻿using Application.Messages;
 using Application.Messages.Emails;
+using Application.Network;
 using Domain.Common;
 using Domain.Messages;
 using Domain.Messages.Emails;
@@ -39,7 +40,16 @@ namespace WindowsApp.Contollers
         /// <returns></returns>
         internal async Task InitializeAsync(InboxPage view)
         {
+            // Add the accounts logged into with this app to the page.
+            OAuthConnectionManager connectionManager = new OAuthConnectionManager(GmailAPI.Instance, WindowsStorageProvider.Instance);
+            await connectionManager.LoadConnectionsAsync();
+            List<ServiceProviderAccount> accounts = await connectionManager.GetConnectionsAsync();
+            foreach (ServiceProviderAccount account in accounts)
+            {
+                view.AddConnectedAccout(account);
+            }
 
+            this.View = view;
         }
         #endregion
     }

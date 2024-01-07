@@ -117,6 +117,7 @@ namespace WindowsApp.Pages
         /// <param name="account">The account to add.</param>
         public void AddConnectedAccout(ServiceProviderAccount account)
         {
+            // Store a reference to the page.
             this.Accounts.Add(account);
         }
 

@@ -5,11 +5,101 @@
     xmlns:local="using:WindowsApp.Pages"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:controls="using:WindowsApp.Controls" xmlns:messages="using:Domain.Messages"
+    xmlns:common="using:Domain.Common"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="300"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
         
+        <!-- Accounts List -->
+        <Border Grid.Column="0"
+                BorderBrush="#444444"
+                BorderThickness="0,0,1,0">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"></RowDefinition>
+                    <RowDefinition Height="auto"></RowDefinition>
+                    <RowDefinition Height="auto"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                </Grid.RowDefinitions>
+
+                <TextBlock Grid.Row="0"
+                           Margin="20"
+                           Text="Accounts"
+                           Style="{StaticResource SubtitleTextBlockStyle}"></TextBlock>
+
+                <ListView x:Name="AccountsListView"
+                          Grid.Row="1"
+                          ItemsSource="{x:Bind Accounts, Mode=OneWay}"
+                          SelectionMode="Single">
+                    <ListView.ItemContainerStyle>
+                        <Style TargetType="ListViewItem">
+                            <Setter Property="HorizontalContentAlignment" Value="Stretch"></Setter>
+                            <Setter Property="Margin" Value="0"></Setter>
+                            <Setter Property="Padding" Value="0"></Setter>
+                        </Style>
+                    </ListView.ItemContainerStyle>
+                    <ListView.ItemTemplate>
+                        <DataTemplate x:DataType="common:ServiceProviderAccount">
+                            <Grid Height="80"
+                                  Padding="20,10,20,10">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="auto"></RowDefinition>
+                                    <RowDefinition Height="*"></RowDefinition>
+                                </Grid.RowDefinitions>
+
+                                <TextBlock Grid.Row="0"
+                                           Margin="0,0,0,2"
+                                           Text="{x:Bind FriendlyName}"
+                                           Style="{StaticResource BodyStrongTextBlockStyle}"
+                                           FontSize="16"></TextBlock>
+
+                                <TextBlock Grid.Row="1"
+                                           Text="{x:Bind Username}"
+                                           FontSize="14"></TextBlock>
+                            </Grid>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+
+                <TextBlock Grid.Row="2"
+                           Margin="20"
+                           Text="Folders"
+                           Style="{StaticResource SubtitleTextBlockStyle}"></TextBlock>
+
+                <ListView x:Name="FoldersListView"
+                          Grid.Row="3"
+                          ItemsSource="{x:Bind Folders}"
+                          SelectionMode="Single">
+                    <ListView.ItemContainerStyle>
+                        <Style TargetType="ListViewItem">
+                            <Setter Property="HorizontalContentAlignment" Value="Stretch"></Setter>
+                            <Setter Property="Margin" Value="0"></Setter>
+                            <Setter Property="Padding" Value="0"></Setter>
+                        </Style>
+                    </ListView.ItemContainerStyle>
+                    <ListView.ItemTemplate>
+                        <DataTemplate x:DataType="x:String">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                    <ColumnDefinition Width="auto"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+
+                                <TextBlock Grid.Column="0"
+                                           Margin="20,5,20,5"
+                                           Text="{x:Bind}"
+                                           Style="{StaticResource BodyStrongTextBlockStyle}"
+                                           FontSize="16"></TextBlock>
+                            </Grid>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </Grid>
+        </Border>
     </Grid>
 </Page>

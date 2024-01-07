@@ -1,4 +1,5 @@
 ﻿using Application.Messages;
+using Domain.Common;
 using Domain.Messages;
 using Domain.Messages.Emails;
 using Microsoft.UI.Xaml;
@@ -29,9 +30,46 @@ namespace WindowsApp.Pages
     /// </summary>
     public sealed partial class InboxPage : Page
     {
+        #region Properties
+        /// <summary>
+        /// A list of connected service provider accounts.
+        /// </summary>
+        private ObservableCollection<ServiceProviderAccount> Accounts { get; set; }
+
+        /// <summary>
+        /// A list of folders for the current account.
+        /// </summary>
+        private ObservableCollection<string> Folders { get; set; }
+        #endregion
+
+        #region Constructors
         public InboxPage()
         {
             this.InitializeComponent();
+
+            // Initialize the collection.
+            this.Accounts = new ObservableCollection<ServiceProviderAccount>();
+            this.Folders = new ObservableCollection<string>()
+            {
+                "Inbox",
+                "Archive",
+                "Drafts",
+                "Sent",
+                "Trash"
+            };
         }
+        #endregion
+
+        #region Methods
+        /// <summary>
+        /// Add an already connected account to display.
+        /// </summary>
+        /// <param name="account">The account to add.</param>
+        public void AddConnectedAccout(ServiceProviderAccount account)
+        {
+            // Store a reference to the page.
+            this.Accounts.Add(account);
+        }
+        #endregion
     }
 }
