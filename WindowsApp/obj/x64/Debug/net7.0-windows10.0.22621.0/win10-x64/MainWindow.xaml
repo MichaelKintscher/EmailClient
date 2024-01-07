@@ -24,12 +24,16 @@
                                     Icon="Mail"
                                     Content="Inbox"
                                     x:Name="InboxNavigationViewItem"></NavigationViewItem>
-                <NavigationViewItem x:ConnectionId='5' Tag="Messages"
+                <NavigationViewItem x:ConnectionId='5' Tag="Sorting"
+                                    Icon="Sort"
+                                    Content="Sorting"
+                                    x:Name="SortingNavigationViewItem"></NavigationViewItem>
+                <NavigationViewItem x:ConnectionId='6' Tag="Messages"
                                     Icon="Folder"
                                     Content="Messages"
                                     x:Name="MessagesNavigationViewItem"></NavigationViewItem>
             </NavigationView.MenuItems>
-            <Frame x:ConnectionId='6' x:Name="ContentFrame"
+            <Frame x:ConnectionId='7' x:Name="ContentFrame"
                                                      
                                                                    ></Frame>
         </NavigationView>

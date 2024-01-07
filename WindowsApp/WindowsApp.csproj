@@ -19,6 +19,7 @@
     <None Remove="Pages\InboxPage.xaml" />
     <None Remove="Pages\MessageBoxesPage.xaml" />
     <None Remove="Pages\SettingsPage.xaml" />
+    <None Remove="Pages\SortingPage.xaml" />
   </ItemGroup>
 
   <ItemGroup>
@@ -56,6 +57,9 @@
     <None Update="Assets\Config\credentials.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <Page Update="Pages\SortingPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Update="Pages\MessageBoxesPage.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>

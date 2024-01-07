@@ -5,6 +5,9 @@
     <None Update="App.xaml">
       <SubType>Designer</SubType>
     </None>
+    <Page Update="Pages\SortingPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Pages\MessageBoxesPage.xaml">
       <SubType>Designer</SubType>
     </Page>

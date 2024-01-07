@@ -24,6 +24,10 @@
                                     Icon="Mail"
                                     Content="Inbox"
                                     x:Name="InboxNavigationViewItem"></NavigationViewItem>
+                <NavigationViewItem Tag="Sorting"
+                                    Icon="Sort"
+                                    Content="Sorting"
+                                    x:Name="SortingNavigationViewItem"></NavigationViewItem>
                 <NavigationViewItem Tag="Messages"
                                     Icon="Folder"
                                     Content="Messages"

@@ -10,59 +10,6 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="auto"></RowDefinition>
-            <RowDefinition Height="*"></RowDefinition>
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="500"></ColumnDefinition>
-            <ColumnDefinition Width="*"></ColumnDefinition>
-        </Grid.ColumnDefinitions>
         
-        <!-- Page Title spans across the top row. -->
-        <TextBlock Grid.Row="0"
-                   Grid.ColumnSpan="2"
-                   Text="Inbox Page"></TextBlock>
-        
-        <!-- Email Inbox in the first column of the second row. -->
-        <controls:MessageBoxControl x:Name="InboxMessageBoxControl"
-                                    Grid.Row="1"
-                                    Grid.Column="0"
-                                    Tag="{x:Bind Inbox.ID}"
-                                    MessageBoxName="{x:Bind Inbox.Name}"
-                                    MessageDragStarting="MessageBoxControl_MessageDragStarting"
-                                    MessageDropCompleted="MessageBoxControl_MessageDropCompleted"></controls:MessageBoxControl>
-        
-        <!-- Other boxes are in the second row and second column. -->
-        <Grid Grid.Row="1"
-              Grid.Column="1">
-            <Grid>
-                <ListView x:Name="MessageBoxesListView"
-                          ItemsSource="{x:Bind MessageBoxes}"
-                          SelectionMode="None"
-                          ScrollViewer.HorizontalScrollMode="Auto"
-                          ScrollViewer.HorizontalScrollBarVisibility="Auto"
-                          ScrollViewer.IsHorizontalRailEnabled="True">
-                    <ListView.ItemsPanel>
-                        <ItemsPanelTemplate>
-                            <StackPanel Orientation="Horizontal"
-                                        VerticalAlignment="Top"></StackPanel>
-                        </ItemsPanelTemplate>
-                    </ListView.ItemsPanel>
-                    <ListView.ItemTemplate>
-                        <DataTemplate x:DataType="messages:MessageBox">
-                            <controls:MessageBoxControl
-                                MinWidth="300"
-                                Tag="{x:Bind ID, Mode=OneTime}"
-                                MessageBoxName="{x:Bind Name, Mode=OneWay}"
-                                MessagesSource="{x:Bind Messages, Mode=OneTime}"
-                                MessageBoxMinHeight="200"
-                                MessageDragStarting="MessageBoxControl_MessageDragStarting"
-                                MessageDropCompleted="MessageBoxControl_MessageDropCompleted"></controls:MessageBoxControl>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
-            </Grid>
-        </Grid>
     </Grid>
 </Page>

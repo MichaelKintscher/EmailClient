@@ -1,4 +1,4 @@
-﻿<Page x:ConnectionId='1'
+﻿<Page
     x:Class="WindowsApp.Pages.InboxPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -10,60 +10,7 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="auto"></RowDefinition>
-            <RowDefinition Height="*"></RowDefinition>
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="500"></ColumnDefinition>
-            <ColumnDefinition Width="*"></ColumnDefinition>
-        </Grid.ColumnDefinitions>
         
-        <!-- Page Title spans across the top row. -->
-        <TextBlock Grid.Row="0"
-                   Grid.ColumnSpan="2"
-                   Text="Inbox Page"></TextBlock>
-        
-        <!-- Email Inbox in the first column of the second row. -->
-        <controls:MessageBoxControl x:ConnectionId='2' x:Name="InboxMessageBoxControl"
-                                    Grid.Row="1"
-                                    Grid.Column="0"
-                                                           
-                                                                        
-                                                                                               
-                                                                                                 ></controls:MessageBoxControl>
-        
-        <!-- Other boxes are in the second row and second column. -->
-        <Grid Grid.Row="1"
-              Grid.Column="1">
-            <Grid>
-                <ListView x:ConnectionId='3' x:Name="MessageBoxesListView"
-                                                             
-                          SelectionMode="None"
-                          ScrollViewer.HorizontalScrollMode="Auto"
-                          ScrollViewer.HorizontalScrollBarVisibility="Auto"
-                          ScrollViewer.IsHorizontalRailEnabled="True">
-                    <ListView.ItemsPanel>
-                        <ItemsPanelTemplate>
-                            <StackPanel Orientation="Horizontal"
-                                        VerticalAlignment="Top"></StackPanel>
-                        </ItemsPanelTemplate>
-                    </ListView.ItemsPanel>
-                    <ListView.ItemTemplate>
-                        <DataTemplate                                 >
-                            <controls:MessageBoxControl x:ConnectionId='5'
-                                MinWidth="300"
-                                                               
-                                                                           
-                                                                                
-                                MessageBoxMinHeight="200"
-                                                                                           
-                                                                                             ></controls:MessageBoxControl>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
-            </Grid>
-        </Grid>
     </Grid>
 </Page>
 

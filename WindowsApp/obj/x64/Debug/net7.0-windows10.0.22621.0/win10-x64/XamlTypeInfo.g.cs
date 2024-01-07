@@ -224,7 +224,7 @@ namespace WindowsApp.WindowsApp_XamlTypeInfo
 
         private void InitTypeTables()
         {
-            _typeNameTable = new string[56];
+            _typeNameTable = new string[57];
             _typeNameTable[0] = "Microsoft.UI.Xaml.Controls.XamlControlsResources";
             _typeNameTable[1] = "Microsoft.UI.Xaml.ResourceDictionary";
             _typeNameTable[2] = "Object";
@@ -279,10 +279,11 @@ namespace WindowsApp.WindowsApp_XamlTypeInfo
             _typeNameTable[51] = "Microsoft.Web.WebView2.Core.CoreWebView2";
             _typeNameTable[52] = "Windows.UI.Color";
             _typeNameTable[53] = "WindowsApp.Pages.SettingsPage";
-            _typeNameTable[54] = "Microsoft.UI.Xaml.Controls.TreeViewNode";
-            _typeNameTable[55] = "System.Collections.Generic.IList`1<Microsoft.UI.Xaml.Controls.TreeViewNode>";
+            _typeNameTable[54] = "WindowsApp.Pages.SortingPage";
+            _typeNameTable[55] = "Microsoft.UI.Xaml.Controls.TreeViewNode";
+            _typeNameTable[56] = "System.Collections.Generic.IList`1<Microsoft.UI.Xaml.Controls.TreeViewNode>";
 
-            _typeTable = new global::System.Type[56];
+            _typeTable = new global::System.Type[57];
             _typeTable[0] = typeof(global::Microsoft.UI.Xaml.Controls.XamlControlsResources);
             _typeTable[1] = typeof(global::Microsoft.UI.Xaml.ResourceDictionary);
             _typeTable[2] = typeof(global::System.Object);
@@ -337,8 +338,9 @@ namespace WindowsApp.WindowsApp_XamlTypeInfo
             _typeTable[51] = typeof(global::Microsoft.Web.WebView2.Core.CoreWebView2);
             _typeTable[52] = typeof(global::Windows.UI.Color);
             _typeTable[53] = typeof(global::WindowsApp.Pages.SettingsPage);
-            _typeTable[54] = typeof(global::Microsoft.UI.Xaml.Controls.TreeViewNode);
-            _typeTable[55] = typeof(global::System.Collections.Generic.IList<global::Microsoft.UI.Xaml.Controls.TreeViewNode>);
+            _typeTable[54] = typeof(global::WindowsApp.Pages.SortingPage);
+            _typeTable[55] = typeof(global::Microsoft.UI.Xaml.Controls.TreeViewNode);
+            _typeTable[56] = typeof(global::System.Collections.Generic.IList<global::Microsoft.UI.Xaml.Controls.TreeViewNode>);
         }
 
         private int LookupTypeIndexByName(string typeName)
@@ -391,7 +393,8 @@ namespace WindowsApp.WindowsApp_XamlTypeInfo
         private object Activate_46_Contact() { return new global::Windows.ApplicationModel.Contacts.Contact(); }
         private object Activate_48_WebView2() { return new global::Microsoft.UI.Xaml.Controls.WebView2(); }
         private object Activate_53_SettingsPage() { return new global::WindowsApp.Pages.SettingsPage(); }
-        private object Activate_54_TreeViewNode() { return new global::Microsoft.UI.Xaml.Controls.TreeViewNode(); }
+        private object Activate_54_SortingPage() { return new global::WindowsApp.Pages.SortingPage(); }
+        private object Activate_55_TreeViewNode() { return new global::Microsoft.UI.Xaml.Controls.TreeViewNode(); }
         private void MapAdd_0_XamlControlsResources(object instance, object key, object item)
         {
             var collection = (global::System.Collections.Generic.IDictionary<global::System.Object, global::System.Object>)instance;
@@ -411,7 +414,7 @@ namespace WindowsApp.WindowsApp_XamlTypeInfo
             var newItem = (global::System.Object)item;
             collection.Add(newItem);
         }
-        private void VectorAdd_55_IList(object instance, object item)
+        private void VectorAdd_56_IList(object instance, object item)
         {
             var collection = (global::System.Collections.Generic.ICollection<global::Microsoft.UI.Xaml.Controls.TreeViewNode>)instance;
             var newItem = (global::Microsoft.UI.Xaml.Controls.TreeViewNode)item;
@@ -802,9 +805,16 @@ namespace WindowsApp.WindowsApp_XamlTypeInfo
                 xamlType = userType;
                 break;
 
-            case 54:   //  Microsoft.UI.Xaml.Controls.TreeViewNode
+            case 54:   //  WindowsApp.Pages.SortingPage
+                userType = new global::WindowsApp.WindowsApp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.Controls.Page"));
+                userType.Activator = Activate_54_SortingPage;
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 55:   //  Microsoft.UI.Xaml.Controls.TreeViewNode
                 userType = new global::WindowsApp.WindowsApp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.DependencyObject"));
-                userType.Activator = Activate_54_TreeViewNode;
+                userType.Activator = Activate_55_TreeViewNode;
                 userType.AddMemberName("Children");
                 userType.AddMemberName("Content");
                 userType.AddMemberName("Depth");
@@ -816,9 +826,9 @@ namespace WindowsApp.WindowsApp_XamlTypeInfo
                 xamlType = userType;
                 break;
 
-            case 55:   //  System.Collections.Generic.IList`1<Microsoft.UI.Xaml.Controls.TreeViewNode>
+            case 56:   //  System.Collections.Generic.IList`1<Microsoft.UI.Xaml.Controls.TreeViewNode>
                 userType = new global::WindowsApp.WindowsApp_XamlTypeInfo.XamlUserType(this, typeName, type, null);
-                userType.CollectionAdd = VectorAdd_55_IList;
+                userType.CollectionAdd = VectorAdd_56_IList;
                 userType.SetIsReturnTypeStub();
                 xamlType = userType;
                 break;

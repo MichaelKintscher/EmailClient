@@ -34,6 +34,7 @@ namespace WindowsApp
         {
             (PageTypes.Home, typeof(HomePage)),
             (PageTypes.Inbox, typeof(InboxPage)),
+            (PageTypes.Sorting, typeof(SortingPage)),
             (PageTypes.Messages, typeof(MessageBoxesPage)),
             (PageTypes.Settings, typeof(SettingsPage))
         };
