@@ -159,22 +159,68 @@
                                                                                                                                           >
             <ContentPresenter.ContentTemplate>
                 <DataTemplate                          >
-                    <Grid x:ConnectionId='4'>
+                    <Grid x:ConnectionId='4' Background="#111111">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="auto"></RowDefinition>
                             <RowDefinition Height="*"></RowDefinition>
                         </Grid.RowDefinitions>
 
                         <!-- Subject -->
-                        <Border Grid.Row="0">
-                            <TextBlock x:ConnectionId='6'                        
-                                       TextWrapping="WrapWholeWords"></TextBlock>
+                        <Border Grid.Row="0"
+                                Margin="10,10,10,5"
+                                Background="#222222"
+                                BorderBrush="#333333"
+                                BorderThickness="0,0,0,0">
+                            <TextBlock x:ConnectionId='6' Margin="20,10,20,10"
+                                                              
+                                       TextWrapping="WrapWholeWords"
+                                       Style="{StaticResource SubtitleTextBlockStyle}"></TextBlock>
                         </Border>
 
                         <!-- Body -->
-                        <Border Grid.Row="1">
-                            <TextBlock x:ConnectionId='5'                     
-                                       TextWrapping="WrapWholeWords"></TextBlock>
+                        <Border Grid.Row="1"
+                                Margin="10"
+                                Background="#222222">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="auto"></RowDefinition>
+                                    <RowDefinition Height="*"></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                    <ColumnDefinition Width="auto"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                
+                                <!-- Sender Info -->
+                                <StackPanel Grid.Row="0"
+                                            Grid.Column="0">
+                                    <TextBlock Text="From"></TextBlock>
+                                    <TextBlock Text="Date"></TextBlock>
+                                    <TextBlock Text="To"></TextBlock>
+                                </StackPanel>
+                                
+                                <!-- Action Buttons -->
+                                <StackPanel Grid.Row="0"
+                                            Grid.Column="1"
+                                            Orientation="Horizontal">
+                                    <Button>
+                                        <SymbolIcon Symbol="MailReply"></SymbolIcon>
+                                    </Button>
+                                    <Button>
+                                        <SymbolIcon Symbol="MailReplyAll"></SymbolIcon>
+                                    </Button>
+                                    <Button>
+                                        <SymbolIcon Symbol="MailForward"></SymbolIcon>
+                                    </Button>
+                                </StackPanel>
+                                
+                                <!-- Message Body -->
+                                <TextBlock x:ConnectionId='5' Grid.Row="1"
+                                           Grid.ColumnSpan="2"
+                                           Margin="20"
+                                                               
+                                           TextWrapping="WrapWholeWords"></TextBlock>
+                            </Grid>
                         </Border>
                     </Grid>
                 </DataTemplate>

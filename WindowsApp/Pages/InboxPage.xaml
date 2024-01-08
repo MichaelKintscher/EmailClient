@@ -159,22 +159,71 @@
                           Content="{x:Bind MessagesListView.SelectedItem, Mode=OneWay, Converter={StaticResource ObjectToEmailConverter}}">
             <ContentPresenter.ContentTemplate>
                 <DataTemplate x:DataType="emails:Email">
-                    <Grid>
+                    <Grid Background="#111111">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="auto"></RowDefinition>
                             <RowDefinition Height="*"></RowDefinition>
                         </Grid.RowDefinitions>
 
                         <!-- Subject -->
-                        <Border Grid.Row="0">
-                            <TextBlock Text="{x:Bind Subject}"
-                                       TextWrapping="WrapWholeWords"></TextBlock>
+                        <Border Grid.Row="0"
+                                Margin="10,10,10,5"
+                                Background="#222222"
+                                BorderBrush="#333333"
+                                BorderThickness="0,0,0,0">
+                            <TextBlock Margin="20,10,20,10"
+                                       Text="{x:Bind Subject}"
+                                       TextWrapping="WrapWholeWords"
+                                       Style="{StaticResource SubtitleTextBlockStyle}"></TextBlock>
                         </Border>
 
                         <!-- Body -->
-                        <Border Grid.Row="1">
-                            <TextBlock Text="{x:Bind Body}"
-                                       TextWrapping="WrapWholeWords"></TextBlock>
+                        <Border Grid.Row="1"
+                                Margin="10"
+                                Background="#222222">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="auto"></RowDefinition>
+                                    <RowDefinition Height="*"></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                    <ColumnDefinition Width="auto"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                
+                                <!-- Sender Info -->
+                                <StackPanel Grid.Row="0"
+                                            Grid.Column="0"
+                                            Margin="20">
+                                    <TextBlock Text="From"></TextBlock>
+                                    <TextBlock Text="Date"></TextBlock>
+                                    <TextBlock Text="To"></TextBlock>
+                                </StackPanel>
+                                
+                                <!-- Action Buttons -->
+                                <StackPanel Grid.Row="0"
+                                            Grid.Column="1"
+                                            Margin="15,20,15,20"
+                                            VerticalAlignment="Top"
+                                            Orientation="Horizontal">
+                                    <Button Margin="5">
+                                        <SymbolIcon Symbol="MailReply"></SymbolIcon>
+                                    </Button>
+                                    <Button Margin="5">
+                                        <SymbolIcon Symbol="MailReplyAll"></SymbolIcon>
+                                    </Button>
+                                    <Button Margin="5">
+                                        <SymbolIcon Symbol="MailForward"></SymbolIcon>
+                                    </Button>
+                                </StackPanel>
+                                
+                                <!-- Message Body -->
+                                <TextBlock Grid.Row="1"
+                                           Grid.ColumnSpan="2"
+                                           Margin="20"
+                                           Text="{x:Bind Body}"
+                                           TextWrapping="WrapWholeWords"></TextBlock>
+                            </Grid>
                         </Border>
                     </Grid>
                 </DataTemplate>
