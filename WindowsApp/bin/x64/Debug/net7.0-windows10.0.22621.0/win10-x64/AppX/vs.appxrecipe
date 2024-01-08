@@ -30,21 +30,21 @@
     <AppXManifest Include="C:\Users\micha\source\repos\EmailClient\WindowsApp\bin\x64\Debug\net7.0-windows10.0.22621.0\win10-x64\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2024-01-08T01:29:16.451</Modified>
+      <Modified>2024-01-08T02:55:49.839</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\micha\source\repos\EmailClient\WindowsApp\bin\x64\Debug\net7.0-windows10.0.22621.0\win10-x64\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2024-01-08T01:29:16.007</Modified>
+      <Modified>2024-01-08T02:55:49.445</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\micha\source\repos\EmailClient\WindowsApp\bin\x64\Debug\net7.0-windows10.0.22621.0\win10-x64\WindowsApp.runtimeconfig.json">
       <PackagePath>WindowsApp.runtimeconfig.json</PackagePath>
-      <Modified>2024-01-08T01:29:15.677</Modified>
+      <Modified>2024-01-08T02:55:49.262</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\micha\source\repos\EmailClient\WindowsApp\bin\x64\Debug\net7.0-windows10.0.22621.0\win10-x64\WindowsApp.dll">
       <PackagePath>WindowsApp.dll</PackagePath>
-      <Modified>2024-01-08T01:29:15.135</Modified>
+      <Modified>2024-01-08T02:55:48.728</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\micha\source\repos\EmailClient\WindowsApp\Assets\Config\credentials.json">
       <PackagePath>Assets\Config\credentials.json</PackagePath>
@@ -52,11 +52,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\micha\source\repos\EmailClient\WindowsApp\obj\x64\Debug\net7.0-windows10.0.22621.0\win10-x64\apphost.exe">
       <PackagePath>WindowsApp.exe</PackagePath>
-      <Modified>2024-01-08T01:29:15.164</Modified>
+      <Modified>2024-01-08T02:55:48.761</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\micha\source\repos\EmailClient\WindowsApp\bin\x64\Debug\net7.0-windows10.0.22621.0\win10-x64\WindowsApp.deps.json">
       <PackagePath>WindowsApp.deps.json</PackagePath>
-      <Modified>2024-01-08T01:29:15.525</Modified>
+      <Modified>2024-01-08T02:55:49.192</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\micha\.nuget\packages\microsoft.netcore.app.runtime.win-x64\7.0.5\runtimes\win-x64\lib\net7.0\Microsoft.CSharp.dll">
       <PackagePath>Microsoft.CSharp.dll</PackagePath>
@@ -868,27 +868,27 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\micha\source\repos\EmailClient\Application\bin\Debug\net7.0\Application.dll">
       <PackagePath>Application.dll</PackagePath>
-      <Modified>2024-01-08T01:29:01.972</Modified>
+      <Modified>2024-01-08T02:55:32.399</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\micha\source\repos\EmailClient\Domain\bin\Debug\net6.0\Domain.dll">
       <PackagePath>Domain.dll</PackagePath>
-      <Modified>2024-01-08T01:28:59.502</Modified>
+      <Modified>2024-01-08T02:55:30.689</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\micha\source\repos\EmailClient\InterfaceAdapters\bin\Debug\net7.0\InterfaceAdapters.dll">
       <PackagePath>InterfaceAdapters.dll</PackagePath>
-      <Modified>2024-01-08T01:29:01.316</Modified>
+      <Modified>2024-01-08T02:55:33.115</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\micha\source\repos\EmailClient\Infrastructure\bin\Debug\net7.0\Network.dll">
       <PackagePath>Network.dll</PackagePath>
-      <Modified>2024-01-08T01:29:02.968</Modified>
+      <Modified>2024-01-08T02:55:34.032</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\micha\source\repos\EmailClient\WindowsOS\bin\Debug\net7.0-windows10.0.22621.0\WindowsOS.dll">
       <PackagePath>WindowsOS.dll</PackagePath>
-      <Modified>2024-01-08T01:29:03.297</Modified>
+      <Modified>2024-01-08T02:55:34.384</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\micha\source\repos\EmailClient\WindowsOS\bin\Debug\net7.0-windows10.0.22621.0\WindowsOS.pri">
       <PackagePath>WindowsOS.pri</PackagePath>
-      <Modified>2024-01-08T01:29:03.815</Modified>
+      <Modified>2024-01-08T02:55:34.941</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\micha\.nuget\packages\kintscher.dev.cleanarchitecture.windows\1.1.2\lib\net7.0-windows10.0.22621\CleanArchitectureWindows.pri">
       <PackagePath>CleanArchitectureWindows.pri</PackagePath>

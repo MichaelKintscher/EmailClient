@@ -261,6 +261,14 @@ namespace Network.Google
                 {
                     message.Subject = headerJsonObject["value"] == null ? string.Empty : headerJsonObject["value"]!.GetValue<string>();
                 }
+                else if (headerName == "From")
+                {
+                    message.Sender = headerJsonObject["value"] == null ? string.Empty : headerJsonObject["value"]!.GetValue<string>();
+                }
+                else if (headerName == "Date")
+                {
+                    message.Date = headerJsonObject["value"] == null ? string.Empty : headerJsonObject["value"]!.GetValue<string>();
+                }
             }
 
             return message;

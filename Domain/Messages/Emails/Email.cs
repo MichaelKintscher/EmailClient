@@ -31,6 +31,21 @@ namespace Domain.Messages.Emails
         /// </summary>
         public string Body { get; set; }
 
+        /// <summary>
+        /// The account that sent the email.
+        /// </summary>
+        public string Sender { get; set; }
+
+        /// <summary>
+        /// The accounts that received the email.
+        /// </summary>
+        public string Receivers { get;set; }
+
+        /// <summary>
+        /// The date the email was sent.
+        /// </summary>
+        public string Date { get; set; }
+
         #region Relational Properties
         /// <summary>
         /// The ID of the message box this email is assigned to.

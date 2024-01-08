@@ -195,8 +195,8 @@
                                 <StackPanel Grid.Row="0"
                                             Grid.Column="0"
                                             Margin="20">
-                                    <TextBlock Text="From"></TextBlock>
-                                    <TextBlock Text="Date"></TextBlock>
+                                    <TextBlock Text="{x:Bind Sender}"></TextBlock>
+                                    <TextBlock Text="{x:Bind Date}"></TextBlock>
                                     <TextBlock Text="To"></TextBlock>
                                 </StackPanel>
                                 
