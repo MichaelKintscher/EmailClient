@@ -595,6 +595,9 @@
     <AppxPackagedFile Include="C:\Users\micha\.nuget\packages\microsoft.windows.sdk.net.ref\10.0.22621.28\lib\net6.0\WinRT.Runtime.dll">
       <PackagePath>WinRT.Runtime.dll</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\micha\.nuget\packages\bouncycastle.cryptography\2.2.1\lib\net6.0\BouncyCastle.Cryptography.dll">
+      <PackagePath>BouncyCastle.Cryptography.dll</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\micha\.nuget\packages\kintscher.dev.cleanarchitecture.core\1.0.4\lib\net7.0\CleanArchitectureCore.dll">
       <PackagePath>CleanArchitectureCore.dll</PackagePath>
     </AppxPackagedFile>
@@ -645,6 +648,12 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\micha\.nuget\packages\microsoft.windowsappsdk\1.4.231115000\lib\net6.0-windows10.0.18362.0\Microsoft.WindowsAppRuntime.Bootstrap.Net.dll">
       <PackagePath>Microsoft.WindowsAppRuntime.Bootstrap.Net.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\micha\.nuget\packages\mimekit\4.3.0\lib\net6.0\MimeKit.dll">
+      <PackagePath>MimeKit.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\micha\.nuget\packages\system.security.cryptography.pkcs\7.0.3\runtimes\win\lib\net7.0\System.Security.Cryptography.Pkcs.dll">
+      <PackagePath>System.Security.Cryptography.Pkcs.dll</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\micha\.nuget\packages\microsoft.windowsappsdk\1.4.231115000\runtimes\win10-x64\native\Microsoft.WindowsAppRuntime.Bootstrap.dll">
       <PackagePath>Microsoft.WindowsAppRuntime.Bootstrap.dll</PackagePath>

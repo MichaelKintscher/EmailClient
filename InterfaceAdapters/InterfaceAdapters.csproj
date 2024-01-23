@@ -7,11 +7,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Network\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="kintscher.dev.CleanArchitecture.Core" Version="1.0.3" />
+    <PackageReference Include="MimeKit" Version="4.3.0" />
   </ItemGroup>
 
   <ItemGroup>

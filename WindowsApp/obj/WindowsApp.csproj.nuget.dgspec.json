@@ -249,6 +249,10 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "dependencies": {
+            "MimeKit": {
+              "target": "Package",
+              "version": "[4.3.0, )"
+            },
             "kintscher.dev.CleanArchitecture.Core": {
               "target": "Package",
               "version": "[1.0.3, )"
@@ -335,6 +339,10 @@
             "Microsoft.WindowsAppSDK": {
               "target": "Package",
               "version": "[1.4.231115000, )"
+            },
+            "MimeKit": {
+              "target": "Package",
+              "version": "[4.3.0, )"
             },
             "kintscher.dev.CleanArchitecture.Core": {
               "target": "Package",

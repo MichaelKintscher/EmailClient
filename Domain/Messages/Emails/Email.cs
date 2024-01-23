@@ -27,6 +27,11 @@ namespace Domain.Messages.Emails
         public string Subject { get; set; }
 
         /// <summary>
+        /// The snippet (short body) of the email.
+        /// </summary>
+        public string Snippet { get; set; }
+
+        /// <summary>
         /// The body of the email.
         /// </summary>
         public string Body { get; set; }

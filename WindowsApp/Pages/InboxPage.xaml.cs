@@ -92,6 +92,19 @@ namespace WindowsApp.Pages
             ServiceProviderAccount account = e.AddedItems[0] as ServiceProviderAccount;
             this.RaiseSelectedAccountChanged(account);
         }
+
+        /// <summary>
+        /// Handles when an item in the messages list view is clicked.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void MessagesListView_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            if (e.ClickedItem is Email email)
+            {
+                this.DisplayMessage(email);
+            }
+        }
         #endregion
 
         #region Methods
@@ -129,6 +142,17 @@ namespace WindowsApp.Pages
         public void ClearMessageList()
         {
             this.Messages.Clear();
+        }
+        #endregion
+
+        #region Helper Methods
+        /// <summary>
+        /// Displays the given email in the webview.
+        /// </summary>
+        /// <param name="email">The email to display.</param>
+        private void DisplayMessage(Email email)
+        {
+            this.ContentWebView.NavigateToString(email.Body);
         }
         #endregion
     }

@@ -288,3 +288,6 @@ C:\Users\micha\source\repos\EmailClient\WindowsApp\obj\x64\Debug\net7.0-windows1
 C:\Users\micha\source\repos\EmailClient\WindowsApp\obj\x64\Debug\net7.0-windows10.0.22621.0\win10-x64\Pages\SortingPage.xaml
 C:\Users\micha\source\repos\EmailClient\WindowsApp\obj\x64\Debug\net7.0-windows10.0.22621.0\win10-x64\Pages\SortingPage.xbf
 C:\Users\micha\source\repos\EmailClient\WindowsApp\bin\x64\Debug\net7.0-windows10.0.22621.0\win10-x64\Pages\SortingPage.xbf
+C:\Users\micha\source\repos\EmailClient\WindowsApp\bin\x64\Debug\net7.0-windows10.0.22621.0\win10-x64\BouncyCastle.Cryptography.dll
+C:\Users\micha\source\repos\EmailClient\WindowsApp\bin\x64\Debug\net7.0-windows10.0.22621.0\win10-x64\MimeKit.dll
+C:\Users\micha\source\repos\EmailClient\WindowsApp\bin\x64\Debug\net7.0-windows10.0.22621.0\win10-x64\System.Security.Cryptography.Pkcs.dll

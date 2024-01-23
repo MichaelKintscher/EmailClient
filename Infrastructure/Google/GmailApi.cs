@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json;
 using System.Text.Json.Nodes;
 using System.Threading.Tasks;
 using Application.Common.Commands.CreateServiceProviderAccount;
@@ -10,6 +11,7 @@ using Domain.Common;
 using Domain.Messages.Emails;
 using Network.Common;
 using Network.Common.Exceptions;
+using WindowsOS.Network;
 
 namespace Network.Google
 {
@@ -136,9 +138,12 @@ namespace Network.Google
             // Add the message ID parameter.
             uri += messageId;
 
+            // Add the "raw" format. This is necessary for the MIME parser.
+            uri += "?format=raw";
+
             // Get and parse the content.
             string content = await this.GetAsync(accountId, uri);
-            Email message = this.ParseMessage(content);
+            Email message = await this.ParseMessageAsync(content, true);
 
             return message;
         }
@@ -205,7 +210,7 @@ namespace Network.Google
         /// <param name="content">The message.get response. Format is documented at: https://developers.google.com/gmail/api/reference/rest/v1/users.messages/get</param>
         /// <returns></returns>
         /// <exception cref="ResponseFormatException">Thrown if expected data from the API call response is missing.</exception>
-        public Email ParseMessage(string content)
+        public async Task<Email> ParseMessageAsync(string content, bool rawFormat = false)
         {
             JsonNode jsonObject = JsonNode.Parse(content);
 
@@ -223,51 +228,76 @@ namespace Network.Google
 
             // Parse the message snippet as the body.
             //      THIS IS NOT THE FULL MESSAGE BODY.
-            message.Body = jsonObject["snippet"].GetValue<string>();
+            message.Snippet = jsonObject["snippet"].GetValue<string>();
 
-            // Parse the message's subject.
-            JsonArray headersArray;
-            try
+            if (rawFormat == false)
             {
-                JsonObject payload = jsonObject["payload"].AsObject();
-                headersArray = payload["headers"].AsArray();
-            }
-            catch (NullReferenceException ex)
-            {
-                throw new ResponseFormatException("The user's message data returned by the API call is missing an expected value.", ex);
-            }
-            
-            foreach (var headerJson in headersArray)
-            {
-                // Skip any null headers.
-                if (headerJson == null)
-                {
-                    continue;
-                }
-
-                // Get the object from the JSON array item.
-                JsonObject headerJsonObject = headerJson.AsObject();
-                string headerName;
+                // Parse the message's subject.
+                JsonArray headersArray;
                 try
                 {
-                    headerName = headerJsonObject["name"].GetValue<string>();
+                    JsonObject payload = jsonObject["payload"].AsObject();
+                    headersArray = payload["headers"].AsArray();
                 }
                 catch (NullReferenceException ex)
                 {
                     throw new ResponseFormatException("The user's message data returned by the API call is missing an expected value.", ex);
                 }
-                
-                if (headerName == "Subject")
+
+                foreach (var headerJson in headersArray)
                 {
-                    message.Subject = headerJsonObject["value"] == null ? string.Empty : headerJsonObject["value"]!.GetValue<string>();
+                    // Skip any null headers.
+                    if (headerJson == null)
+                    {
+                        continue;
+                    }
+
+                    // Get the object from the JSON array item.
+                    JsonObject headerJsonObject = headerJson.AsObject();
+                    string headerName;
+                    try
+                    {
+                        headerName = headerJsonObject["name"].GetValue<string>();
+                    }
+                    catch (NullReferenceException ex)
+                    {
+                        throw new ResponseFormatException("The user's message data returned by the API call is missing an expected value.", ex);
+                    }
+
+                    if (headerName == "Subject")
+                    {
+                        message.Subject = headerJsonObject["value"] == null ? string.Empty : headerJsonObject["value"]!.GetValue<string>();
+                    }
+                    else if (headerName == "From")
+                    {
+                        message.Sender = headerJsonObject["value"] == null ? string.Empty : headerJsonObject["value"]!.GetValue<string>();
+                    }
+                    else if (headerName == "Date")
+                    {
+                        message.Date = headerJsonObject["value"] == null ? string.Empty : headerJsonObject["value"]!.GetValue<string>();
+                    }
                 }
-                else if (headerName == "From")
+            }
+            else
+            {
+                try
                 {
-                    message.Sender = headerJsonObject["value"] == null ? string.Empty : headerJsonObject["value"]!.GetValue<string>();
+                    // Parse the MIME body.
+                    string rawString = jsonObject["raw"]!.GetValue<string>();
+                    //System.Diagnostics.Debug.WriteLine(rawString);
+                    // Convert the base64 string from URL safe to a standard base 64 string.
+                    // See: https://stackoverflow.com/questions/26353710/how-to-achieve-base64-url-safe-encoding-in-c
+                    string base64string = rawString.Replace('_', '/').Replace('-', '+');
+                    switch(rawString.Length % 4)
+                    {
+                        case 2: base64string += "=="; break;
+                        case 3: base64string += "="; break;
+                    }
+                    message = await MimeParser.ParseMimeAsync(base64string);
                 }
-                else if (headerName == "Date")
+                catch (Exception ex)
                 {
-                    message.Date = headerJsonObject["value"] == null ? string.Empty : headerJsonObject["value"]!.GetValue<string>();
+                    System.Diagnostics.Debug.WriteLine(ex.Message);
                 }
             }
 
