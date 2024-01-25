@@ -37,7 +37,7 @@
                            Text="Accounts"
                            Style="{StaticResource SubtitleTextBlockStyle}"></TextBlock>
 
-                <ListView x:ConnectionId='16' x:Name="AccountsListView"
+                <ListView x:ConnectionId='17' x:Name="AccountsListView"
                           Grid.Row="1"
                                                                       
                           SelectionMode="Single"
@@ -51,20 +51,20 @@
                     </ListView.ItemContainerStyle>
                     <ListView.ItemTemplate>
                         <DataTemplate                                           >
-                            <Grid x:ConnectionId='22' Height="80"
+                            <Grid x:ConnectionId='23' Height="80"
                                   Padding="20,10,20,10">
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="auto"></RowDefinition>
                                     <RowDefinition Height="*"></RowDefinition>
                                 </Grid.RowDefinitions>
 
-                                <TextBlock x:ConnectionId='23' Grid.Row="0"
+                                <TextBlock x:ConnectionId='24' Grid.Row="0"
                                            Margin="0,0,0,2"
                                                                        
                                            Style="{StaticResource BodyStrongTextBlockStyle}"
                                            FontSize="16"></TextBlock>
 
-                                <TextBlock x:ConnectionId='24' Grid.Row="1"
+                                <TextBlock x:ConnectionId='25' Grid.Row="1"
                                                                    
                                            FontSize="14"></TextBlock>
                             </Grid>
@@ -77,7 +77,7 @@
                            Text="Folders"
                            Style="{StaticResource SubtitleTextBlockStyle}"></TextBlock>
 
-                <ListView x:ConnectionId='17' x:Name="FoldersListView"
+                <ListView x:ConnectionId='18' x:Name="FoldersListView"
                           Grid.Row="3"
                                                         
                           SelectionMode="Single">
@@ -90,13 +90,13 @@
                     </ListView.ItemContainerStyle>
                     <ListView.ItemTemplate>
                         <DataTemplate                      >
-                            <Grid x:ConnectionId='19'>
+                            <Grid x:ConnectionId='20'>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="*"></ColumnDefinition>
                                     <ColumnDefinition Width="auto"></ColumnDefinition>
                                 </Grid.ColumnDefinitions>
 
-                                <TextBlock x:ConnectionId='20' Grid.Column="0"
+                                <TextBlock x:ConnectionId='21' Grid.Column="0"
                                            Margin="20,5,20,5"
                                                           
                                            Style="{StaticResource BodyStrongTextBlockStyle}"
@@ -123,7 +123,7 @@
                            Text="Inbox"
                            Style="{StaticResource SubtitleTextBlockStyle}"></TextBlock>
 
-                <ListView x:ConnectionId='11' x:Name="MessagesListView"
+                <ListView x:ConnectionId='12' x:Name="MessagesListView"
                           Grid.Row="1"
                                                          
                           SelectionMode="Single"
@@ -131,7 +131,7 @@
                                                                 >
                     <ListView.ItemTemplate>
                         <DataTemplate                          >
-                            <Border x:ConnectionId='13' BorderBrush="#333333"
+                            <Border x:ConnectionId='14' BorderBrush="#333333"
                                     BorderThickness="0,0,0,1">
                                 <Grid Padding="10,10,10,20">
                                     <Grid.RowDefinitions>
@@ -139,13 +139,13 @@
                                         <RowDefinition Height="*"></RowDefinition>
                                     </Grid.RowDefinitions>
 
-                                    <TextBlock x:ConnectionId='14' Grid.Row="0"
+                                    <TextBlock x:ConnectionId='15' Grid.Row="0"
                                                Margin="0,0,0,2"
                                                                       
                                                TextWrapping="NoWrap"
                                                Style="{StaticResource BodyStrongTextBlockStyle}"></TextBlock>
 
-                                    <TextBlock x:ConnectionId='15' Grid.Row="1"
+                                    <TextBlock x:ConnectionId='16' Grid.Row="1"
                                                TextWrapping="NoWrap"
                                                                       ></TextBlock>
                                 </Grid>
@@ -171,10 +171,10 @@
                     Background="#222222"
                     BorderBrush="#333333"
                     BorderThickness="0,0,0,0">
-                <ContentPresenter x:ConnectionId='8'                                                                                                                 >
+                <ContentPresenter x:ConnectionId='9'                                                                                                                 >
                     <ContentPresenter.ContentTemplate>
                         <DataTemplate                          >
-                            <TextBlock x:ConnectionId='10' Margin="20,10,20,10"
+                            <TextBlock x:ConnectionId='11' Margin="20,10,20,10"
                                                               
                                        TextWrapping="WrapWholeWords"
                                        Style="{StaticResource SubtitleTextBlockStyle}"></TextBlock>
@@ -207,7 +207,7 @@
                                 <StackPanel x:ConnectionId='5' Margin="20">
                                     <TextBlock x:ConnectionId='6'                       ></TextBlock>
                                     <TextBlock x:ConnectionId='7'                     ></TextBlock>
-                                    <TextBlock Text="To"></TextBlock>
+                                    <TextBlock x:ConnectionId='8'                          ></TextBlock>
                                 </StackPanel>
                             </DataTemplate>
                         </ContentPresenter.ContentTemplate>
@@ -245,87 +245,6 @@
                 </Grid>
             </Border>
         </Grid>
-
-        <!--<ContentPresenter x:Name="MessageContentPresenter"
-                          Grid.Column="2"
-                          Content="{x:Bind MessagesListView.SelectedItem, Mode=OneWay, Converter={StaticResource ObjectToEmailConverter}}">
-            <ContentPresenter.ContentTemplate>
-                <DataTemplate x:DataType="emails:Email">
-                    <Grid Background="#111111">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="auto"></RowDefinition>
-                            <RowDefinition Height="*"></RowDefinition>
-                        </Grid.RowDefinitions>
-
-                        --><!-- Subject --><!--
-                        <Border Grid.Row="0"
-                                Margin="10,10,10,5"
-                                Background="#222222"
-                                BorderBrush="#333333"
-                                BorderThickness="0,0,0,0">
-                            <TextBlock Margin="20,10,20,10"
-                                       Text="{x:Bind Subject}"
-                                       TextWrapping="WrapWholeWords"
-                                       Style="{StaticResource SubtitleTextBlockStyle}"></TextBlock>
-                        </Border>
-
-                        --><!-- Body --><!--
-                        <Border Grid.Row="1"
-                                Margin="10"
-                                Background="#222222">
-                            <Grid>
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="auto"></RowDefinition>
-                                    <RowDefinition Height="*"></RowDefinition>
-                                </Grid.RowDefinitions>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="*"></ColumnDefinition>
-                                    <ColumnDefinition Width="auto"></ColumnDefinition>
-                                </Grid.ColumnDefinitions>
-                                
-                                --><!-- Sender Info --><!--
-                                <StackPanel Grid.Row="0"
-                                            Grid.Column="0"
-                                            Margin="20">
-                                    <TextBlock Text="{x:Bind Sender}"></TextBlock>
-                                    <TextBlock Text="{x:Bind Date}"></TextBlock>
-                                    <TextBlock Text="To"></TextBlock>
-                                </StackPanel>
-                                
-                                --><!-- Action Buttons --><!--
-                                <StackPanel Grid.Row="0"
-                                            Grid.Column="1"
-                                            Margin="15,20,15,20"
-                                            VerticalAlignment="Top"
-                                            Orientation="Horizontal">
-                                    <Button Margin="5">
-                                        <SymbolIcon Symbol="MailReply"></SymbolIcon>
-                                    </Button>
-                                    <Button Margin="5">
-                                        <SymbolIcon Symbol="MailReplyAll"></SymbolIcon>
-                                    </Button>
-                                    <Button Margin="5">
-                                        <SymbolIcon Symbol="MailForward"></SymbolIcon>
-                                    </Button>
-                                </StackPanel>
-                                
-                                --><!-- Message Body -->
-                                <!--<TextBlock Grid.Row="1"
-                                           Grid.ColumnSpan="2"
-                                           Margin="20"
-                                           Text="{x:Bind Body}"
-                                           TextWrapping="WrapWholeWords"></TextBlock>--><!--
-                                <controls:WebView2 Grid.Row="1"
-                                                   Grid.ColumnSpan="2"
-                                                   HorizontalAlignment="Stretch"
-                                                   VerticalAlignment="Stretch"
-                                                   Source="https://www.google.com"></controls:WebView2>
-                            </Grid>
-                        </Border>
-                    </Grid>
-                </DataTemplate>
-            </ContentPresenter.ContentTemplate>
-        </ContentPresenter>-->
     </Grid>
 </Page>
 

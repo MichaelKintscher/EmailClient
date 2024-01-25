@@ -30,8 +30,19 @@ namespace WindowsOS.Network
             StringBuilder recipients = new StringBuilder();
             foreach (InternetAddress address in message.To)
             {
-                recipients.Append(address.Name);
-                recipients.Append(" ");
+                //if (!String.IsNullOrWhiteSpace(address.Name))
+                //{
+                //    recipients.Append(address.Name);
+                //    recipients.Append(" ");
+                //}
+
+                if (address is MailboxAddress mailAddress)
+                {
+                    recipients.Append(mailAddress.Name);
+                    recipients.Append(" ");
+                    recipients.Append(mailAddress.Address);
+                    recipients.Append("; ");
+                }
             }
 
             // Construct the email data structure from the MIME message.
@@ -41,7 +52,7 @@ namespace WindowsOS.Network
                 Subject = message.Subject,
                 Sender = message.From[0].Name,
                 Receivers = recipients.ToString(),
-                Date = message.Date.Date.ToString()
+                Date = message.Date.ToString()
             };
 
             return email;

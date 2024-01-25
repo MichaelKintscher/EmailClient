@@ -30,13 +30,13 @@
     <AppXManifest Include="C:\Users\micha\source\repos\EmailClient\WindowsApp\bin\x64\Debug\net7.0-windows10.0.22621.0\win10-x64\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2024-01-23T06:55:59.658</Modified>
+      <Modified>2024-01-25T06:53:19.511</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\micha\source\repos\EmailClient\WindowsApp\bin\x64\Debug\net7.0-windows10.0.22621.0\win10-x64\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2024-01-23T06:55:59.224</Modified>
+      <Modified>2024-01-25T06:39:17.574</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\micha\source\repos\EmailClient\WindowsApp\bin\x64\Debug\net7.0-windows10.0.22621.0\win10-x64\WindowsApp.runtimeconfig.json">
       <PackagePath>WindowsApp.runtimeconfig.json</PackagePath>
@@ -44,7 +44,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\micha\source\repos\EmailClient\WindowsApp\bin\x64\Debug\net7.0-windows10.0.22621.0\win10-x64\WindowsApp.dll">
       <PackagePath>WindowsApp.dll</PackagePath>
-      <Modified>2024-01-23T06:55:58.959</Modified>
+      <Modified>2024-01-25T06:39:16.703</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\micha\source\repos\EmailClient\WindowsApp\Assets\Config\credentials.json">
       <PackagePath>Assets\Config\credentials.json</PackagePath>
@@ -52,7 +52,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\micha\source\repos\EmailClient\WindowsApp\obj\x64\Debug\net7.0-windows10.0.22621.0\win10-x64\apphost.exe">
       <PackagePath>WindowsApp.exe</PackagePath>
-      <Modified>2024-01-23T06:55:58.975</Modified>
+      <Modified>2024-01-25T06:39:16.730</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\micha\source\repos\EmailClient\WindowsApp\bin\x64\Debug\net7.0-windows10.0.22621.0\win10-x64\WindowsApp.deps.json">
       <PackagePath>WindowsApp.deps.json</PackagePath>
@@ -888,7 +888,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\micha\source\repos\EmailClient\InterfaceAdapters\bin\Debug\net7.0\InterfaceAdapters.dll">
       <PackagePath>InterfaceAdapters.dll</PackagePath>
-      <Modified>2024-01-23T06:55:42.244</Modified>
+      <Modified>2024-01-25T06:53:15.094</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\micha\source\repos\EmailClient\Infrastructure\bin\Debug\net7.0\Network.dll">
       <PackagePath>Network.dll</PackagePath>

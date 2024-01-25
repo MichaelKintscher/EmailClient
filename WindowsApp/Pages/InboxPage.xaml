@@ -207,7 +207,7 @@
                                 <StackPanel Margin="20">
                                     <TextBlock Text="{x:Bind Sender}"></TextBlock>
                                     <TextBlock Text="{x:Bind Date}"></TextBlock>
-                                    <TextBlock Text="To"></TextBlock>
+                                    <TextBlock Text="{x:Bind Receivers}"></TextBlock>
                                 </StackPanel>
                             </DataTemplate>
                         </ContentPresenter.ContentTemplate>
