@@ -30,12 +30,6 @@ namespace WindowsOS.Network
             StringBuilder recipients = new StringBuilder();
             foreach (InternetAddress address in message.To)
             {
-                //if (!String.IsNullOrWhiteSpace(address.Name))
-                //{
-                //    recipients.Append(address.Name);
-                //    recipients.Append(" ");
-                //}
-
                 if (address is MailboxAddress mailAddress)
                 {
                     recipients.Append(mailAddress.Name);
